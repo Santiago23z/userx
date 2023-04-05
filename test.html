@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Page</title>
+  </head>
+  <body>
+    <div id="content-grids"></div>
+    <button class="btn3None" style="margin-right: 10px;">+</button>
+
+    <script>
+      function jhonjait() {
+        let a = Math.random().toString(32).substr(2, 9);
+        let b = Date.now();
+
+        return a + b;
+      }
+
+      const buttonDisable = document.querySelector(".btn3None");
+      buttonDisable.addEventListener("click", () => {
+        let counter = jhonjait();
+
+        let divOriginal = document.getElementById("grids-layout");
+        const divContent = document.getElementById("content-grids");
+        const content = document.createElement("div");
+        const logo = document.createElement("img");
+
+        logo.setAttribute("id", "gridt" + counter);
+        logo.style.cursor = "pointer";
+        logo.style.height = "50px";
+        logo.style.width = "50px";
+        logo.src =
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII=";
+
+        const span = document.createElement("span");
+        span.setAttribute("id", "spanGrids" + counter);
+        span.style.color = "white";
+        span.style.textAlign = "center";
+        span.textContent = "10 px";
+        content.setAttribute("id", "grids-layout" + counter);
+        content.setAttribute("class", "grids-layout");
+        content.style.display = "flex";
+        content.style.alignItems = "center";
+        content.style.backgroundColor = "#2c2c2c";
+        content.style.alignItems = "center";
+
+        const options = document.createElement("div");
+        options.setAttribute("id", "optionsGrids" + counter);
+        options.style.backgroundColor = "#2c2c2c";
+        options.style.color = "white";
+        options.style.display = "none";
+        options.style.marginLeft = "100px";
+        const divSelect = document.createElement("div");
+        const select = document.createElement("select");
+        select.setAttribute("id", "dimentions" + counter);
+        const option1 = document.createElement("option");
+        const option2 = document.createElement("option");
+        const option3 = document.createElement("option");
+        option1.value = "Grid";
+        option2.value = "Columns";
+        option3.value = "Rows";
+        option1.textContent = "Grid";
+        option2.textContent = "Columns";
+        option3.textContent = "Rows";
+        select.add(option1);
+        select.add(option2);
+        select.add(option3);
+        const labelZise = document.createElement("label");
+        labelZise.setAttribute("id", "zises" + counter);
+        labelZise.textContent = "Size";
+        const inputCount = document.createElement("input");
+        inputCount.setAttribute("id", "zise" + counter);
+        inputCount.style.width = "200px";
+        inputCount.type = "number";
+        const labelCount = document.createElement("label");
+        labelCount.setAttribute("for", "count");
+        labelCount.setAttribute("id", "count" + counter);
+        labelCount.textContent = "count";
+        const inputNumber = document.createElement("input");
+        inputNumber.setAttribute("id", "countsColumns" + counter);
+        inputNumber.style.width = "200px";
+        const labelCounts = document.createElement("label");
+        labelCounts.setAttribute("id", "spanColumns" + counter);
+        labelCounts.textContent = "type";
+        inputNumber.type = "number";
+        const selectSize = document.createElement("select");
+        selectSize.setAttribute("id", "typeColumns" + counter);
+        selectSize.style.width = "200px";
+        const optionOne = document.createElement("option");
+        optionOne.value = "left";
+        optionOne.text = "Left";
+        const optiontwo = document.createElement("option");
+        optiontwo.value = "right";
+        optiontwo.text = "right";
+        const optionthree = document.createElement("option");
+        optionthree.value = "center";
+        optionthree.text = "center";
+        const optionFour = document.createElement("option");
+        optionFour.value = "stretch";
+        optionFour.text = "stretch";
+        selectSize.add(optionOne);
+        selectSize.add(optiontwo);
+        selectSize.add(optionthree);
+        selectSize.add(optionFour);
+        const labelWidht = document.createElement("label");
+        labelWidht.textContent = "Widht";
+        // labelWidht.style.display = "none"
+        labelWidht.setAttribute("id", "widhtSpan" + counter);
+        const widhtIn = document.createElement("input");
+        widhtIn.setAttribute("id", "widht" + counter);
+        widhtIn.style.width = "200px";
+
+        // inputWidht.style.display = "none"
+        const labelMargin = document.createElement("label");
+        labelMargin.setAttribute("id", "margin" + counter);
+        // labelMargin.style.display = "none"
+        labelMargin.textContent = "Margin";
+        const inputMargin = document.createElement("input");
+        inputMargin.setAttribute("id", "margins" + counter);
+        inputMargin.style.width = "200px";
+        // inputMargin.style.display = "none"
+        const labelGut = document.createElement("label");
+        labelGut.setAttribute("id", "GutterSpan" + counter);
+        // labelGut.style.display = "none"
+        const inputGu = document.createElement("input");
+        inputGu.type = "number";
+        inputGu.style.width = "200px";
+        inputGu.setAttribute("id", "gutters" + counter);
+        // inputGut.style.display = "none"
+        labelGut.textContent = "Gutter";
+        const labelOff = document.createElement("label");
+        labelOff.setAttribute("id", "offset" + counter);
+        // labelOff.style.display = "none"
+        labelOff.textContent = "OffSet";
+        const inputOff = document.createElement("input");
+        inputOff.type = "number";
+        inputOff.style.width = "200px";
+        inputOff.setAttribute("id", "offsets" + counter);
+
+        // inputOff.style.display = "none"
+
+        const close = document.createElement("img");
+        close.setAttribute("id", "close" + counter);
+        close.style.cursor = "pointer";
+        close.style.width = "40px";
+        close.style.height = "40px";
+        close.src =
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAYVJREFUaEPtmN1pw0AQhOfyEL8IYnfgElxC0kk6ijtIS+kgpALbYBAEjIJAAnFw1s3+OBZev/o0N9/O6lZSwsJ/aeH+EQD/nWAkEAkoKxAtpCyg+vJIQF1CpcBjJ9AdDuu02Rw1RdRqiBP4PZ/fO+AjAW/PTfMlgbDQEAEMG38Opo8SCAuNfn8aoG3b7dPl8p1VnILIzI9SP6um2bJJ0gD9BgUDVRCFa08JeJW0oghACmFtXtRC04iZJDzMqwFqk/AybwIwBwFg1wHjiTUGKO75/CYX3wO5UKmdAKyztWbmzRIYDRYgpv5NzZsDXGmn/i9z87cGqJoTNxlkpU0qWsgcwvsmPgF40Tx2zCViAnDtnC8co2ZJqAFqhhQzsecqbjoHaszPHLHqJMQJMOY9IUQAEvNeEDRA4YWGGlL39kJDmS8kIdJQTeKhinvpm9TksUOlQbfQ9BjTfhLptbQaKgD2zPZYHwAeVWU0IwGmWh5rIwGPqjKakQBTLY+1kYBHVRnNxSfwB42yEED2b7hOAAAAAElFTkSuQmCC";
+
+        // appends
+        divSelect.append(select);
+        options.append(
+          divSelect,
+          labelZise,
+          inputCount,
+          labelCount,
+          inputNumber,
+          labelCounts,
+          selectSize,
+          labelWidht,
+          widhtIn,
+          labelMargin,
+          inputMargin,
+          labelGut,
+          inputGu,
+          labelOff,
+          inputOff,
+          close
+        );
+
+        content.append(logo, span, options);
+        divContent.append(content);
+        logo.addEventListener("click", () => {
+          options.style.display = "flex";
+          options.style.flexDirection = "column";
+        });
+
+        let imagenClonada = document.querySelector("#gridt" + counter);
+        imagenClonada.setAttribute("data-id", counter); // Agregar un atributo de datos con el ID actual
+        imagenClonada.addEventListener("click", function () {
+          console.log("La imagen clonada " + imagenClonada.id + " ha sido clickeada");
+          // const id = imagenClonada.getAttribute("data-id");
+          const options = document.querySelector("#optionsGrids" + counter);
+          options.style.display = "block";
+          console.log(options);
+          content.appendChild(options);
+        });
+
+        close.addEventListener("click", function () {
+          console.log("el icono pulsado es" + close.id);
+          const optionss = options.getAttribute("id");
+          console.log(optionss);
+          if (options !== null) {
+            options.style.display = "none";
+          }
+        });
+
+        // console.log(dimensionez);
+        let ziseElements = document.querySelectorAll(
+          "#zises" + counter + ", #zise" + counter
+        );
+        // console.log(ziseElements);
+        let ziseGrid = document.querySelector("#zise" + counter);
+        console.log(ziseGrid);
+        let counts = document.querySelectorAll(
+          "#countsColumns" +
+            counter +
+            ", #counter" +
+            counter +
+            ", #spanColumns" +
+            counter +
+            ", #typeColumns" +
+            counter +
+            ", #widhtSpan" +
+            counter +
+            ", #widht" +
+            counter +
+            ", #margin" +
+            counter +
+            ", #margins" +
+            counter +
+            ", #GutterSpan" +
+            counter +
+            ", #gutters" +
+            counter
+        );
+        console.log(counts);
+        let spangrid = document.querySelector("#spanGrids" + counter);
+        let valueCount = document.querySelector("#countsColumns" + counter);
+        let valuWidht = document.querySelector("#widht" + counter);
+        let ziseCount = document.querySelector("#zise" + counter);
+        let typos = document.querySelector("#typeColumns" + counter);
+        let marginLabel = document.querySelector("#margin" + counter);
+        let marginInput = document.querySelector(" #margins" + counter);
+        let offs = document.querySelector("#offset" + counter);
+        let offinput = document.querySelector("#offsets" + counter);
+        let gutterInput = document.querySelector("gutters" + counter);
+
+        dimensionez = document.querySelector("#dimentions" + counter);
+
+        let ob;
+        dimensionez.addEventListener("change", (event) => {
+          console.log("----------------")
+          console.log(event.target.parentElement.parentElement.parentElement)
+          console.log("----------------")
+          const parentElement = event.target.parentElement.parentElement.parentElement
+          const target = event.target;
+          debugger
+
+          const arrID = [];
+          ob = {
+            id: content.id,
+            type: target.value,
+          };
+
+          if (target.value === "Columns") {
+            console.log(imagenClonada);
+            console.log();
+            parentElement.getElementsByTagName("img")[0].src =
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAn0lEQVR4nO2ZQQrDMAwE/byG/v8Daf8QjXVQoddAXGgSQpgB3yzwYluW1q2JiFyKjHh2eCfU1ljFDeb/G9/hlRHTUMB34gEL2CO+wzzegQMXsEd8UwDuQHmEtvASYxYq02j6kOFLnJYSWMyV1SiW09jQpB0ZtpRlU4+uRGmrpMYWOnOptYjmbulO3/+DI2L6RcTZAjrMuSyPoQARkXYmHw/AozUIFM6uAAAAAElFTkSuQmCC";
+            ziseElements.forEach((el) => {
+              el.style.display = "none";
+            });
+            counts.forEach((e) => {
+              e.style.display = "flex";
+            });
+
+            valueCount.value = 10;
+            valuWidht.value = 10;
+
+            valuWidht.addEventListener("change", () => {
+              spangrid.textContent =
+                valueCount.value +
+                " " +
+                "Columns" +
+                " " +
+                "(" +
+                valuWidht.value +
+                "px)";
+            });
+            spangrid.textContent =
+              valueCount.value +
+              " " +
+              "Columns" +
+              " " +
+              "(" +
+              valuWidht.value +
+              "Px)";
+            valueCount.addEventListener("change", () => {
+              spangrid.textContent =
+                valueCount.value +
+                " " +
+                "Columns" +
+                " " +
+                "(" +
+                valuWidht.value +
+                "px)";
+            });
+
+            typos.addEventListener("change", () => {
+              if (typos.value === "stretch") {
+                valuWidht.disabled = true;
+                spangrid.textContent =
+                  valueCount.value + " " + "Columns" + " " + "(Auto)";
+                valuWidht.value = "";
+                valuWidht.placeholder = "Auto";
+                marginLabel.style.display = "flex";
+                marginInput.style.display = "flex";
+                offinput.style.display = "none";
+                offs.style.display = "none";
+              }
+
+              if (typos.value === "left") {
+                valuWidht.disabled = false;
+                valuWidht.value = 10;
+                spangrid.textContent =
+                  valueCount.value +
+                  " " +
+                  "Columns" +
+                  " " +
+                  "(" +
+                  valuWidht.value +
+                  "Px)";
+                marginLabel.style.display = "none";
+                marginInput.style.display = "none";
+                offinput.style.display = "flex";
+                offs.style.display = "flex";
+                offinput.disabled = false;
+              }
+
+              if (typos.value === "right") {
+                valuWidht.disabled = false;
+                valuWidht.value = 10;
+                spangrid.textContent =
+                  valueCount.value +
+                  " " +
+                  "Columns" +
+                  " " +
+                  "(" +
+                  valuWidht.value +
+                  "Px)";
+                marginLabel.style.display = "none";
+                marginInput.style.display = "none";
+                offinput.style.display = "flex";
+                offs.style.display = "flex";
+                offinput.disabled = false;
+              }
+
+              if (typos.value === "center") {
+                valuWidht.disabled = false;
+                valuWidht.value = 10;
+                spangrid.textContent =
+                  valueCount.value +
+                  " " +
+                  "Columns" +
+                  " " +
+                  "(" +
+                  valuWidht.value +
+                  "Px)";
+                marginLabel.style.display = "none";
+                marginInput.style.display = "none";
+                offinput.style.display = "flex";
+                offs.style.display = "flex";
+                offinput.disabled = true;
+              }
+            });
+          }
+
+          if (target.value === "Rows") {
+            parentElement.getElementsByTagName("img")[0].src =
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYUlEQVR4nO3WwQ2AMBTDUO8/FhVzhQW4VuQXvw0iXwKSpC8luTPPehsyEg4pg0XKYJEyWKQMxxZRmwyFQ8pgkTJYpAwWKYPaZSgcUgaLlMEiZbBIGU4usjLPtfnwSJJ+4gEb7zIUv7M2UAAAAABJRU5ErkJggg==";
+            ziseElements.forEach((el) => {
+              el.style.display = "none";
+            });
+            counts.forEach((e) => {
+              e.style.display = "flex";
+            });
+
+            valueCount.value = 10;
+            valuWidht.value = 10;
+
+            valuWidht.addEventListener("change", () => {
+              spangrid.textContent =
+                valueCount.value +
+                " " +
+                "Columns" +
+                " " +
+                "(" +
+                valuWidht.value +
+                "px)";
+            });
+            spangrid.textContent =
+              valueCount.value +
+              " " +
+              "Columns" +
+              " " +
+              "(" +
+              valuWidht.value +
+              "Px)";
+            valueCount.addEventListener("change", () => {
+              spangrid.textContent =
+                valueCount.value +
+                " " +
+                "Columns" +
+                " " +
+                "(" +
+                valuWidht.value +
+                "px)";
+            });
+
+            typos.addEventListener("change", () => {
+              if (typos.value === "stretch") {
+                valuWidht.disabled = true;
+                spangrid.textContent =
+                  valueCount.value + " " + "Rows" + " " + "(Auto)";
+                valuWidht.value = "";
+                valuWidht.placeholder = "Auto";
+              }
+              if (typos.value === "left") {
+                valuWidht.disabled = false;
+                valuWidht.value = 10;
+                spangrid.textContent =
+                  valueCount.value +
+                  " " +
+                  "Rows" +
+                  " " +
+                  "(" +
+                  valuWidht.value +
+                  "Px)";
+                marginLabel.style.display = "none";
+                marginInput.style.display = "none";
+                offinput.style.display = "flex";
+                offs.style.display = "flex";
+                offinput.disabled = false;
+              }
+
+              if (typos.value === "right") {
+                valuWidht.disabled = false;
+                valuWidht.value = 10;
+                spangrid.textContent =
+                  valueCount.value +
+                  " " +
+                  "Rows" +
+                  " " +
+                  "(" +
+                  valuWidht.value +
+                  "Px)";
+                marginLabel.style.display = "none";
+                marginInput.style.display = "none";
+                offinput.style.display = "flex";
+                offs.style.display = "flex";
+                offinput.disabled = false;
+              }
+
+              if (typos.value === "center") {
+                valuWidht.disabled = false;
+                valuWidht.value = 10;
+                spangrid.textContent =
+                  valueCount.value +
+                  " " +
+                  "Rows" +
+                  " " +
+                  "(" +
+                  valuWidht.value +
+                  "Px)";
+                marginLabel.style.display = "none";
+                marginInput.style.display = "none";
+                offinput.style.display = "flex";
+                offs.style.display = "flex";
+                offinput.disabled = true;
+              }
+            });
+          }
+
+          if (target.value === "Grid") {
+            parentElement.getElementsByTagName("img")[0].src =
+              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII=";
+            ziseElements.forEach((e) => {
+              e.style.display = "flex";
+            });
+            counts.forEach((e) => {
+              e.style.display = "none";
+            });
+            spangrid.textContent = ziseCount.value + " " + "Px";
+            offinput.style.display = "none";
+            offs.style.display = "none";
+
+            ziseCount.addEventListener("change", () => {
+              spangrid.textContent = ziseCount.value + " " + "Px";
+            });
+          }
+
+          window.parent.postMessage(
+            {
+              pluginMessage: {
+                type: "change",
+                obj: ob,
+              },
+            },
+            "*"
+          );
+          window.parent.postMessage(
+            { pluginMessage: { type: "pressButton", objeto: ob } },
+            "*"
+          );
+        });
+
+        window.parent.postMessage(
+          { pluginMessage: { type: "clickk", diment: dimensionez.value } },
+          "*"
+        );
+      });
+
+    </script>
+  </body>
+</html>
