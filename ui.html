@@ -1,0 +1,2801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-bmJrOJdLhHoLgF4b4eHscKjOrU6XSTz6EeT+mTjK6IgD//MMnVLxBqKjv1pylQ+vzR9XmJxIkzBmKc8FJ+5Kw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js"></script>
+  <script src="./auth/auth.js" type="module"></script>
+  <script src="./auth/config-firebase.js" type="module"></script>
+  <script src="./auth/register.js" type="module"></script>
+  <script src="./dist/bundle.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .header>* {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .header span {
+    color: rgba(0, 0, 0, 0.382);
+    /* font-weight: bold; */
+    font-size: small;
+  }
+
+  .options>* {
+    margin-left: 12px;
+    margin-top: 18px;
+  }
+
+  #container-right,
+  #grids-compact,
+  #grids,
+  #fonts,
+  #layouts,
+  #muroPerfil
+  /* #list-styles */
+   {
+    float: right;
+    border-left: 1px solid black;
+    width: 70%;
+    height: 100%;
+  }
+  #estilo {
+    justify-content: center;
+    /* margin-top: 380px;*/
+  }
+
+  #estilo form {
+    display: flex;
+    align-items: center;
+  }
+  #estilo button {padding: 12px; margin: 0 12 0 12; cursor: pointer; border-radius:9px; border: none}
+  #charge {background-color: rgb(43, 107, 53); color: white;}
+  #save {background-color: rgb(225, 153, 114);}
+
+ 
+  #fonts
+   {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  #fonts form {
+    width: 60%;
+  }
+
+  #fonts form>* {
+    padding: 12px;
+  }
+
+  #grids-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  #container-right>* {
+    margin-left: 13px;
+  }
+
+  .devices span {
+    color: lightgray;
+    font-weight: normal
+  }
+
+  .devices .dispositivos {
+    margin-left: 15px;
+  }
+
+  #grids {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #grids form div {
+    margin: 17px;
+  }
+
+  .dispositivos div {
+    padding: 9px;
+  }
+
+  .dispositivos div input[type="checkbox"] {
+    margin-right: 10px;
+    border: 2px solid black;
+  }
+
+  .container-left {
+    float: left;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    width: 29%;
+
+  }
+
+  .company-logo {
+    margin-top: 50px;
+    height: 150px;
+    margin-left: 0;
+    width: 340px;
+    background-color: #0000000D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+  }
+
+  .title {
+    margin-top: 34px;
+
+
+  }
+
+
+
+  .contains {
+    display: flex;
+    align-items: center;
+    /* background-color: aliceblue; */
+    padding: 6px;
+    width: 340px;
+  }
+
+  .contains figure {
+    margin-left: 30px;
+    cursor: pointer;
+  }
+
+  .dispositivos2 {
+    position: absolute;
+
+  }
+
+  .dispositivos2 div label {
+    padding-bottom: 34px;
+  }
+
+  .inactive {
+    display: none;
+  }
+
+  #normal {
+    margin-right: 19px;
+  }
+
+  #grosero {
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  #cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card img {
+    width: 100px;
+    height: 100px;
+
+  }
+
+  .card:nth-child(2) img,
+  .card:nth-child(3) img,
+  .card:nth-child(5) img,
+  .card:nth-child(6) img {
+    width: 200px;
+    font-size: 25px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    margin-left: 110px;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+
+    /* padding: 12px; */
+    /* margin: 60px 500px 0 0; */
+  }
+
+  .card:nth-child(-n+3) {
+    order: 1;
+    /* Cambia el orden en el que se muestran los elementos */
+  }
+
+  .card:nth-child(n+4) {
+    order: 2;
+    /* Cambia el orden en el que se muestran los elementos */
+  }
+
+  .card {
+    padding: 12px;
+    width: 350px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+
+  /* 
+#all {
+  display: flex;
+  align-items: center;
+  margin-bottom: 500px;
+}
+
+#all h2 {
+  padding: 0 70 0 70;
+}
+#fonts {
+  justify-content: space-evenly;
+}
+
+#all > * {
+  border: 1px solid black;
+}
+#all div p {
+  border: 1px solid black;
+  
+}
+#all div p input {
+  float: right;
+  
+} */
+  table tbody tr td input {
+    float: right;
+  }
+
+  #titlee h1 {
+    margin-bottom: 100px;
+  }
+  #listStyles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  #styles {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+  }
+  /* #styles div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  } */
+  #styles div button {
+    cursor: pointer;
+    float: right;
+    width: 40px;
+  }
+  #styles .sizes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #styles .sizes h3 {
+    display: block;
+  }
+  ::selection{
+  background: rgba(26,188,156,0.3);
+}
+
+.container{
+  width: 440px;
+  padding: 0 20px;
+  margin-top: 170px ;
+  margin-left: 500px;
+}
+
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 90px;
+  background: #16a085;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form{
+  padding: 30px 25px 25px 25px;
+}
+.wrapper form .row{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.wrapper form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .row input:focus{
+  border-color: #16a085;
+  box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+}
+form .row input::placeholder{
+  color: #999;
+}
+.wrapper form .row i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .pass{
+  margin: -8px 0 20px 0;
+}
+.wrapper form .pass a{
+  color: #16a085;
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrapper form .pass a:hover{
+  text-decoration: underline;
+}
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  cursor: pointer;
+}
+form .button input:hover{
+  background: #12876f;
+}
+.wrapper form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrapper form .signup-link a{
+  color: #e9681d;
+  text-decoration: none;
+}
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+  
+  #selection-sizes {
+    color: white;
+    background-color: #2c2c2c;
+    width: 100%;
+  }
+
+  #selection-sizes div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #selection-sizes div form select {
+    padding: 10px;
+    margin: 0 116 0 130;
+  }
+  .mas {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAALJJREFUaEPtlkEOgCAMBOH/j9aL8UACrGxaghmvFmxnt7W1HP7Uw/MvFLBbQRRAAZMAFjIB2sdRYIDwat6FwAq59EmcApQGQQF6QPHJIAYLYSEsZBLAQibAL1OoXQ3MT0+PS7lJQZ3dZpqBGSDlJgVRwJoUElwpaO37hXVaAYcC/MgUn7BOr1FiCincmEJMIcUnTCGTUuTxyCaOzPu9mwJSMG9q4pTasFAKZiy0G/OfFbgBk3kcMd+iuKkAAAAASUVORK5CYII=');
+  }
+  /* Estilos para el botón */
+.btn2, .btn1, .btn3, .btn4, .btn5, .btn3none {
+  padding: 10px;
+  background-color: #bc0d0d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el icono "+"
+.icon-plus {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Estilos para el icono "-" */
+/* .icon-minus {
+  display: none;
+  width: 10px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  margin-right: 5px;
+} */ */
+
+/* Estilos para el botón cuando está activo */
+.btn.active, .icon-plus, .btn1.active{
+  display: none;
+}
+
+#auto {
+  background-color: #2c2c2c;
+}
+
+.colum-left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  color: white;
+}  
+
+.colum-right {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.colum-right button {
+  width: 100%;
+  color: rgb(6, 6, 6);
+}
+
+.grids-layout {
+  background-color: #2c2c2c;
+}
+
+.register-container {
+  max-width: 500px;
+  margin: 150 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #f36b21;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0D47A1;
+}
+
+
+  
+</style>
+
+<body>
+
+  <div id="fonts" style="display: none;">
+    <div id="titlee">
+      <h1>Fonts</h1>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Titles</th>
+          <th>Labels</th>
+          <th>Paragraphs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> H1 goes from 60px to 100px default<input type="number" min="60" max="100" value="60" id="h1"></td>
+          <td>H3 goes from 30px to 40px default <input type="number" min="30" max="40" value="30" width="600px"
+              id="h3-labels"></td>
+          <td>Large 12px default <input type="number" name="" id="largo" min="12" value="12"></td>
+        </tr>
+        <tr>
+          <td>H2 goes from 40px to 60px default <input type="number" min="40" max="60" value="40" width="600px" id="h2">
+          </td>
+          <td>H4 goes from 25px to 30px deafult <input type="number" min="25" max="30" value="25" width="600px"
+              id="h4-labels"></td>
+          <td>Medium - [12px] default<input type="number" name="" id="medium" min="12" value="12"></td>
+        </tr>
+        <tr>
+          <td>H3 goes from 30px to 40px default <input type="number" min="30" max="40" value="30" width="600px" id="h3">
+          </td>
+          <td>H5 goes from 20px to 25px default <input type="number" name="" min="20" max="25" value="20"
+              id="h5-labels"></td>
+          <td>Small default 12 px default<input type="number" name="" id="small" min="12" value="12"></td>
+        </tr>
+        <tr>
+          <td>H4 goes from 25px to 30px deafult <input type="number" min="25" max="30" value="25" width="600px" id="h4">
+          </td>
+          <td>H6 goes from 12px to 20px deafult <input type="number" name="" max="20" min="12" value="12"
+              id="h6-labels"></td>
+          <!-- <td>Fila 4, columna 3</td> -->
+        </tr>
+        <tr>
+          <td>H5 goes from 20px to 25px default <input type="number" name="" min="20" max="25" value="20" id="h5"></td>
+          <!-- <td>H6 - [12 < 20]<input class="radius" type="checkbox" name="variantgroup" id="h3"></td> -->
+          <!-- <td>Fila 5, columna 3</td> -->
+        </tr>
+        <tr>
+          <td>H6 goes from 12px to 20px deafult <input type="number" max="20" min="12" value="12" id="h6"></td>
+
+          <!-- <td>Fila 6, columna 3</td> -->
+        </tr>
+        <!-- <tr>
+          <td>&nbsp;</td>
+          <td>Fila 7, columna 2</td>
+          <td>Fila 7, columna 3</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Fila 8, columna 2</td>
+          <td>Fila 8, columna 3</td>
+        </tr> -->
+        <!-- <tr>
+          <td>&nbsp;</td>
+          <td>Fila 9, columna 2</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Fila 10, columna 2</td>
+          <td>&nbsp;</td> -->
+        </tr>
+      </tbody>
+    </table>
+    <input type="submit" id="mandelos" value="Confirm" style="margin-top: 55px; width: 100%;">
+  </div>
+
+
+
+
+
+  <div id="layouts" style="display: none;">
+
+    <div class="cards">
+      <div class="card">
+        <h3>Small (320-599px)</h3>
+        <p>Columns: 4</p>
+        <p>Margins: 16px</p>
+        <p>Gutter: 16px</p>
+        <img src="https://i.imgur.com/1UZcjfb.jpg" alt="no da">
+        <input type="radio" name="variantgroup" id="smallM">
+      </div>
+      <div class="card">
+        <h3>Medium (599-1136)</h3>
+        <p>Columns: 8</p>
+        <p>Margins: 36px</p>
+        <p>Gutter: 36px</p>
+        <img src="https://i.imgur.com/hUZmaqD.png" alt="no da">
+        <input type="radio" name="variantgroup" id="mediumM">
+      </div>
+      <div class="card">
+        <h3>Large (1136 And Up)</h3>
+        <p>Columns: 12</p>
+        <p>Margins: 64px</p>
+        <p>Gutter: 36px</p>
+        <img src="https://i.imgur.com/YGEs5i4.png" alt="no da">
+        <input type="radio" name="variantgroup" id="lgM">
+      </div>
+      <div class="card">
+        <h3>No margin Sm (320-599px)</h3>
+        <p>Columns: 4</p>
+        <p>Margins: 0</p>
+        <p>Gutter: 16px</p>
+        <img src="https://i.imgur.com/mLi5bof.png" alt="no da">
+        <input type="radio" name="variantgroup" id="sm">
+      </div>
+      <div class="card">
+        <h3>No margin Md (599-1136px))</h3>
+        <p>Columns: 8</p>
+        <p>Margins: 0</p>
+        <p>Gutter: 36px</p>
+        <img src="https://i.imgur.com/J00h8g4.png" alt="no da">
+        <input type="radio" name="variantgroup" id="md">
+      </div>
+      <div class="card">
+        <h3>No margin Lg (1136 And Up)</h3>
+        <p>Columns: 12</p>
+        <p>Margins: 0</p>
+        <p>Gutter: 36px</p>
+        <img src="https://i.imgur.com/4doEXbR.png" alt="no da">
+        <input type="radio" name="variantgroup" id="lg">
+      </div>
+
+    </div>
+  </div>
+  
+  
+  <div id="container-right" style="display:none;">
+    
+    <div class="container">
+
+      <div class="header">
+        <h3 class="title">Auto-Scale</h3>
+        <span class="text">Select Frames</span>
+      </div>
+
+      <div class="options">
+        <input type="radio" id="create-Frame" class="checki" name="radio">
+        <label for="create-Frame">Create new frames when scale</label>
+
+
+        <input type="radio" id="scale-selected" class="checki" name="radio">
+        <label for="scale-selected">Scale selected frame</label>
+      </div>
+
+      <div class="devices">
+        <h4 style="margin: 25px;">Select new devices
+          <span>(and grids - optional)</span>
+        </h4>
+
+
+        <section class="dispositivos">
+          <div>
+            <input type="checkbox" id="MacAir" class="check radio" name="variantgroup" id="activate">
+            <label for="MacAir">Macbook Air</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="MacPro14" class="check radio" name="variantgroup" id="activate">
+            <label for="MacPro14">Macbook Pro 14"</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="Macpro16" class="check radio" name="variantgroup" id="activate">
+            <label for="Macpro16">Macbook Pro 16"</label>
+          </div>
+
+
+          <div>
+            <input type="checkbox" id="iphone13" class="check radio" name="variantgroup" id="activate">
+            <label for="iphone13">iPhone 13</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="iPadPro" class="check radio" name="variantgroup" id="activate">
+            <label for="iPadPro">iPad Pro</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="Android" class="check radio" name="variantgroup" id="activate">
+            <label for="Android">Android</label>
+          </div>
+        </section>
+
+
+
+        <!-- inputs 2 -->
+
+        <form class="dispositivos">
+          <div style="padding: 7px;">
+            <input type="checkbox" id="air" class="check radio" name="variantgroup" value="macAir">
+            <label for="air" id="hola">Macbook Air</label>
+          </div>
+
+          <div style="padding: 7px;">
+            <input type="checkbox" id="bPro1" class="check radio" name="variantgroup" value=MacPro1">
+            <label for="Pro1" id="hola">Macbook Pro 14"</label>
+          </div>
+
+          <div style="padding: 7px;">
+            <input type="checkbox" id="c16" class="check radio" name="variantgroup" value="16">
+            <label for="16" id="hola">Macbook Pro 16"</label>
+          </div>
+
+
+          <div style="padding: 7px;">
+            <input type="checkbox" id="d13i" class="check radio" name="variantgroup" value="iphone13">
+            <label for="13i" id="hola">iPhone 13</label>
+          </div>
+
+          <div style="padding: 7px;">
+            <input type="checkbox" id="eiPad" class="check radio" name="variantgroup" value="ipad">
+            <label for="iPad" id="hola">iPad Pro</label>
+          </div>
+
+          <div style="padding: 7px;">
+            <input type="checkbox" id="fandroid" class="check radio" name="variantgroup" value="android">
+            <label for="android" id="hola">Android</label>
+          </div>
+          <!-- -------------------------------------------------------------------------------- -->
+
+          <input type="submit" id="my-button"
+            style="display: none; width: 25%; padding: 12px; margin-top: 20px; border-radius: 9px; border: none; background-color:coral; cursor: pointer;"
+            value="confirm">
+        </form>
+
+        <div style="padding: 90px;">
+          <span>If you want to clone a frame, please select the frame you want to clone on the canvas.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="grids-compact">
+    <h1 class="selection" style="margin-bottom: 30px;">Choose frame grids</h1>
+    <form action="" style="display: flex;">
+      <div id="normal">
+        <label for="radioOne">Normal</label>
+        <input type="radio" name="variant" id="radioOne">
+      </div>
+      <div id="compact">
+        <label for="radioTwo">Compact</label>
+        <input type="radio" name="variant" id="radioTwo">
+      </div>
+
+      
+
+
+    </form>
+    
+    <!-- <input type="submit" id="button-confirm" value="Confirm" style="margin-top: 29px; width: 60%; border-radius: 19px; border: none; padding: 25px; background-color:rgb(237, 134, 93); font-size: 19px; cursor: pointer;"> -->
+  </div>
+  
+
+
+
+  <div id="grids" style="display:none;">
+    <h1>Select the grids that wants</h1>
+    <form action="">
+      <div>
+        <label for="small">Small screen (320-599px)</label>
+        <!-- <span style="color: rgb(212, 211, 211); font-weight: bold;">This option has 64px for your hedings, has 24px for paragraphs</span> -->
+        <input type="checkbox" id="small" class="checklist">
+      </div>
+      <div>
+        <label for="medium">Medium screen (600-1135px)</label>
+        <input type="checkbox" id="medium" class="checklist">
+      </div>
+      <div>
+        <label for="large">Large screen (1136 and up)</label>
+        <input type="checkbox" id="large" class="checklist">
+      </div>
+
+
+      <input type="submit" value="confirm" id="confirmButton"
+        style="padding: 15px; background-color: rgb(229, 114, 72); width: 500px;">
+    </form>
+  </div>
+
+
+
+  <div class="container-left">
+    <div class="company-logo">
+      <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c513.png" alt=""
+        style="width: 153px; height: 46px;">
+      <div class="members">
+        <div class="member1">
+
+        </div>
+        <div class="member2">
+
+        </div>
+        <div class="member3">
+
+        </div>
+        <div class="member4">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="title">
+      <h3 style="margin-bottom: 20px; margin-left: 7px;">UserX</h3>
+      <div class="icons">
+
+        <div class="contains" id="primary" style="display: none;">
+          <figure id="styling"
+            style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+            <img width="32px" height="32px"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAaBJREFUaEPtl9FNAzEMQF8nACaAEboBsAFsABvQDdiAEWADGAFGYAJgA5gAZNRK7XFJHNvhelLyeUrs92JflCyY+VjMnJ8uMHUFW1bgCrhbC66AhxayrQQE/n4AfN1CooXAGPzGJVwiWiAH30QiUkADHy4RJZCCl5aRMfwf5FtIO0UI5OA3J49mjumQ8grUgNXMVct4BCxAljVZGauAB8Sz9o+MRSACICLGr0ytQFhiICRWjUBIwkEPuGNqBdyJMn+iK7ZGwJVAeR6ac5QEzIGV4NvTTLlyAqaABnCXREogdzErVc3pwHciwOjdaQzmAnjMUEwlIEiXwNM22xjMG3CypwKfwFFJ4B043lOBV2BZEjhbl+kgITFVC30AN5oWGnIPf6r/Fsjm08B0gcpztWrDegUqd1czvVegn0KaPsnM6S3UW6i30O4O9KtE1angbB9ZXpXPcpUIYFSH+AIOc7M1As/AqTpl7MQXQN4nyaERKL2RY5F3o50DsoEuAVksEvIakudc6qUWKSI7f1uCl4SaCkSChcfqAuFbWhlw9hX4AS4ebjH8xKoKAAAAAElFTkSuQmCC" />
+          </figure>
+          <p style="margin-left: 20px; cursor: pointer;" id="styling">Styling</p>
+        </div>
+
+        <div class="contains" id="UP">
+          <figure
+            style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+            <img width="32px" height="32px" id="user-login"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAf9JREFUaEPtmP0xRTEQxc+rgBKoABWgAqMCVIAOqIAO0AEVoAJUQAlUwByTO/Pwkmx2D5k77s7cP95Mknd+2Y8kO8PIbTZy/ZgAenvwNzywBWAPwHr6yPiYvisAd0poJQAFnwEgQMkIcJyAwiwqAIq/BbBsVPQKYFsBoQBoFT8wSiAUANz5WtjkHMNwoifcFgWgcAJEjADuxI4CXKaKEwFgZdr3LhAFeJgrlV4NLLEb3slRgHfvH3+b59bhnpgEjB6A7l8LeuEpEoZRD4w+iUdfRhk9rOGbzjC6DxyCn38ZDSGuwasEIZYaId6SeOaR2xQAHgiJeJUHht2jJ84N4cSwOVLcRNUAAwgTm1cDAg0llqWSocKq5b73LIozVQi5Yzg6cQKI7mB0/r/3ABN1J9Vzvof522JMaD4pmdA3kYrk9QDbJicAVixqDWNeUqfi2jD2y5BWAAq+iB7/BZH0yAEAApmsBcDbfTAJmRvU1K2wAlA8n49/aXxmVu9JFgCGDcVbm1YqSHqCEMVwsgBE+j5RmGrfqAbAOw2TtqftAshWpxrAs7BUejeBIbSam1wC6JG4OZ3ZhC4B8G5/6N028bzTdHD+WLYEEHnrivUj+3YuASjahiqQbPuxBKDquqkgFmqdAFTba1in2QOGNfsPqR1k/RVWFEwAvV00eaC3Bz4ALkdQMYEpwEIAAAAASUVORK5CYII=">
+          </figure>
+          <p style="margin-left: 20px" id="auth">Sign Up</p>
+        </div>
+
+        <div class="contains" id="logOut" style="display: none;">
+          <figure
+            style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+            <img width="32px" height="32px" id="user-login"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAYlJREFUaEPtmeFNxDAMhb+bADYAJgAmgQ1gBJgENoARYALYAEaADWAC0JNaKRflLjlq9xrk/KrUNPbze3bcZEXnY9W5/wSAfTMYDPw3Bo6BO+AM0LPF+ADegVtAz2vDUkJy+A04tPC6sMYXcJ6DsATwBFw4OT8u+wxcpjYsAShCB84AJKETLwA/TvLcuq4lAwFgg/yCgda8DAnNKaFH4Doz2AUD2mVfhlYhr2CLB6D+Rs6PrYJlCd6WZyZVSHJ5cNqoakViMgDp/apgZfEMpHovRWnRAHK912ie8r4WiJ0lVNL7FAdr3waAUoQkodcZ+nvZNmdgBKQkFojTDRqoGa5Jp/X9zjmQL9xtGU2BdL2RjUDyvOhGQikTaV5018ylQLptp//cNbaWnMK8yVWo1fbi/wdqQALAnP/EJVvBwL4ZmONw9zO/d7DcTbs/XtcFh25SvI7Yv4fjnLVbGksGJGGBuB8MHdXqbuN7yUaBufG+Ymr0x3aaNQO23jWsFgAaguQ6JRhwDW/D4r9YM1IxOgVPMwAAAABJRU5ErkJggg==">
+          </figure>
+          <p style="margin-left: 20px" id="auth">Log out</p>
+        </div>
+
+        <div class="contains" id="signIN">
+          <figure
+            style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+            <img width="32px" height="32px" id="user-login"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAf9JREFUaEPtmP0xRTEQxc+rgBKoABWgAqMCVIAOqIAO0AEVoAJUQAlUwByTO/Pwkmx2D5k77s7cP95Mknd+2Y8kO8PIbTZy/ZgAenvwNzywBWAPwHr6yPiYvisAd0poJQAFnwEgQMkIcJyAwiwqAIq/BbBsVPQKYFsBoQBoFT8wSiAUANz5WtjkHMNwoifcFgWgcAJEjADuxI4CXKaKEwFgZdr3LhAFeJgrlV4NLLEb3slRgHfvH3+b59bhnpgEjB6A7l8LeuEpEoZRD4w+iUdfRhk9rOGbzjC6DxyCn38ZDSGuwasEIZYaId6SeOaR2xQAHgiJeJUHht2jJ84N4cSwOVLcRNUAAwgTm1cDAg0llqWSocKq5b73LIozVQi5Yzg6cQKI7mB0/r/3ABN1J9Vzvof522JMaD4pmdA3kYrk9QDbJicAVixqDWNeUqfi2jD2y5BWAAq+iB7/BZH0yAEAApmsBcDbfTAJmRvU1K2wAlA8n49/aXxmVu9JFgCGDcVbm1YqSHqCEMVwsgBE+j5RmGrfqAbAOw2TtqftAshWpxrAs7BUejeBIbSam1wC6JG4OZ3ZhC4B8G5/6N028bzTdHD+WLYEEHnrivUj+3YuASjahiqQbPuxBKDquqkgFmqdAFTba1in2QOGNfsPqR1k/RVWFEwAvV00eaC3Bz4ALkdQMYEpwEIAAAAASUVORK5CYII=">
+          </figure>
+          <p style="margin-left: 20px" id="auth">Sign In</p>
+        </div>
+
+        <div class="contains" id="perfil" style="display: none;">
+          <figure
+            style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+            <img width="32px" height="32px" id="perfilUser"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAf9JREFUaEPtmP0xRTEQxc+rgBKoABWgAqMCVIAOqIAO0AEVoAJUQAlUwByTO/Pwkmx2D5k77s7cP95Mknd+2Y8kO8PIbTZy/ZgAenvwNzywBWAPwHr6yPiYvisAd0poJQAFnwEgQMkIcJyAwiwqAIq/BbBsVPQKYFsBoQBoFT8wSiAUANz5WtjkHMNwoifcFgWgcAJEjADuxI4CXKaKEwFgZdr3LhAFeJgrlV4NLLEb3slRgHfvH3+b59bhnpgEjB6A7l8LeuEpEoZRD4w+iUdfRhk9rOGbzjC6DxyCn38ZDSGuwasEIZYaId6SeOaR2xQAHgiJeJUHht2jJ84N4cSwOVLcRNUAAwgTm1cDAg0llqWSocKq5b73LIozVQi5Yzg6cQKI7mB0/r/3ABN1J9Vzvof522JMaD4pmdA3kYrk9QDbJicAVixqDWNeUqfi2jD2y5BWAAq+iB7/BZH0yAEAApmsBcDbfTAJmRvU1K2wAlA8n49/aXxmVu9JFgCGDcVbm1YqSHqCEMVwsgBE+j5RmGrfqAbAOw2TtqftAshWpxrAs7BUejeBIbSam1wC6JG4OZ3ZhC4B8G5/6N028bzTdHD+WLYEEHnrivUj+3YuASjahiqQbPuxBKDquqkgFmqdAFTba1in2QOGNfsPqR1k/RVWFEwAvV00eaC3Bz4ALkdQMYEpwEIAAAAASUVORK5CYII=">
+          </figure>
+          <p style="margin-left: 20px" id="">Perfil</p>
+        </div>
+        
+    
+        
+
+        <div class=" contains" id="secondary" style="display: none;">
+          <figure
+            style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+            <img width="32px"  height="32px"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAehJREFUaEPtWYFNAzEMvE4AbMAojMIGwATABMAGjMQGiAmACUCW3ih1k/c5SfVU8kuV2v/kfBc7yee6w4lfuxPnjxSwdQYzA/8xA9cAnhZizwBeAHxNInoO4AbA7Sz8Wgm9A7gsCAv5USElcfleXkP4NQE/jdHuCbRG3Ibpwa8uoy0BGpAJFCE+JCSSASbQCHEG/6A4GAGPy6Q7c0pLHsvktDWu3b6XuXRvcFj86mLCCJA2QkrIyaclpLVQKXFZCKT8bImy+NL3DsBrGYgVoH0iQixxxagJYPFFxMWIACZQizgjgMHfG/RoBmyZSEY+zU0ZobWNby0DDP5UARIwQmh6+9EMTCdUWQlWBygFZAnBPRVmCXmntlyFWu8gy/0soSwhUyJT50xuZLmR5UZ2uAhPnWTRt8toe2YSH/uAMoTPCPB8ICZjI85ceCcWwjXnoSXEO6SrF9qyWzzDLCxAzF2xQDwfSH2alk3CEvcMrbAAAWTsE83Ig2EgvxmDS40wb6AsvnuoL/kwQpyXyb/HNbulBz8kgPFpPAGeT8RmXON0CegRwhCv+UCehTkkgBHSQ5wV8mH+fHEP1F55lDUsbWX1UhPX68s8t/hXAN7Kjt5hhQmyaZsUsOnww38X35qfGz9LyB2iIzf4BdYj0zFMCyuXAAAAAElFTkSuQmCC" />
+          </figure>
+          <p style="margin-left: 20px"">Auto Scale</p>
+        </div>
+   
+        
+        
+      </div>
+    </div>
+
+    <div class="add" style="display: none;">
+          <h3 style="margin-top: 23px; margin-bottom: 20px; margin-left: 7px;">Add</h3>
+          <div class="icons">
+
+            <div class="contains" id="terciary" style="display: none;">
+              <figure
+                style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+                <img width="32px" height="32px"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAaBJREFUaEPtl9FNAzEMQF8nACaAEboBsAFsABvQDdiAEWADGAFGYAJgA5gAZNRK7XFJHNvhelLyeUrs92JflCyY+VjMnJ8uMHUFW1bgCrhbC66AhxayrQQE/n4AfN1CooXAGPzGJVwiWiAH30QiUkADHy4RJZCCl5aRMfwf5FtIO0UI5OA3J49mjumQ8grUgNXMVct4BCxAljVZGauAB8Sz9o+MRSACICLGr0ytQFhiICRWjUBIwkEPuGNqBdyJMn+iK7ZGwJVAeR6ac5QEzIGV4NvTTLlyAqaABnCXREogdzErVc3pwHciwOjdaQzmAnjMUEwlIEiXwNM22xjMG3CypwKfwFFJ4B043lOBV2BZEjhbl+kgITFVC30AN5oWGnIPf6r/Fsjm08B0gcpztWrDegUqd1czvVegn0KaPsnM6S3UW6i30O4O9KtE1angbB9ZXpXPcpUIYFSH+AIOc7M1As/AqTpl7MQXQN4nyaERKL2RY5F3o50DsoEuAVksEvIakudc6qUWKSI7f1uCl4SaCkSChcfqAuFbWhlw9hX4AS4ebjH8xKoKAAAAAElFTkSuQmCC" />
+              </figure>
+              <p style="margin-left: 20px">Auto Scale</p>
+        </div>
+
+        <div class=" contains" id="quarter" style="display: none;">
+              <figure
+                style="background-color:#0000000D; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 9px;">
+                <img width="32px" height="32px"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAaBJREFUaEPtl9FNAzEMQF8nACaAEboBsAFsABvQDdiAEWADGAFGYAJgA5gAZNRK7XFJHNvhelLyeUrs92JflCyY+VjMnJ8uMHUFW1bgCrhbC66AhxayrQQE/n4AfN1CooXAGPzGJVwiWiAH30QiUkADHy4RJZCCl5aRMfwf5FtIO0UI5OA3J49mjumQ8grUgNXMVct4BCxAljVZGauAB8Sz9o+MRSACICLGr0ytQFhiICRWjUBIwkEPuGNqBdyJMn+iK7ZGwJVAeR6ac5QEzIGV4NvTTLlyAqaABnCXREogdzErVc3pwHciwOjdaQzmAnjMUEwlIEiXwNM22xjMG3CypwKfwFFJ4B043lOBV2BZEjhbl+kgITFVC30AN5oWGnIPf6r/Fsjm08B0gcpztWrDegUqd1czvVegn0KaPsnM6S3UW6i30O4O9KtE1angbB9ZXpXPcpUIYFSH+AIOc7M1As/AqTpl7MQXQN4nyaERKL2RY5F3o50DsoEuAVksEvIakudc6qUWKSI7f1uCl4SaCkSChcfqAuFbWhlw9hX4AS4ebjH8xKoKAAAAAElFTkSuQmCC" />
+              </figure>
+              <p style="margin-left: 20px">Auto Scale</p>
+        </div>
+
+        
+   
+        
+        
+      </div>
+    </div>
+      
+
+    
+  </div>
+
+  <div id="estilo" style="display: none;">
+    <button id="charge">+</button>
+    <form>
+      <input type="text" placeholder="Buscar">
+    </form>
+  </div>
+  <div  id="listStyles" style="display: none;">
+    <h1 >Yet there is not styles saved</h1>
+  </div>
+  <div>
+    <h1 id="instrucions" style="font-size: 20px; display: none;">For use the options "FIXED" Or "HUG" must to add the option AutoLayout</h1>
+  </div>
+
+  <div id="styles" style="display: none; margin-top: 200px;">
+    <label for="name-group">Style group name</label>  
+    <input type="text" placeholder="type your name group" required id="name-group">
+    <div class="size">
+      <!-- <span id="sizess" class="mas">+</span> -->
+      <button  class="btn1">+</button>
+      <!-- <span id="sizess-">-</span> -->
+      <p>size</p>
+    </div>
+      <div id="selection-sizes" style="display: none;">
+        <div>
+          <form action="">
+            <div>
+              <label for="widht">W</label>
+            <input type="number" name="number-widht" id="widht">
+            <label for="height">H</label>
+            <input type="number" name="number-HEIGHT" id="height">
+            </div>
+            <div>
+              <input type="number" name="" id="boders_id" placeholder="borders-radius">
+            </div>
+       </div>
+
+          </form>
+        </div>
+        <div id="auti" style="display: none;">
+          
+          <span>Horizontal mode</span>
+          <select name="widht-layout" id="layout-widht" >
+            <option value="select">Select a layout</option>
+            <option value="Fixed">Fixed</option>
+            <option value="Hug">Hug</option>
+            <option style="display: none;" id="fill" value="Fill">Fill container</option>
+            <!-- <option value="Fill container">Fill container</option> -->
+          </select>
+          <span>Vertical Mode</span>
+          <select name="height-layout" id="layout-height">
+            <option value="select">Select a layout</option>
+            <option value="Fixed">Fixed</option>
+            <option value="Hug">Hug</option>
+            <option style="display: none;" id="fillVer" value="Fill">Fill container</option>
+            <!-- <option value="Fill container">Fill container</option> -->
+          </select>
+          
+        </div>
+    
+    <div class="autoLayout">
+      <button class="btn2">+</button>
+      <p>AutoLayout</p>
+      <div id="auto" style="display: none;">
+        <div class="colum-left">
+          <SPAN>Select dir of frame</SPAN>
+          <select name="layoutDir" id="layoutsDIR">
+            <option value="Select a option">Select a option</option>
+            <option value="vertical">Vertical</option>
+            <option value="Horizontal">Horizontal</option>
+          </select>
+          <label for="space-between">Space-between</label>
+          <input type="text" id="space-between">
+          <label for="horizontal-padding" id="horizontal-padding">horizontal-padding</label>
+          <input type="text" id="horizontal-paddings">
+          <div style="display: none; flex-direction: column;" id="left" >
+            <label for="left-padding" id="Pd-left">Left-padding</label>
+            <input type="text" id="left-padding">
+          </div>
+        </div>
+        <div class="colum-right">
+          <select name="aligns" id="aligns">
+            <option value="Select value">Select align</option>
+            <option value="Align top left">Align top left</option>
+            <option value="Align top center">Align top center</option>
+            <option value="Align top right">Align top right</option>
+            <option value="Align left">Align left</option>
+            <option value="Align center">Align center</option>
+            <option value="Align right">Align right</option>
+            <option value="Align bottom left">Align bottom left</option>
+            <option value="Align bottom center">Align bottom center</option>
+            <option value="Align bottom right">Align bottom right</option>
+          </select>
+          <label for="vertical-padding" id="vertical">vertical-padding</label>
+          <input type="text" id="vertical-padding">
+          <label for="top-padding" style="display: none;" id="top">Top padding</label>
+          <input type="text" id="top-padding" style="display: none;">
+          <label for="bottom-padding" id="bot" style="display: none;">bottom-padding</label>
+          <input type="text" id="bottom-padding" style="display: none;">
+          <label for="right-padding" id="right" style="display: none;">right-padding</label>
+          <input type="text" id="right-padding" style="display: none;">
+
+          
+        </div>
+        <button style="width: 100px; height: 70px; margin-left: 30px; float: right;" id="miBoton">Indivual padding</button>
+        <button style="width: 100px; height: 70px; margin-left: 30px; float: right;" id="miBotonGrupal">grupal padding</button>
+      </div>
+    </div>
+
+    <div class="Grids">
+      <button class="btn3"><span class="icon">+</span></button>
+      <button class="btn3None" style="margin-right: 10px; display: none;">+</button>
+      <p>Layouts grids</p>
+      
+      <div id="content-grids">
+        <div id="grids-layout" class="grids-layout" style="display: none; align-items: center;">
+      
+          <img id="gridt" style="cursor: pointer; height: 50px; width: 50px;"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII=" />
+          <span id="spanGrids" style="color:white; text-align: center;"></span>
+          <div style="background-color: #2c2c2c; color: white; display: none; margin-left: 20;" id="optionsGrids">
+            <div>
+              <select name="" id="dimentions">
+                <option value="Grid">Grid</option>
+                <option value="Columns">Columns</option>
+                <option value="Rows">Rows</option>
+              </select>
+            </div>
+            <label for="zise" id="zises">Size</label>
+      
+            <input type="number" id="zise">
+            <label for="count" style="display: none;" id="count">Count</label>
+            <input type="number" id="countsColumns" style="display: none;">
+            <label id="spanColumns" style="display: none;">type</label>
+            <select name="" id="typeColumns" style="display:none">
+              <option value="left">Left</option>
+              <option value="right">right</option>
+              <option value="center">center</option>
+              <option value="stretch">stretch</option>
+            </select>
+            <label id="widhtSpan" style="display: none;">Widht</label>
+            <input type="number" name="" id="widhtColumns" style="display: none;">
+            <label id="margin" style="display: none;">Margin</label>
+            <input type="number" name="" id="margins" style="display: none;">
+            <label id="GutterSpan" style="display: none;">Gutter</label>
+            <input type="number" name="" id="gutters" style="display: none;">
+            <label id="offset" style="display: none;">OffSet</label>
+            <input type="number" id="offsets" style="display: none;">
+      
+            <img id="close" style="cursor: pointer;"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAYVJREFUaEPtmN1pw0AQhOfyEL8IYnfgElxC0kk6ijtIS+kgpALbYBAEjIJAAnFw1s3+OBZev/o0N9/O6lZSwsJ/aeH+EQD/nWAkEAkoKxAtpCyg+vJIQF1CpcBjJ9AdDuu02Rw1RdRqiBP4PZ/fO+AjAW/PTfMlgbDQEAEMG38Opo8SCAuNfn8aoG3b7dPl8p1VnILIzI9SP6um2bJJ0gD9BgUDVRCFa08JeJW0oghACmFtXtRC04iZJDzMqwFqk/AybwIwBwFg1wHjiTUGKO75/CYX3wO5UKmdAKyztWbmzRIYDRYgpv5NzZsDXGmn/i9z87cGqJoTNxlkpU0qWsgcwvsmPgF40Tx2zCViAnDtnC8co2ZJqAFqhhQzsecqbjoHaszPHLHqJMQJMOY9IUQAEvNeEDRA4YWGGlL39kJDmS8kIdJQTeKhinvpm9TksUOlQbfQ9BjTfhLptbQaKgD2zPZYHwAeVWU0IwGmWh5rIwGPqjKakQBTLY+1kYBHVRnNxSfwB42yEED2b7hOAAAAAElFTkSuQmCC" />
+          </div>
+      
+      
+      
+        </div>
+        
+      </div>
+      
+     
+      
+    </div>
+    
+    <div class="fill">
+      <button class="btn4"><span class="icon">+</span></button>
+      <p>Fill</p>
+      <div id="filled" style="display: none;">
+        <div class="color" style="display: flex; background-color: #2c2c2c;">
+          <input type="color" id="paleta">
+            <input type="text" id="opacity" value="100%" style="width: 60px; margin: 0 0 0 12;">
+        </div>
+      </div>
+    </div>
+    <div class="stroke">
+      <button class="btn5"><span class="icon">+</span></button>
+      <p>Stroke</p>
+      <div id="fille" style="display: none;">
+        <div class="color" style="display: flex; background-color: #2c2c2c;">
+          <input type="color" id="paletas">
+            <input type="text" id="opacidad" value="100%" style="width: 60px; margin: 0 0 0 12;">
+        </div>
+      </div>
+      <div id="row-bottom" style="background-color: #2c2c2c; display: none;">
+        <select name="centers" id="rowStroke">
+          <option value="center">Center</option>
+          <option value="inside">inside</option>
+          <option value="Outside">Outside</option>
+        </select>
+        <img src="https://i.imgur.com/vA1OxOU.png" alt="" style="height: 28px; position: absolute;">
+        <input type="text" style="width: 60; margin: 0 0 0 25;" id="weightStroke">
+      </div>
+    </div>
+    
+    <input type="submit" value="Save group style" id="savedValues">
+  </div>
+
+  <div class="container" style="display: none;" id="sign-up">
+    <div class="wrapper">
+      <div class="title"><span>Login UserX</span></div>
+      <form action="#" id="login-users">
+        <div class="row">
+          <i class="fas fa-user"></i>
+          <input type="email" placeholder="Myexample@gmail.es" required id="emailUser">
+        </div>
+        <div class="row">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" required id="passwordUserLogin">
+        </div>
+        
+        <div class="row button">
+          <input type="submit" value="Login">
+        </div>
+       
+      </form>
+    </div>
+  </div>
+
+  <div class="register-container" style="display: none;" id="register">
+    <h2>Registro</h2>
+    <form id="register-form">
+      <label for="email">Email:</label>
+      <input type="email" id="emailUserRegister" name="email" required>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="passwordUserRegister" name="password" required>
+      
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+
+
+  <div id="muroPerfil" style="display: none;">
+    <h1>Name</h1>
+    <h4>Edit your profile</h4>
+
+    <button>Styles saveds</button>
+  </div>
+  
+  
+
+  <script >
+
+   
+
+    addEventListener('load', button)
+
+    function button() {
+      const gridsSection = document.getElementById('grids-compact')
+      const primary = document.getElementById("primary").style.display = "none"
+          const secondary = document.getElementById("secondary").style.display = "none"
+          const terciary = document.getElementById("terciary").style.display = "none"
+          const quarter = document.getElementById("quarter").style.display = "none"
+      gridsSection.style.display = "none"
+      const login = document.getElementById("sign-up")
+      login.style.display = "block"
+      document.querySelector('section').style.display = " none"
+      document.getElementById('my-button').style.display = " block"; console.log('Cargaste tu plugin');
+      document.getElementById('create-Frame').onclick = () => {
+        const radio = document.querySelectorAll(".check")
+        const boton = document.getElementById('my-button');
+        radio.forEach(element => {
+          element.type = 'checkbox'
+        })
+
+        
+
+        const submit = document.getElementById('my-button').style.display = 'block';
+
+        const inputs = document.querySelector("section");
+
+        inputs.style.display = "none"
+
+        const form = document.querySelector('form');
+        form.style.display = "block"
+
+
+        for (let i = 0; i < inputs.length; i++) { inputs[i].setAttribute("variantgroup", "new-name-" + i); }
+      }
+      const button = document.getElementById('my-button') 
+      button.addEventListener("click", (event) => {
+        event.preventDefault()
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        let selectedCheckbox = [];
+        checkboxes.forEach((element) => {
+          selectedCheckbox.push(element.id)
+          selectedCheckbox.sort()
+          // console.log(selectedCheckbox);
+        })
+
+        if (selectedCheckbox) {
+          window.parent.postMessage({ pluginMessage: { type: 'buttonWasClicked', data: selectedCheckbox } },
+            "*");
+        }
+      })
+    }
+
+    document.getElementById('scale-selected').onclick = () => {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach(element => {
+        element.type = 'radio'
+      });
+
+      document.getElementById('MacAir').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'macair-selected' } }, '*')
+      }
+
+      document.getElementById('MacPro14').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'macPro14-selected' } }, '*')
+      }
+
+      document.getElementById('Macpro16').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'macPro16-selected' } }, '*')
+      }
+
+      document.getElementById('iphone13').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'iPhone13-selected' } }, '*')
+      }
+
+      document.getElementById('iPadPro').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'iPad-selected' } }, '*')
+      }
+
+      document.getElementById('Android').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'Android-selected' } }, '*')
+      }
+
+      const form = document.querySelector("form");
+
+      form.style.display = "none";
+
+      const section = document.querySelector('section');
+      section.style.display = "block"
+
+    }
+
+    document.getElementById('radioOne').onclick = () => {
+      const gridsSection = document.getElementById('grids-compact');
+      gridsSection.style.display = "none";
+      const aparece = document.getElementById('layouts').style.display = "flex";
+    }
+
+    const RadioSmall = document.getElementById('smallM');
+    RadioSmall.addEventListener("click", function () {
+      const layouts = document.getElementById('layouts').style.display = "none"
+      const fonts = document.getElementById('fonts').style.display = "flex"
+
+
+
+      window.parent.postMessage({ pluginMessage: { type: "SmallSelected" } }, '*')
+
+    });
+
+    const sizes = {};
+
+    document.querySelectorAll('input[type="number"]').forEach((input) => {
+      input.addEventListener('change', (event) => {
+        const id = event.target.id;
+        const value = parseInt(event.target.value);
+        sizes[id] = value;
+
+        // console.log(id);
+        parent.postMessage({ pluginMessage: { type: "fonts", data: sizes, valor: value } }, "*")
+      });
+    });
+
+    // When the user is ready to create the new frame:
+
+
+    const butto = document.getElementById("mandelos")
+    butto.addEventListener("click", function () {
+      const fonts = document.getElementById('fonts').style.display = "none"
+      const container_right = document.getElementById('container-right').style.display = "flex"
+    })
+
+
+
+
+
+
+
+
+    const radioMedium = document.getElementById("mediumM");
+    radioMedium.addEventListener("click", function () {
+      const layouts = document.getElementById('layouts').style.display = "none"
+      const fonts = document.getElementById('fonts').style.display = "flex"
+      window.parent.postMessage({ pluginMessage: { type: "mediumSelected" } }, "*")
+    })
+    const radiolarge = document.getElementById("lgM");
+    radiolarge.addEventListener("click", function () {
+      const layouts = document.getElementById('layouts').style.display = "none"
+      const fonts = document.getElementById('fonts').style.display = "flex"
+      window.parent.postMessage({ pluginMessage: { type: "largeSelected" } }, "*")
+    })
+    const radioSmNo = document.getElementById("sm");
+    radioSmNo.addEventListener("click", function () {
+      const layouts = document.getElementById('layouts').style.display = "none"
+      const fonts = document.getElementById('fonts').style.display = "flex"
+      window.parent.postMessage({ pluginMessage: { type: "smallNoMargin" } }, "*")
+    })
+    const radioMdNO = document.getElementById("md");
+    radioMdNO.addEventListener("click", function () {
+      const layouts = document.getElementById('layouts').style.display = "none"
+      const fonts = document.getElementById('fonts').style.display = "flex"
+      window.parent.postMessage({ pluginMessage: { type: "mediumNoMargin" } }, "*")
+    })
+
+    const radiolargeNo = document.getElementById("lg");
+    radiolargeNo
+      .addEventListener("click", function () {
+        const layouts = document.getElementById('layouts').style.display = "none"
+        const fonts = document.getElementById('fonts').style.display = "flex"
+        window.parent.postMessage({ pluginMessage: { type: "largeNoMargin" } }, "*")
+      })
+
+
+
+    const compact = document.getElementById("radioTwo")
+    compact.addEventListener("click", function () {
+      const preguntados = document.getElementById("grids-compact")
+      preguntados.style.display = "none"
+      const devices = document.getElementById("container-right");
+      devices.style.display = "flex"
+    })
+
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------
+
+    const style = document.getElementById("styling");
+    style.addEventListener("click", function () {
+      const style = document.getElementById("estilo").style.display = "flex"
+      const listi = document.getElementById("listStyles").style.display = "flex"
+      const grid = document.getElementById("layouts").style.display = "none"
+      const muro = document.getElementById("muroPerfil").style.display = "none"
+      const fonts = document.getElementById("fonts").style.display = "none"
+      const container_roght = document.getElementById("container-right").style.display = "none"
+      
+      // const message = { pluginMessage: { type: "frameSelectede"} };
+      
+      const grids=  document.getElementById("grids-compact").style.display = "none"
+      // const lists = document.getElementById("listStyles").style.display = "block"
+
+      window.parent.postMessage({pluginMessage : {type : "frameSelected"}}, "*");
+    });
+
+    const charge = document.getElementById("charge")
+    charge.addEventListener("click", function() {
+      const viewTwo =  document.getElementById("listStyles").style.display = "none"
+      const estilo = document.getElementById("estilo").style.display = "none"
+      const styles = document.getElementById("styles").style.display = "flex"
+      const grid = document.getElementById("layouts").style.display = "none"
+      const muro = document.getElementById("muroPerfil").style.display = "none"
+      const fonts = document.getElementById("fonts").style.display = "none"
+      const container_roght = document.getElementById("container-right").style.display = "none"
+      // parent.postMessage({pluginMessage :{type : "vista2"}}, "*")
+      window.parent.postMessage({pluginMessage : {type : "ItCchild"}}, "*" )
+    })
+
+const buron = document.querySelector(".btn1")
+buron.addEventListener("click", function () {
+  if (buron.innerHTML === "+") {
+    buron.innerHTML = "-"
+    const selection = document.getElementById('selection-sizes').style.display = "flex"
+    const auto = document.getElementById("auti").style.display = "block"
+  } else {
+    
+    buron.innerHTML = "+"
+    const auto = document.getElementById("auti").style.display = "none"
+    const selection = document.getElementById('selection-sizes').style.display = "none"
+  }
+})
+const buon = document.querySelector(".btn2")
+buon.addEventListener("click", function () {
+  if (buon.innerHTML === "+") {
+    buon.innerHTML = "-"
+    select.disabled = false
+    selectHeight.disabled = false
+    
+    const selection = document.getElementById('auto').style.display = "flex"
+
+    window.parent.postMessage({pluginMessage: {type : "autolayoutAdded"}}, "*")
+    
+  } else {
+    buon.innerHTML = "+"
+    select.disabled = true
+    selectHeight.disabled = true
+    const selection = document.getElementById('auto').style.display = "none"
+    window.parent.postMessage({pluginMessage : {type : "noAdded"}}, "*")
+  }
+})
+
+const button3 = document.querySelector(".btn3")
+button3.addEventListener("click", function () {
+  if (button3.innerHTML === "+") {
+    button3.innerHTML = "-"
+    const buttonDisabled = document.querySelector(".btn3None")
+    buttonDisabled.style.display = "block"
+    var spans = document.getElementById("grids-layout").style.display = "flex"
+    
+    window.parent.postMessage({pluginMessage:{type : "gridsAdd"}}, "*")
+  } else {
+    button3.innerHTML = "+"
+
+    const buttonDisabled = document.querySelector(".btn3None")
+    buttonDisabled.style.display = "none"
+    var spans = document.getElementById("grids-layout").style.display = "none"
+    window.parent.postMessage({pluginMessage : {type : "gridsClose"}}, "*")
+  }
+})
+
+
+
+    
+const close = document.getElementById("close")
+        close.addEventListener("click", () => {
+          const optionsGrids = document.getElementById("optionsGrids").style.display = "none"
+
+})
+
+
+
+
+
+
+const b4 = document.querySelector(".btn4")
+b4.addEventListener("click", function() {
+  if (b4.innerHTML === "+") {
+    b4.innerHTML = "-"
+    var colors = document.getElementById("filled").style.display = "block"
+  }else {
+    b4.innerHTML = "+"
+    var colors = document.getElementById("filled").style.display = "none"
+  }
+})
+
+const b5 = document.querySelector(".btn5")
+b5.addEventListener("click", function() {
+  if (b5.innerHTML === "+") {
+    b5.innerHTML = "-"
+    const stroke = document.getElementById("fille").style.display = "block"
+    const boottom_stroke = document.getElementById("row-bottom").style.display = "block"
+  } else {
+    b5.innerHTML = "+"
+    const stroke = document.getElementById("fille").style.display = "none"
+    const boottom_stroke = document.getElementById("row-bottom").style.display = "none"
+  }
+})
+
+const miBoton = document.getElementById("miBoton")
+miBoton.addEventListener("click", function () {
+  const horizontal_padding = document.getElementById("horizontal-padding")
+  horizontal_padding.style.display = "none"
+  const horizontal_paddings = document.getElementById("horizontal-paddings")
+  horizontal_paddings.style.display = "none"
+  const left = document.getElementById("left").style.display = "flex"
+  // left.style.flexDirection = "column"
+  const vc = document.getElementById("vertical").style.display = "none"
+  const cv = document.getElementById("vertical-padding").style.display = 'none'
+  const top = document.getElementById("top-padding").style.display = "block"
+  const pt = document.getElementById("top").style.display = "block"
+  const botton = document.getElementById("bot").style.display = " block"
+  const Inbot = document.getElementById("bottom-padding").style.display = "block"
+  const right = document.getElementById("right").style.display = "block"
+  const padRight = document.getElementById('right-padding').style.display = "block"
+  // const Pd_left = document.getElementById("Pd-left").style.display = "flex"
+})
+
+const grupal = document.getElementById("miBotonGrupal")
+grupal.addEventListener("click", function () {
+  const horizontal_padding = document.getElementById("horizontal-padding")
+  horizontal_padding.style.display = "flex"
+  const horizontal_paddings = document.getElementById("horizontal-paddings")
+  horizontal_paddings.style.display = "flex"
+  const left = document.getElementById("left").style.display = "none"
+  // left.style.flexDirection = "column"
+  const vc = document.getElementById("vertical").style.display = "flex"
+  const cv = document.getElementById("vertical-padding").style.display = 'flex'
+  const top = document.getElementById("top-padding").style.display = "none"
+  const pt = document.getElementById("top").style.display = "none"
+  const botton = document.getElementById("bot").style.display = "none"
+  const Inbot = document.getElementById("bottom-padding").style.display = "none"
+  const right = document.getElementById("right").style.display = "none"
+  const padRight = document.getElementById('right-padding').style.display = "none"
+})
+
+
+
+
+
+
+
+
+const select = document.getElementById('layout-widht');
+  const seleccionInicial = select.value; 
+  select.disabled = true// Guardar la selección inicial
+
+  select.addEventListener('change', () => {
+    const seleccionAnterior = select.value;
+    
+    // console.log(select.value); // Guardar la selección anterior
+    const confirmado = confirm("¿Deseas continuar?, al continuar automaticamente se aplicara auto layout a este frame")
+    
+    if (!confirmado) {
+      select.value = seleccionInicial;
+       // Revertir el cambio
+    } else {
+      select.disabled = false
+      buon.innerHTML = "-"
+      const selection = document.getElementById('auto').style.display = "flex"
+    }
+    
+  });
+
+const selectHeight = document.getElementById("layout-height")
+selectHeight.disabled = true
+selectHeight.addEventListener("change", () => {
+  const valorInitial = selectHeight.value
+  const confirmado = confirm("¿Deseas continuar?, al continuar automaticamente se aplicara auto layout a este frame")
+  if (!confirmado) {
+      selectHeight.value = valorInitial; // Revertir el cambio
+    } else {
+      selectHeight.disabled = false
+    }
+    
+})
+
+
+const selectVerticalORHorizontal = document.getElementById("layoutsDIR")
+selectVerticalORHorizontal.addEventListener("change", function () {
+  const data = selectVerticalORHorizontal.value
+  const message = "¿Deseas que la direccion de tu frame sea" + " " + data + "?"
+  if (confirm(message)) {
+    true
+  } else {
+    selectVerticalORHorizontal.value = "Select a option"
+  }
+
+})
+
+const space = document.getElementById("space-between")
+space.addEventListener("change", function () {
+  const datos = space.value
+})
+
+const horizontal_paddings = document.getElementById("horizontal-paddings")
+horizontal_paddings.addEventListener("change", () => {
+  paddingLeft.value = horizontal_paddings.value
+  right_Padding.value = horizontal_paddings.value
+})
+
+const right_Padding = document.getElementById("right-padding")
+
+
+const vertical_padd = document.getElementById("vertical-padding")
+vertical_padd.addEventListener("change", () => {
+  padtop.value = vertical_padd.value
+  bottomPaddign.value = vertical_padd.value
+
+})
+
+const aligns = document.getElementById("aligns")
+aligns.addEventListener("change", () => {
+  const valorAlign = aligns.value
+  
+})
+
+const paddingLeft = document.getElementById("left-padding")
+paddingLeft.addEventListener("change", () => {
+  const leftPad = paddingLeft.value
+})
+
+const padtop = document.getElementById("top-padding")
+padtop.addEventListener("change", () => {
+  const top = padtop.value
+
+})
+
+const size = document.getElementById("zise")
+
+
+
+
+const bottomPaddign = document.getElementById("bottom-padding")
+
+const grids = document.getElementById("gridt")
+grids.addEventListener("click", () => {
+  const optionsGrids = document.getElementById("optionsGrids").style.display = "block"
+})
+
+
+const dimentions = document.getElementById("dimentions")
+dimentions.addEventListener("change" , () => {
+  if (dimentions.value === "Columns") {
+    const imgOne = document.getElementById("gridt")
+    imgOne.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAn0lEQVR4nO2ZQQrDMAwE/byG/v8Daf8QjXVQoddAXGgSQpgB3yzwYluW1q2JiFyKjHh2eCfU1ljFDeb/G9/hlRHTUMB34gEL2CO+wzzegQMXsEd8UwDuQHmEtvASYxYq02j6kOFLnJYSWMyV1SiW09jQpB0ZtpRlU4+uRGmrpMYWOnOptYjmbulO3/+DI2L6RcTZAjrMuSyPoQARkXYmHw/AozUIFM6uAAAAAElFTkSuQmCC"
+    
+    const labelCount = document.getElementById("count").style.display = "flex"
+    const columnsinputs = document.getElementById("countsColumns")
+    columnsinputs.style.display = "block"
+    columnsinputs.value = 10
+
+    const zise = document.getElementById("zise").style.display = "none"
+    const labelSize = document.getElementById("zises").style.display = "none"
+    const selectColumns = document.getElementById("typeColumns")
+    selectColumns.style.display = "block"
+    const spanColumns = document.getElementById("spanColumns").style.display = "flex"
+    const labelWidht = document.getElementById("widhtSpan").style.display = "flex"
+    const inputWidht = document.getElementById("widhtColumns")
+    inputWidht.style.display = "block"
+    inputWidht.value = 10
+    const marginspan = document.getElementById("margin").style.display = "flex"
+    const margins = document.getElementById("margins").style.display = "flex"
+    const gutterSPan = document.getElementById("GutterSpan").style.display = "flex"
+    const gutterinput = document.getElementById("gutters").style.display = "flex"
+    
+    
+    
+  } 
+  else if (dimentions.value === "Rows") {
+    const imgOne = document.getElementById("gridt")
+    imgOne.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYUlEQVR4nO3WwQ2AMBTDUO8/FhVzhQW4VuQXvw0iXwKSpC8luTPPehsyEg4pg0XKYJEyWKQMxxZRmwyFQ8pgkTJYpAwWKYPaZSgcUgaLlMEiZbBIGU4usjLPtfnwSJJ+4gEb7zIUv7M2UAAAAABJRU5ErkJggg=="
+    
+    const labelCount = document.getElementById("count").style.display = "flex"
+    const columnsinput = document.getElementById("countsColumns").style.display = "flex"
+    const zise = document.getElementById("zise").style.display = "none"
+    const labelSize = document.getElementById("zises").style.display = "none"
+    const selectColumns = document.getElementById("typeColumns").style.display = "flex"
+    const spanColumns = document.getElementById("spanColumns").style.display = "flex"
+    const labelWidht = document.getElementById("widhtSpan").style.display = "flex"
+    labelWidht.textContent = "Height"
+    const inputWidht = document.getElementById("widhtColumns").style.display = "flex"
+    const marginspan = document.getElementById("margin").style.display = "flex"
+    const margins = document.getElementById("margins").style.display = "flex"
+    const gutterSPan = document.getElementById("GutterSpan").style.display = "flex"
+    const gutterinput = document.getElementById("gutters").style.display = "flex"
+  }
+  else if (dimentions.value === "Grid") {
+    const imgOne = document.getElementById("gridt")
+    imgOne.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII="
+    
+    const zise = document.getElementById("zise").style.display = "flex"
+    const labelSize = document.getElementById("zises").style.display = "flex"
+    const selectColumns = document.getElementById("typeColumns").style.display = "none"
+    const spanColumns = document.getElementById("spanColumns").style.display = "none"
+    const labelWidht = document.getElementById("widhtSpan").style.display = "none"
+    const inputWidht = document.getElementById("widhtColumns").style.display = "none"
+    const marginspan = document.getElementById("margin").style.display = "none"
+    const margins = document.getElementById("margins").style.display = "none"
+    const gutterSPan = document.getElementById("GutterSpan").style.display = "none"
+    const gutterinput = document.getElementById("gutters").style.display = "none"
+    const labelCount = document.getElementById("count").style.display = "none"
+    const columnsinput = document.getElementById("countsColumns").style.display = "none"
+    
+  }
+})
+
+
+
+
+const stretch = document.getElementById("typeColumns")
+stretch.addEventListener("change", () => {
+  const columnsinputs = document.getElementById("countsColumns")
+  if (stretch.value === "stretch") {
+    const inputWidth = document.getElementById("widhtColumns")
+    inputWidth.disabled = true
+    spanGrids.textContent = columnsinputs.value + " " + "columns" + " (Auto)"
+    // inputWidth.textContent = "Auto"
+    inputWidth.value = ""
+    inputWidth.placeholder = "Auto"
+    
+    const MarginSpan = document.getElementById("margin").style.display = "block"
+    MarginSpan.textContent = "Margin"
+    const marginsInput = document.getElementById("margins").style.display = "block"
+    const ofset = document.getElementById("offset").style.display = "none"
+    const inpusEt = document.getElementById("offsets").style.display = "none"
+    
+  }
+  if (stretch.value === "left") {
+    const inputWidth = document.getElementById("widhtColumns")
+    inputWidth.value = 10
+    inputWidth.disabled = false
+    const margin = document.getElementById("margin").style.display = "none"
+    const marginInput = document.getElementById("margins").style.display = "none"
+    const ofset = document.getElementById("offset").style.display = "block"
+    const inpusEt = document.getElementById("offsets")
+    inpusEt.style.display = "block"
+    inpusEt.disabled = false
+  }
+  if (stretch.value === "right") {
+    const inputWidth = document.getElementById("widhtColumns")
+    inputWidth.value = 10
+    inputWidth.disabled = false
+    const margin = document.getElementById("margin").style.display = "none"
+    const marginInput = document.getElementById("margins").style.display = "none"
+    const ofset = document.getElementById("offset").style.display = "block"
+    const inpusEt = document.getElementById("offsets")
+    inpusEt.style.display = "block"
+    inpusEt.disabled = false
+  }
+  if (stretch.value === "center") {
+    const inputWidth = document.getElementById("widhtColumns")
+    const inputGut = document.getElementById("gutters").value
+    
+    inputWidth.value = 10
+    inputWidth.disabled = false
+    const margin = document.getElementById("margin").style.display = "none"
+    const marginInput = document.getElementById("margins").style.display = "none"
+    const ofset = document.getElementById("offset").style.display = "block"
+    const inpusEt = document.getElementById("offsets")
+    inpusEt.style.display = "block"
+    inpusEt.disabled = true
+    
+  }
+})
+
+const dimentios = document.getElementById("dimentions")
+
+dimentios.addEventListener("change", ()=> {
+  const columnsinputs = document.getElementById("countsColumns")
+  const selectColumns = document.getElementById("typeColumns")
+  const inputWidht = document.getElementById("widhtColumns")
+  const zise = document.getElementById("zise")
+  if (dimentios.value === "Columns" || dimentios.value === "Rows") {
+    if (selectColumns.value === "stretch") {
+      spanGrids.textContent = columnsinputs.value + "columns" + "(Auto)"
+    }
+    if (selectColumns.value === "left") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    if (selectColumns.value === "right") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    if (selectColumns.value === "center") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    
+  columnsinputs.addEventListener("change", () => {
+    if (selectColumns.value === "stretch") {
+      spanGrids.textContent = columnsinputs.value + " " + "Auto"
+    }
+    if (selectColumns.value === "left") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    if (selectColumns.value === "right") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    if (selectColumns.value === "center") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    inputWidht.addEventListener("change", () => {
+    if (selectColumns.value === "stretch") {
+      spanGrids.textContent = columnsinputs.value + "columns" + "(Auto)"
+    }
+    if (selectColumns.value === "left") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    if (selectColumns.value === "right") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+    if (selectColumns.value === "center") {
+      spanGrids.textContent = columnsinputs.value + " " + "columns" + " " + "(" + inputWidht.value + "px)"
+    }
+  })
+    
+  })
+  }
+  if (dimentios.value === "Grid") {
+    zise.value = 10
+    spanGrids.textContent = zise.value + " " + "Px"
+    zise.addEventListener("change", () => {
+      spanGrids.textContent = zise.value + " " + "Px"
+    })
+    
+    
+  }
+  
+  
+})
+
+
+const spanGrids = document.getElementById("spanGrids")
+const columnsinputs = document.getElementById("countsColumns")
+const inputWidht = document.getElementById("widhtColumns")
+
+
+const zise = document.getElementById("zise")
+zise.value = 10 
+spanGrids.textContent = zise.value + " " + "Px"
+zise.addEventListener("change", () => {  
+spanGrids.textContent = zise.value + " " + "Px"
+})
+
+function hexToRgb(hexColor) {
+  var hex = hexColor.replace('#', '');
+  var r = parseInt(hex.substring(0, 2), 16);
+  var g = parseInt(hex.substring(2, 4), 16);
+  var b = parseInt(hex.substring(4, 6), 16);
+  return [r, g, b];
+}
+
+
+const opacity = document.getElementById('opacity');
+opacity.addEventListener("change", ()=>{
+  console.log(opacity);
+})
+
+window.onmessage = event => {
+        const { type, text } = event.data.pluginMessage;
+        if (type === 'hello') {
+          console.log(text);
+          const select = document.getElementById('fill')
+          select.style.display = "block";
+          const layuouts = document.getElementById("layout-widht")
+          const layoutsVer = document.getElementById("layout-height")
+          const selects = document.getElementById('fillVer')
+          selects.style.display = "block";
+          parent.postMessage({ pluginMessage: { type: 'bye', fillHorizontal : layuouts.value, fillVer : layoutsVer.value} }, '*');
+          
+        }
+  };
+let contador = 0;
+var dimensionez;
+
+let buttonclicked = false;
+
+const buttonDisabled = document.querySelector(".btn3None")
+buttonDisabled.addEventListener("click", () => {
+
+})
+
+// MANDAR LOS DATOS A GUARDar
+const boton_saved = document.getElementById("savedValues")
+boton_saved.addEventListener("click", function(event) {
+  event.preventDefault()
+  
+  const input_widht =  parseInt(document.getElementById("widht").value) 
+  const input_height = parseInt(document.getElementById("height").value) 
+  const input_boders = parseInt(document.getElementById("boders_id").value) 
+  const name_group =  document.getElementById("name-group").value
+  const selectColumns = document.getElementById("typeColumns").value
+  const inputWidht = document.getElementById("widhtColumns").value
+  const inpusEt = document.getElementById("offsets").value
+  const inputGut = document.getElementById("gutters").value
+  const marginsInput = document.getElementById("margins").value
+  const opacity = document.getElementById('opacity').value
+  const opacidadStroke = document.getElementById("opacidad").value
+  const grosorStroke = document.getElementById("weightStroke").value
+  const VerticalORHorizontal = selectVerticalORHorizontal.value;
+  const rowStroke = document.getElementById("rowStroke").value
+
+  const padd = horizontal_paddings.value
+  const top_padd = vertical_padd.value
+  const alignsValue = aligns.value
+  const between = space.value
+  const paddLeft = paddingLeft.value
+  const valorW = select.value
+  const valorH = selectHeight.value
+  const padTop = padtop.value
+  const rightPad = right_Padding.value
+  const bottomPad = bottomPaddign.value
+  const dimensiones = dimentions.value
+  const sizeGrids = size.value
+  const columnsinputs = document.getElementById("countsColumns").value
+  const PaletaColores = document.getElementById("paleta")
+  const PaletaColoresStroke = document.getElementById("paletas")
+
+
+  
+  
+
+  
+
+
+
+
+  
+
+
+
+  
+
+  console.log(contador);
+
+
+
+
+
+  
+  // console.log(opacity);
+ const color = PaletaColores.value
+ 
+ 
+ const hexcolor = hexToRgb(color)
+ const colorStroke = PaletaColoresStroke.value
+ const colorStrokes = hexToRgb(colorStroke)
+
+ 
+  
+  window.parent.postMessage({pluginMessage: {type : "saveds", dataW : input_widht, dataH : input_height, dataB : input_boders, dataName : name_group, layoutW : valorW, layoutH : valorH, dirs : VerticalORHorizontal, space_between : between, paddings : padd, top_pad : top_padd, aligns : alignsValue, padLeft : paddLeft, toppad : padTop, bottomPad : bottomPad, rightPadding : rightPad, dimentions : dimensiones, sizeGrids : sizeGrids, columnsInput : columnsinputs, inputW : inputWidht, selectAlign : selectColumns, gutter : inputGut, offset : inpusEt, marginStretch : marginsInput, colorPalette : hexcolor, opacity : opacity, colorStroke : colorStrokes, opacityStroke : opacidadStroke, grosorStroke : grosorStroke, positionStroke : rowStroke, dimentions2 : dimensionez.value, counter : contador}}, "*")
+  
+
+})
+
+
+
+window.onmessage = event => {
+        const { type, text } = event.data.pluginMessage;
+        if (type === 'hello') {
+          console.log(text);
+          const select = document.getElementById('fill')
+          select.style.display = "block";
+          const layuouts = document.getElementById("layout-widht")
+          const layoutsVer = document.getElementById("layout-height")
+          const selects = document.getElementById('fillVer')
+          selects.style.display = "block";
+          parent.postMessage({ pluginMessage: { type: 'bye', fillHorizontal : layuouts.value, fillVer : layoutsVer.value} }, '*');
+          
+        }
+
+        if (type === "registration_successful") {
+          const sing_up = document.getElementById("register")
+          sing_up.style.display = "none"
+          const loginEmail = document.getElementById("emailUser").value
+          const passwLogin = document.getElementById("passwordUserLogin").value
+          const sign_in = document.getElementById("sign-up")
+          
+          sign_in.style.display = "block"
+          parent.postMessage({ pluginMessage: { type: "login", emaiLogin: loginEmail, passwLogins: passwLogin } }, "*")
+        }
+
+        if (type === "login_successful") {
+          const icons = document.getElementById("signIN")
+          icons.style.display = "none"
+          const perfil = document.getElementById("perfil")
+          perfil.style.display = "flex"
+          const sign_in = document.getElementById("sign-up")
+          sign_in.style.display = "none"
+          const logOut = document.getElementById("logOut")
+          logOut.style.display = "flex"
+          logOut.addEventListener("click", () => {
+            parent.postMessage({pluginMessage : {type : "logOut"}}, "*")
+          })
+          const upSIGN = document.getElementById("UP").style.display = "none"
+          const primary = document.getElementById("primary").style.display = "flex"
+          const secondary = document.getElementById("secondary").style.display = "flex"
+          const terciary = document.getElementById("terciary").style.display = "flex"
+          const quarter = document.getElementById("quarter").style.display = "flex"
+          const gridsSection = document.getElementById('grids-compact');
+          gridsSection.style.display = "flex"
+          
+        }
+
+        if (type === "logOutt") {
+            const grids = document.getElementById("grids-compact")
+            grids.style.display = "none"
+            const primary = document.getElementById("primary").style.display = "none"
+          const secondary = document.getElementById("secondary").style.display = "none"
+          const signUP = document.getElementById("UP").style.display = "flex"
+          const signIN = document.getElementById("signIN").style.display = "flex"
+          const logOut = document.getElementById("logOut").style.display = "none"
+          const perfil = document.getElementById("perfil").style.display = "none"
+          const terciary = document.getElementById("terciary").style.display = "none"
+          const quarter = document.getElementById("quarter").style.display = "none"
+          const estilo = document.getElementById("estilo").style.display = "none"
+          const estilos = document.getElementById("listStyles").style.display = "none"
+
+        }
+  };
+
+
+  const perfil = document.getElementById("perfilUser")
+          perfil.addEventListener("click", () => {
+            console.log("oe");
+            const muro = document.getElementById("muroPerfil")
+            muro.style.display = "block"
+            const gridsSection = document.getElementById('grids-compact');
+            gridsSection.style.display = "none"
+            const estilos = document.getElementById('styles');
+            const h1 = document.getElementById('listStyles');
+            const estilo = document.getElementById('estilo');
+            const layouts = document.getElementById('layouts');
+            layouts.style.display = "none"
+            const fonts = document.getElementById('fonts');
+            const right = document.getElementById('container-right');
+            right.style.display = "none" 
+            fonts.style.display = "none"
+            estilo.style.display = "none"
+            h1.style.display = "none"
+            estilos.style.display = "none"
+            // gridsSection.style.display = "none"
+          })
+
+          buttonclicked = true;
+          
+          let arrCount = []
+
+          function jhonjait () {
+            let a =  Math.random().toString(32).substr(2, 9)
+            let b = Date.now()
+
+            return a + b
+          }
+        
+            
+          const buttonDisable = document.querySelector(".btn3None")
+          buttonDisable.addEventListener("click", () => {
+
+            let counter = jhonjait();
+            
+    let divOriginal = document.getElementById("grids-layout");
+      const divContent = document.getElementById("content-grids")
+            const content = document.createElement("div")
+            const logo = document.createElement("img")
+            
+            logo.setAttribute("id", "gridt" + counter)
+            logo.style.cursor = "pointer"
+            logo.style.height = "50px"
+            logo.style.width = "50px"
+            logo.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII="
+
+            const span = document.createElement("span")
+            span.setAttribute("id", "spanGrids" + counter)
+            span.style.color = "white"
+            span.style.textAlign = "center"
+            span.textContent = "10 px"
+            content.setAttribute("id", "grids-layout" + counter)
+            content.setAttribute("class", "grids-layout")
+            content.style.display = "flex"
+            content.style.alignItems = "center"
+            // content.style.display = "none";
+            content.style.backgroundColor = "#2c2c2c"
+            content.style.alignItems = "center"
+
+            const options = document.createElement("div");
+            options.setAttribute("id", "optionsGrids" + counter);
+            options.style.backgroundColor = "#2c2c2c";
+            options.style.color = "white";
+            options.style.display = "none";
+            options.style.marginLeft = "100px";
+            const divSelect = document.createElement("div")
+            const select = document.createElement("select")
+            select.setAttribute("id", "dimentions" + counter)
+            const option1 = document.createElement("option")
+            const option2 = document.createElement("option")
+            const option3 = document.createElement("option")
+            option1.value = "Grid"
+            option2.value = "Columns"
+            option3.value = "Rows"
+            option1.textContent = "Grid"
+            option2.textContent = "Columns"
+            option3.textContent = "Rows"
+            select.add(option1)
+            select.add(option2)
+            select.add(option3)
+            const labelZise = document.createElement("label")
+            labelZise.setAttribute("id", "zises" + counter)
+            labelZise.textContent = "Size"
+            const inputCount = document.createElement("input")
+            inputCount.setAttribute("id", "zise" + counter)
+            inputCount.style.width = "200px"
+            inputCount.type = "number"
+            const labelCount = document.createElement("label")
+            labelCount.setAttribute("for", "count")
+            labelCount.setAttribute("id", "count" + counter)
+            labelCount.textContent = "count"
+            const inputNumber = document.createElement("input")
+            inputNumber.setAttribute("id", "countsColumns" + counter)
+            inputNumber.style.width = "200px"
+            const labelCounts = document.createElement("label")
+            labelCounts.setAttribute("id", "spanColumns" + counter)
+            labelCounts.textContent = "type"
+            inputNumber.type = "number"
+            const selectSize = document.createElement("select")
+            selectSize.setAttribute("id", "typeColumns" + counter)
+            selectSize.style.width = "200px"
+            const optionOne = document.createElement("option")
+            optionOne.value = "left"
+            optionOne.text = "Left"
+            const optiontwo = document.createElement("option")
+            optiontwo.value = "right"
+            optiontwo.text = "right"
+            const optionthree = document.createElement("option")
+            optionthree.value = "center"
+            optionthree.text = "center"
+            const optionFour = document.createElement("option")
+            optionFour.value = "stretch"
+            optionFour.text = "stretch"
+            selectSize.add(optionOne)
+            selectSize.add(optiontwo)
+            selectSize.add(optionthree)
+            selectSize.add(optionFour)
+            const labelWidht = document.createElement("label")
+            labelWidht.textContent = "Widht"
+            // labelWidht.style.display = "none"
+            labelWidht.setAttribute("id", "widhtSpan" + counter)
+            const widhtIn = document.createElement("input")
+            widhtIn.setAttribute("id", "widht" + counter)
+            widhtIn.style.width = "200px"
+
+            // inputWidht.style.display = "none"
+            const labelMargin = document.createElement("label")
+            labelMargin.setAttribute("id", "margin" + counter)
+            // labelMargin.style.display = "none"
+            labelMargin.textContent = "Margin"
+            const inputMargin = document.createElement("input")
+            inputMargin.setAttribute("id", "margins" + counter)
+            inputMargin.style.width = "200px"
+            // inputMargin.style.display = "none"
+            const labelGut = document.createElement("label")
+            labelGut.setAttribute("id", "GutterSpan" + counter)
+            // labelGut.style.display = "none"
+            const inputGu = document.createElement("input")
+            inputGu.type = "number"
+            inputGu.style.width = "200px"
+            inputGu.setAttribute("id", "gutters" + counter)
+            // inputGut.style.display = "none"
+            labelGut.textContent = "Gutter"
+            const labelOff = document.createElement("label")
+            labelOff.setAttribute("id", "offset" + counter)
+            // labelOff.style.display = "none"
+            labelOff.textContent = "OffSet"
+            const inputOff = document.createElement("input")
+            inputOff.type = "number"
+            inputOff.style.width = "200px"
+            inputOff.setAttribute("id", "offsets" + counter)
+
+            // inputOff.style.display = "none"
+
+            const close = document.createElement("img")
+            close.setAttribute("id", "close" + counter)
+            close.style.cursor = "pointer"
+            close.style.width = "40px"
+            close.style.height = "40px"
+            close.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAYVJREFUaEPtmN1pw0AQhOfyEL8IYnfgElxC0kk6ijtIS+kgpALbYBAEjIJAAnFw1s3+OBZev/o0N9/O6lZSwsJ/aeH+EQD/nWAkEAkoKxAtpCyg+vJIQF1CpcBjJ9AdDuu02Rw1RdRqiBP4PZ/fO+AjAW/PTfMlgbDQEAEMG38Opo8SCAuNfn8aoG3b7dPl8p1VnILIzI9SP6um2bJJ0gD9BgUDVRCFa08JeJW0oghACmFtXtRC04iZJDzMqwFqk/AybwIwBwFg1wHjiTUGKO75/CYX3wO5UKmdAKyztWbmzRIYDRYgpv5NzZsDXGmn/i9z87cGqJoTNxlkpU0qWsgcwvsmPgF40Tx2zCViAnDtnC8co2ZJqAFqhhQzsecqbjoHaszPHLHqJMQJMOY9IUQAEvNeEDRA4YWGGlL39kJDmS8kIdJQTeKhinvpm9TksUOlQbfQ9BjTfhLptbQaKgD2zPZYHwAeVWU0IwGmWh5rIwGPqjKakQBTLY+1kYBHVRnNxSfwB42yEED2b7hOAAAAAElFTkSuQmCC"
+
+            // appends
+            divSelect.append(select)
+            options.append(divSelect, labelZise, inputCount, labelCount, inputNumber, labelCounts, selectSize, labelWidht, widhtIn, labelMargin, inputMargin, labelGut, inputGu, labelOff, inputOff, close)
+
+            content.append( logo, span, options)
+            divContent.append(content)
+            logo.addEventListener("click", () => {
+              options.style.display = "flex"
+              options.style.flexDirection = "column"
+          })
+
+          let imagenClonada = document.querySelector("#gridt" + counter);
+          imagenClonada.setAttribute("data-id", counter); // Agregar un atributo de datos con el ID actual
+          imagenClonada.addEventListener("click", function() {
+            console.log("La imagen clonada " + imagenClonada.id + " ha sido clickeada");
+            // const id = imagenClonada.getAttribute("data-id");
+            const options = document.querySelector("#optionsGrids" + counter);
+            options.style.display = "block";
+            console.log(options);
+            document.appendChild(options);
+          });
+
+
+
+          close.addEventListener("click", function () {
+            console.log("el icono pulsado es" + close.id);
+            const optionss = options.getAttribute("id")
+            console.log(optionss);
+            if (options !== null) {
+              options.style.display = "none";
+            }
+          });
+
+          
+  
+  // console.log(dimensionez);
+  let ziseElements = document.querySelectorAll("#zises" + counter + ", #zise" + counter);
+    // console.log(ziseElements);
+    let ziseGrid = document.querySelector("#zise" + counter)
+    console.log(ziseGrid);
+    let counts = document.querySelectorAll("#countsColumns" + counter + ", #counter" + counter + ", #spanColumns" + counter + ", #typeColumns" + counter +  ", #widhtSpan" + counter +  ", #widht" + counter + ", #margin" + counter + ", #margins" + counter + ", #GutterSpan" + counter + ", #gutters" + counter)
+    console.log(counts);
+    let spangrid = document.querySelector("#spanGrids" + counter)
+    let valueCount = document.querySelector("#countsColumns" + counter)
+    let valuWidht = document.querySelector("#widht" + counter)
+    let ziseCount = document.querySelector("#zise" + counter)
+    let typos = document.querySelector("#typeColumns" + counter)
+    let marginLabel = document.querySelector("#margin" + counter)
+    let marginInput = document.querySelector(" #margins" + counter)
+    let offs = document.querySelector("#offset" + counter  )
+    let offinput = document.querySelector("#offsets" + counter)
+    let gutterInput = document.querySelector("gutters" + counter)
+    
+    dimensionez = document.querySelector("#dimentions" + counter)
+    
+    
+    let ob ;
+   dimensionez.addEventListener("change", (event) => {
+    const target = event.target
+  
+      const arrID = []
+      ob = {
+        id : content.id,                                                    
+        type : dimensionez.value
+      }
+    
+    
+    if (dimensionez.value === "Columns" ) {
+      console.log(imagenClonada);
+      console.log();
+      imagenClonada.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAn0lEQVR4nO2ZQQrDMAwE/byG/v8Daf8QjXVQoddAXGgSQpgB3yzwYluW1q2JiFyKjHh2eCfU1ljFDeb/G9/hlRHTUMB34gEL2CO+wzzegQMXsEd8UwDuQHmEtvASYxYq02j6kOFLnJYSWMyV1SiW09jQpB0ZtpRlU4+uRGmrpMYWOnOptYjmbulO3/+DI2L6RcTZAjrMuSyPoQARkXYmHw/AozUIFM6uAAAAAElFTkSuQmCC"
+      ziseElements.forEach((el) => {
+        el.style.display = "none";
+      });
+      counts.forEach((e) => {
+        e.style.display = "flex"
+      })
+      
+      valueCount.value = 10
+      valuWidht.value = 10
+   
+  
+      valuWidht.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+      spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+      valueCount.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+  
+      typos.addEventListener("change", () => {
+        if (typos.value === "stretch") {
+          valuWidht.disabled = true
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(Auto)"
+          valuWidht.value = ""
+          valuWidht.placeholder = "Auto"
+          marginLabel.style.display = "flex"
+          marginInput.style.display = "flex"
+          offinput.style.display = "none"
+          offs.style.display = "none"
+        }
+  
+        if (typos.value === "left") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "right") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "center") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = true
+        }
+      })
+  
+  
+  
+    } 
+
+    if (dimensionez.value === "Rows") {
+      imagenClonada.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYUlEQVR4nO3WwQ2AMBTDUO8/FhVzhQW4VuQXvw0iXwKSpC8luTPPehsyEg4pg0XKYJEyWKQMxxZRmwyFQ8pgkTJYpAwWKYPaZSgcUgaLlMEiZbBIGU4usjLPtfnwSJJ+4gEb7zIUv7M2UAAAAABJRU5ErkJggg=="
+      ziseElements.forEach((el) => {
+        el.style.display = "none";
+      });
+      counts.forEach((e) => {
+        e.style.display = "flex"
+      })
+      
+      valueCount.value = 10
+      valuWidht.value = 10
+  
+  
+      valuWidht.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+      spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+      valueCount.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+  
+      typos.addEventListener("change", () => {
+        if (typos.value === "stretch") {
+          valuWidht.disabled = true
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(Auto)"
+          valuWidht.value = ""
+          valuWidht.placeholder = "Auto"
+        }
+        if (typos.value === "left") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "right") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "center") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = true
+        }
+      })
+    }
+
+    if (dimensionez.value === "Grid") {
+      imagenClonada.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII="
+      ziseElements.forEach((e) => {
+        e.style.display = "flex"
+      })
+      counts.forEach((e) => {
+        e.style.display = "none"
+      })
+      spangrid.textContent = ziseCount.value + " " + "Px"
+      offinput.style.display = "none"
+          offs.style.display = "none"
+  
+  
+  
+      ziseCount.addEventListener("change", () => {
+        spangrid.textContent = ziseCount.value + " " + "Px"
+      })
+      
+    }
+
+    
+    window.parent.postMessage({
+    pluginMessage: {
+      type: "change",
+      obj : ob,
+      cont : count
+    }
+  }, "*");
+      window.parent.postMessage({pluginMessage: {type : "pressButton", objeto : ob}}, "*")
+  })
+    
+    
+    window.parent.postMessage({pluginMessage : {type : "clickk", diment : dimensionez.value}}, "*")
+    
+})
+          
+          
+  
+    
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+const login = document.getElementById("user-login")
+login.addEventListener("click", () => {
+  const gridsSection = document.getElementById('grids-compact');
+  gridsSection.style.display = "none"
+  
+  const sign_in = document.getElementById("sign-up").style.display = "none"
+  const h1 = document.getElementById("instrucions").style.display = "none"
+  const sing_up = document.getElementById("register")
+  sing_up.style.display = "flex"
+  sing_up.style.flexDirection = "column"
+})
+
+
+const register = document.getElementById("register-form")
+register.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const email = document.getElementById("emailUserRegister")
+  const passw = document.getElementById("passwordUserRegister")
+  const passwConfirm = document.getElementById("confirm-passwordUserRegister")
+
+  window.parent.postMessage({pluginMessage : {type : "submit-register", dataEmail: email.value, dataPassw: passw.value}}, "*")
+})
+
+const login_users = document.getElementById("login-users")
+login_users.addEventListener("submit", (event) => {
+  event.preventDefault()
+  const emaillogin = document.getElementById("emailUser").value
+  const passLogin = document.getElementById("passwordUserLogin").value
+
+  window.parent.postMessage({pluginMessage : {type : "login-ENTRY", emailLogin : emaillogin, contraLogin : passLogin}}, "*")
+})
+
+const signIn = document.getElementById("signIN")
+signIn.addEventListener("click", () => {
+  const sign_up = document.getElementById("sign-up")
+  sign_up.style.display = "block"
+  const register = document.getElementById("register")
+  register.style.display = "none"
+})
+
+// const buttonDisableds = document.querySelector(".btn3None")
+// buttonDisableds.addEventListener("click", () => {
+//   const divContent = document.getElementById("content-grids")
+//   const content = document.createElement("div")
+//   content.setAttribute("id", "grids-layout")
+//   content.setAttribute("class", "grids-layout")
+//   // content.style.display = "none";
+//   content.style.backgroundColor = "#2c2c2c"
+//   content.style.alignItems = "center"
+//   const logo = document.createElement("img")
+//   logo.setAttribute("id", "gridt")
+//   logo.style.cursor = "pointer"
+//   logo.style.height = "50px"
+//   logo.style.width = "50px"
+//   logo.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII="
+
+//   const span = document.createElement("span")
+//   span.setAttribute("id", "spanGrids")
+//   span.style.color = "white"
+//   span.style.textAlign = "center"
+//   span.textContent = "10 px"
+//   const options = document.createElement("div");
+//   options.setAttribute("id", "optionsGrids");
+//   options.style.backgroundColor = "#2c2c2c";
+//   options.style.color = "white";
+//   options.style.display = "none";
+//   options.style.marginLeft = "20px";
+//   const divSelect = document.createElement("div")
+//   const select = document.createElement("select")
+//   select.setAttribute("id", "dimentions")
+//   const option1 = document.createElement("option")
+//   const option2 = document.createElement("option")
+//   const option3 = document.createElement("option")
+//   option1.value = "Grid"
+//   option2.value = "Columns"
+//   option3.value = "Rows"
+//   option1.textContent = "Grid"
+//   option2.textContent = "Columns"
+//   option3.textContent = "Rows"
+//   select.add(option1)
+//   select.add(option2)
+//   select.add(option3)
+//   const labelZise = document.createElement("label")
+//   labelZise.setAttribute("id", "zises")
+//   labelZise.textContent = "Size"
+//   const inputCount = document.createElement("input")
+//   inputCount.setAttribute("id", "zise")
+//   inputCount.type = "number"
+//   const labelCount = document.createElement("label")
+//   labelCount.setAttribute("for", "count")
+//   labelCount.setAttribute("id", "count")
+//   const inputNumber = document.createElement("input")
+//   inputNumber.setAttribute("id", "countsColumns")
+//   const labelCounts = document.createElement("label")
+//   labelCounts.setAttribute("id", "spanColumns")
+//   labelCount.textContent = "type"
+//   inputNumber.type = "number"
+//   const selectSize = document.createElement("select")
+//   selectSize.setAttribute("id", "typeColumns")
+//   const optionOne = document.createElement("option")
+//   optionOne.value = "left"
+//   optionOne.text = "Left"
+//   const optiontwo = document.createElement("option")
+//   optiontwo.value = "right"
+//   optiontwo.text = "right"
+//   const optionthree = document.createElement("option")
+//   optionthree.value = "center"
+//   optionthree.text = "center"
+//   const optionFour = document.createElement("option")
+//   optionFour.value = "stretch"
+//   optionFour.text = "stretch"
+//   selectSize.add(optionOne)
+//   selectSize.add(optiontwo)
+//   selectSize.add(optionthree)
+//   selectSize.add(optionFour)
+//   const labelWidht = document.createElement("label")
+//   labelWidht.text = "Widht"
+//   labelWidht.style.display = "none"
+//   labelWidht.setAttribute("id", "widhtSpan")
+//   const inputWidth = document.createElement("input")
+//   inputWidht.type = "number"
+//   inputWidht.setAttribute("id", "widhtColumns")
+//   inputWidht.style.display = "none"
+//   const labelMargin = document.createElement("label")
+//   labelMargin.setAttribute("id", "margin")
+//   labelMargin.style.display = "none"
+//   labelMargin.text = "Margin"
+//   const inputMargin = document.createElement("input")
+//   inputMargin.setAttribute("id", "margins")
+//   inputMargin.style.display = "none"
+//   const labelGut = document.createElement("label")
+//   labelGut.setAttribute("id", "GutterSpan")
+//   labelGut.style.display = "none"
+//   const inputGut = document.createElement("label")
+//   inputGut.type = "number"
+//   inputGut.setAttribute("id", "gutters")
+//   inputGut.style.display = "none"
+//   labelGut.text = "Gutter"
+//   const labelOff = document.createElement("label")
+//   labelOff.setAttribute("id", "offset")
+//   labelOff.style.display = "none"
+//   labelOff.text = "OffSet"
+//   const inputOff = document.createElement("input")
+//   inputOff.type = "number"
+//   inputOff.setAttribute("id", "offsets")
+//   inputOff.style.display = "none"
+
+//   const close = document.createElement("img")
+//   close.setAttribute("id", "close")
+//   close.style.cursor = "pointer"
+//   close.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAYVJREFUaEPtmN1pw0AQhOfyEL8IYnfgElxC0kk6ijtIS+kgpALbYBAEjIJAAnFw1s3+OBZev/o0N9/O6lZSwsJ/aeH+EQD/nWAkEAkoKxAtpCyg+vJIQF1CpcBjJ9AdDuu02Rw1RdRqiBP4PZ/fO+AjAW/PTfMlgbDQEAEMG38Opo8SCAuNfn8aoG3b7dPl8p1VnILIzI9SP6um2bJJ0gD9BgUDVRCFa08JeJW0oghACmFtXtRC04iZJDzMqwFqk/AybwIwBwFg1wHjiTUGKO75/CYX3wO5UKmdAKyztWbmzRIYDRYgpv5NzZsDXGmn/i9z87cGqJoTNxlkpU0qWsgcwvsmPgF40Tx2zCViAnDtnC8co2ZJqAFqhhQzsecqbjoHaszPHLHqJMQJMOY9IUQAEvNeEDRA4YWGGlL39kJDmS8kIdJQTeKhinvpm9TksUOlQbfQ9BjTfhLptbQaKgD2zPZYHwAeVWU0IwGmWh5rIwGPqjKakQBTLY+1kYBHVRnNxSfwB42yEED2b7hOAAAAAElFTkSuQmCC"
+
+//   // appends
+//   divSelect.append(select)
+//   options.append(divSelect, labelZise, inputCount, labelCount, inputNumber, labelCounts, selectSize, labelWidht, inputWidht, labelMargin, inputMargin, labelGut, inputGut, labelOff, inputOff, close)
+  
+//   content.append(options, logo, span)
+//   divContent.append(content)
+//   logo.addEventListener("click", () => {
+//     options.style.display = "flex"
+//     options.style.flexDirection = "column"
+//   })
+
+// })
+
+
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- if (dimensionez.value === "Columns" ) {
+      imagenClonada.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAn0lEQVR4nO2ZQQrDMAwE/byG/v8Daf8QjXVQoddAXGgSQpgB3yzwYluW1q2JiFyKjHh2eCfU1ljFDeb/G9/hlRHTUMB34gEL2CO+wzzegQMXsEd8UwDuQHmEtvASYxYq02j6kOFLnJYSWMyV1SiW09jQpB0ZtpRlU4+uRGmrpMYWOnOptYjmbulO3/+DI2L6RcTZAjrMuSyPoQARkXYmHw/AozUIFM6uAAAAAElFTkSuQmCC"
+      ziseElements.forEach((el) => {
+        el.style.display = "none";
+      });
+      counts.forEach((e) => {
+        e.style.display = "flex"
+      })
+      
+      valueCount.value = 10
+      valuWidht.value = 10
+   
+  
+      valuWidht.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+      spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+      valueCount.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+  
+      typos.addEventListener("change", () => {
+        if (typos.value === "stretch") {
+          valuWidht.disabled = true
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(Auto)"
+          valuWidht.value = ""
+          valuWidht.placeholder = "Auto"
+          marginLabel.style.display = "flex"
+          marginInput.style.display = "flex"
+          offinput.style.display = "none"
+          offs.style.display = "none"
+        }
+  
+        if (typos.value === "left") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "right") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "center") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = true
+        }
+      })
+  
+  
+  
+    } 
+    
+    if (dimensionez.value === "Rows") {
+      imagenClonada.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYUlEQVR4nO3WwQ2AMBTDUO8/FhVzhQW4VuQXvw0iXwKSpC8luTPPehsyEg4pg0XKYJEyWKQMxxZRmwyFQ8pgkTJYpAwWKYPaZSgcUgaLlMEiZbBIGU4usjLPtfnwSJJ+4gEb7zIUv7M2UAAAAABJRU5ErkJggg=="
+      ziseElements.forEach((el) => {
+        el.style.display = "none";
+      });
+      counts.forEach((e) => {
+        e.style.display = "flex"
+      })
+      
+      valueCount.value = 10
+      valuWidht.value = 10
+  
+  
+      valuWidht.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+      spangrid.textContent = valueCount.value + " " + "Columns" + " " + "(" + valuWidht.value + "Px)"
+      valueCount.addEventListener("change", () => {
+        spangrid.textContent = valueCount.value + " " + "Columns" + " " +"(" + valuWidht.value + "px)"
+      })
+  
+      typos.addEventListener("change", () => {
+        if (typos.value === "stretch") {
+          valuWidht.disabled = true
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(Auto)"
+          valuWidht.value = ""
+          valuWidht.placeholder = "Auto"
+        }
+        if (typos.value === "left") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "right") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = false
+        }
+  
+        if (typos.value === "center") {
+          valuWidht.disabled = false
+          valuWidht.value = 10
+          spangrid.textContent = valueCount.value + " " + "Rows" + " " + "(" + valuWidht.value + "Px)"
+          marginLabel.style.display = "none"
+          marginInput.style.display = "none"
+          offinput.style.display = "flex"
+          offs.style.display = "flex"
+          offinput.disabled = true
+        }
+      })
+    }
+  
+    if (dimensionez.value === "Grid") {
+      imagenClonada.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAMFJREFUaEPtljEOgDAMA1sx8f/HdkIw04HIsgwqOuYkTWwnprfFv754/40BvmYQBmDAROD/EjrGOJ9A2vb9BkI6fu6lZCDdkFqfAWYEkJC4Y0gICZlnV5aQaZTx9NIH4h2YDzCACaCdXjKgWn06Xl7idENqfQbAyN42MlWj6Xh2YLkdsJ0mXKA0svD7dnkGsCE0C5QMpM+iWp8zutwZVSlOxyMhJMTf6F0DpQ+YPhNPZ4A4xMUDMAADJgJIyATQTr8AxzogQFBjjlkAAAAASUVORK5CYII="
+      ziseElements.forEach((e) => {
+        e.style.display = "flex"
+      })
+      counts.forEach((e) => {
+        e.style.display = "none"
+      })
+      spangrid.textContent = ziseCount.value + " " + "Px"
+      offinput.style.display = "none"
+          offs.style.display = "none"
+  
+  
+  
+      ziseCount.addEventListener("change", () => {
+        spangrid.textContent = ziseCount.value + " " + "Px"
+      })
+      
+    } -->
