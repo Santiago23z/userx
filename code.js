@@ -2893,7 +2893,7 @@ if (selected) {
                                 alert("Email ya registrado")
 
                             } else {
-                                console.log("pene");
+                                
                                 figma.ui.postMessage({ type: 'registration_successful' });
                             }
                         })
@@ -2918,7 +2918,7 @@ if (selected) {
                     if (responseLogin.ok) {
                         const token = await responseLogin.json();
                         console.log(token);
-                        const pene = await figma.clientStorage.setAsync('myToken', token.data.token);
+                        const listo = await figma.clientStorage.setAsync('myToken', token.data.token);
                         const saved = await figma.clientStorage.getAsync("myToken")
 
                         figma.ui.postMessage({ type: 'login_successful' });
