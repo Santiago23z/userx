@@ -2046,7 +2046,7 @@ if (selected) {
                             const grosorBorde = pluginMessage.grosorStroke
                             const positionSrroke = pluginMessage.positionStroke
                             const sonFill = pluginMessage.fillSon
-
+                            const counter = pluginMessage.counter
                             const dimentions2 = pluginMessage.ff
 
                             const sizeGrid = pluginMessage.sizegrid
@@ -2055,6 +2055,7 @@ if (selected) {
                             const typeCol = pluginMessage.typeColumns
                             const gutInput = pluginMessage.inputGutter
                             const ofInput = pluginMessage.inputOffset
+                            const dimentionss = pluginMessage.gridsAds
 
                             const obj = {
                                 name: name_group,
@@ -2093,7 +2094,8 @@ if (selected) {
                                 inputwidht2: valueWidht,
                                 typecol2: typeCol,
                                 gutter2: gutInput,
-                                off2: ofInput
+                                off2: ofInput,
+                                gridsTwo: dimentionss
                             }
 
 
@@ -2104,7 +2106,7 @@ if (selected) {
                             frame.resize(dataw, dataH)
 
                             console.log(dimentions2);
-
+                            
 
                             if (obj.layoutVertical === "Fixed") {
                                 if (obj.layoutMode === "Horizontal") {
@@ -2623,8 +2625,10 @@ if (selected) {
 
 
 
-
-                                // console.log(dimentions2.value)
+                                console.log(obj.gridsTwo, "desde el plugin");
+                                if (dimentionss === "Grid") {
+                                    console.log("nepe");
+                                }
 
 
 
@@ -2812,10 +2816,10 @@ if (selected) {
                         }
 
 
-                        if (pluginMessage.type === "autolayoutAdded") {
-                            frame.layoutMode = "VERTICAL"
-                            console.log("se añadio auto");
-                        }
+                        // if (pluginMessage.type === "autolayoutAdded") {
+                        //     frame.layoutMode = "VERTICAL"
+                        //     console.log("se añadio auto");
+                        // }
 
                         if (pluginMessage.type === "noAdded") {
                             frame.layoutMode = "NONE"
@@ -2893,7 +2897,7 @@ if (selected) {
                                 alert("Email ya registrado")
 
                             } else {
-                                
+                
                                 figma.ui.postMessage({ type: 'registration_successful' });
                             }
                         })
@@ -2918,8 +2922,8 @@ if (selected) {
                     if (responseLogin.ok) {
                         const token = await responseLogin.json();
                         console.log(token);
-                        const listo = await figma.clientStorage.setAsync('myToken', token.data.token);
-                        const saved = await figma.clientStorage.getAsync("myToken")
+                        await figma.clientStorage.setAsync('myToken', token.data.token);
+                        await figma.clientStorage.getAsync("myToken")
 
                         figma.ui.postMessage({ type: 'login_successful' });
                     } else {
@@ -4973,7 +4977,9 @@ if (selected) {
                 const grosorBorde = pluginMessage.grosorStroke
                 const positionSrroke = pluginMessage.positionStroke
                 const sonFill = pluginMessage.fillSon
-
+                const count = pluginMessage.counter
+                const gridsADD = pluginMessage.gridsAds
+                const objet = pluginMessage.objet
 
                 const obj = {
                     name: name_group,
@@ -5012,7 +5018,7 @@ if (selected) {
 
 
 
-
+                console.log(count, "eeee");
 
                 frame.cornerRadius = dataB
                 frame.resize(dataw, dataH)
@@ -5387,10 +5393,10 @@ if (selected) {
                 }
 
 
-                console.log(count);
+
                 console.log(dimentions2);
 
-
+                console.log(objet, "arboletes");
 
 
                 if (gridsSelect === "Grid") {
@@ -5570,6 +5576,563 @@ if (selected) {
 
                 frame.fills = fills
 
+
+
+
+                    
+                    let layoutGrids = frame.layoutGrids;
+
+                    if (!layoutGrids) {
+                        layoutGrids = [];
+                    }
+
+                    if (objet.id === "div-clonado-1" && objet.type === "Columns") {
+                        const newLayoutGrid = {
+                            pattern: "COLUMNS",
+                            sectionSize: 100,
+                            gutterSize: 20,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50,
+                        };
+
+                        if (objet.typos === "Top") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "Bottom") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+
+                        const copy = [...layoutGrids];
+                        if (copy[0]) {
+                            copy[0] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-1" && objet.type === "Grid") {
+                        const newLayoutGrid = {
+                            pattern: 'GRID',
+                            sectionSize: 10,
+                            visible: true,
+                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                        };
+
+                        if (objet.gridValue) {
+                            newLayoutGrid.sectionSize = Number(objet.gridValue)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[0]) {
+                            copy[0] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-1" && objet.type === "Rows") {
+                        const newLayoutGrid = {
+                            pattern: "ROWS",
+                            sectionSize: 100,
+                            gutterSize: 20,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50,
+                        };
+
+                        if (objet.typos === "Top") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "Bottom") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+
+                        const copy = [...layoutGrids];
+                        if (copy[0]) {
+                            copy[0] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    
+
+
+                    if (objet.id === "div-clonado-2" && objet.type === "Rows") {
+                        const newLayoutGrid = {
+                            pattern: "ROWS",
+                            sectionSize: 100,
+                            gutterSize: 20,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50,
+                        };
+
+                        if (objet.typos === "Top") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "Bottom") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+
+                        const copy = [...layoutGrids];
+                        if (copy[1]) {
+                            copy[1] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                        console.log(frame.layoutGrids, "gh");
+                    }
+                    if (objet.id === "div-clonado-2" && objet.type === "Grid") {
+                        const newLayoutGrid = {
+                            pattern: 'GRID',
+                            sectionSize: 10,
+                            visible: true,
+                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                        };
+
+                        if (objet.gridValue) {
+                            newLayoutGrid.sectionSize = Number(objet.gridValue)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[1]) {
+                            copy[1] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-2" && objet.type === "Columns") {
+                        const newLayoutGrid = {
+                            pattern: "COLUMNS",
+                            sectionSize: 10,
+                            gutterSize: 10,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50
+                        };
+
+                        if (objet.typos === "left") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "right") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[1]) {
+                            copy[1] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+
+                    if (objet.id === "div-clonado-3" && objet.type === "Rows") {
+                        const newLayoutGrid = {
+                            pattern: "ROWS",
+                            sectionSize: 100,
+                            gutterSize: 20,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50,
+                        };
+
+                        if (objet.typos === "Top") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "Bottom") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+
+                        const copy = [...layoutGrids];
+                        if (copy[2]) {
+                            copy[2] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-3" && objet.type === "Grid") {
+                        const newLayoutGrid = {
+                            pattern: 'GRID',
+                            sectionSize: 10,
+                            visible: true,
+                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                        };
+
+                        if (objet.gridValue) {
+                            newLayoutGrid.sectionSize = Number(objet.gridValue)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[2]) {
+                            copy[2] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-3" && objet.type === "Columns") {
+                        const newLayoutGrid = {
+                            pattern: "COLUMNS",
+                            sectionSize: 10,
+                            gutterSize: 10,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50
+                        };
+
+                        if (objet.typos === "left") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "right") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[2]) {
+                            copy[2] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+
+                    if (objet.id === "div-clonado-4" && objet.type === "Rows") {
+                        const newLayoutGrid = {
+                            pattern: "ROWS",
+                            sectionSize: 100,
+                            gutterSize: 20,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50,
+                        };
+
+                        if (objet.typos === "Top") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "Bottom") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+
+                        const copy = [...layoutGrids];
+                        if (copy[3]) {
+                            copy[3] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-4" && objet.type === "Grid") {
+                        const newLayoutGrid = {
+                            pattern: 'GRID',
+                            sectionSize: 32,
+                            visible: true,
+                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                        };
+                        const copy = [...layoutGrids];
+                        if (copy[3]) {
+                            copy[3] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-4" && objet.type === "Columns") {
+                        const newLayoutGrid = {
+                            pattern: "COLUMNS",
+                            sectionSize: 10,
+                            gutterSize: 10,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50
+                        };
+
+                        if (objet.typos === "left") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "right") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[3]) {
+                            copy[3] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+
+                    if (objet.id === "div-clonado-5" && objet.type === "Rows") {
+                        const newLayoutGrid = {
+                            pattern: "ROWS",
+                            sectionSize: 100,
+                            gutterSize: 20,
+                            alignment: "MIN",
+                            count: 3,
+                            offset: 50,
+                        };
+                        const copy = [...frame.layoutGrids];
+                        if (copy[4]) {
+                            copy[4] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+
+                        }
+                        frame.layoutGrids = copy;
+                        console.log(frame.layoutGrids, "gh");
+                    }
+                    if (objet.id === "div-clonado-5" && objet.type === "Grid") {
+                        const newLayoutGrid = {
+                            pattern: 'GRID',
+                            sectionSize: 32,
+                            visible: true,
+                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                        };
+                        const copy = [...layoutGrids];
+                        if (copy[3]) {
+                            copy[3] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+                    }
+                    if (objet.id === "div-clonado-5" && objet.type === "Columns") {
+                        const newLayoutGrid = {
+                            pattern: "COLUMNS",
+                            sectionSize: 10,
+                            gutterSize: 10,
+                            alignment: "MIN",
+                            count: Number(objet.valorColumns),
+                            offset: 50
+                        };
+
+                        if (objet.typos === "left") {
+                            newLayoutGrid.alignment = "MIN";
+                        } else if (objet.typos === "right") {
+                            newLayoutGrid.alignment = "MAX";
+                        } else if (objet.typos === "center") {
+                            newLayoutGrid.alignment = "CENTER";
+                            delete newLayoutGrid.offset
+                        } else if (objet.typos === "stretch") {
+                            newLayoutGrid.alignment = "STRETCH";
+                            delete newLayoutGrid.sectionSize
+                            if (objet.margin) {
+                                newLayoutGrid.offset = Number(objet.margin)
+                            }
+                            //   newLayoutGrid.margin = Number(objet.margin)
+                        }
+
+
+                        if (objet.OffSet) {
+                            newLayoutGrid.offset = Number(objet.OffSet)
+                        }
+                        if (objet.widths) {
+                            newLayoutGrid.sectionSize = Number(objet.widths)
+                        }
+                        if (objet.valueGut) {
+                            newLayoutGrid.gutterSize = Number(objet.valueGut)
+                        }
+
+                        const copy = [...layoutGrids];
+                        if (copy[4]) {
+                            copy[4] = newLayoutGrid;
+                        } else {
+                            copy.push(newLayoutGrid);
+                        }
+                        frame.layoutGrids = copy;
+
+
+                    }
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 const estiloString = JSON.stringify(obj);
                 console.log(estiloString);
 
@@ -5581,190 +6144,550 @@ if (selected) {
 
             }
 
-            if (pluginMessage.type === "gridsAdd") {
-                // console.log("hoa");
-                //     const contador = pluginMessage.cont
-                //     const dimentions2 = pluginMessage.obj
-                //     console.log(dimentions2);
 
-                //     const frame = figma.currentPage.selection[0];
+            if (pluginMessage.type === "pressButton") {
+                const obj = pluginMessage.objeto;
+                const frame = figma.currentPage.selection[0];
+                let layoutGrids = frame.layoutGrids;
 
+                if (!layoutGrids) {
+                    layoutGrids = [];
+                }
 
+                if (obj.id === "div-clonado-1" && obj.type === "Columns") {
+                    const newLayoutGrid = {
+                        pattern: "COLUMNS",
+                        sectionSize: 10,
+                        gutterSize: 10,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50
+                    };
 
-                //     // const frame = figma.currentPage.selection[0];
-
-
-                //      // variable para verificar si se ha seleccionado una cuadrícula antes
-
-                //      // solo agregar si no se ha seleccionado una cuadrícula antes
-                //      const kk = "div-clonado-" + contador
-                //         if (dimentions2.type === "Grid" && dimentions2.IdDiv === kk) {
-                //             const grid = {
-                //                 pattern: "GRID",
-                //                 sectionSize: 11,
-                //                 visible: true
-                //             };
-
-                //             frame.layoutGrids = [grid]; // reemplazar las cuadrículas existentes con una nueva cuadrícula
-                //             // actualizar la variable a true para indicar que se ha seleccionado una cuadrícula
-                //         }
-
-
-
-
-                //     console.log("dimentions2.type es:", dimentions2.type)// Verificar el valor de la variable de estado
-
-
-
-                //    // solo agregar si no se ha seleccionado una cuadrícula antes
-                //         if (dimentions2.type === "Columns" && dimentions2.IdDiv === kk) {
-                //                 const grid = {
-                //                     pattern: "COLUMNS",
-                //                     gutterSize: 4,
-                //                     sectionSize: 4,
-                //                     alignment: "MIN",
-                //                     count: 4,
-                //                     offset: 4,
-                //                 };
+                    if (obj.typos === "left") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "right") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
 
 
-                //                 frame.layoutGrids = [grid];
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-1" && obj.type === "Rows") {
+                    const newLayoutGrid = {
+                        pattern: "ROWS",
+                        sectionSize: 100,
+                        gutterSize: 20,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50,
+                    };
+
+                    if (obj.typos === "Top") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "Bottom") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
 
 
-                // reemplazar las cuadrículas existentes con una nueva cuadrícula
-                // actualizar la variable a true para indicar que se ha seleccionado una cuadrícula
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
 
 
+                    const copy = [...layoutGrids];
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-1" && obj.type === "Grid") {
+                    const newLayoutGrid = {
+                        pattern: 'GRID',
+                        sectionSize: 10,
+                        visible: true,
+                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                    };
 
+                    if (obj.gridValue) {
+                        newLayoutGrid.sectionSize = Number(obj.gridValue)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid;
+                    } else {
+                        copy.unshift(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+
+
+                if (obj.id === "div-clonado-2" && obj.type === "Rows") {
+                    const newLayoutGrid = {
+                        pattern: "ROWS",
+                        sectionSize: 100,
+                        gutterSize: 20,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50,
+                    };
+
+                    if (obj.typos === "Top") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "Bottom") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+
+                    const copy = [...layoutGrids];
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                    console.log(frame.layoutGrids, "gh");
+                }
+                if (obj.id === "div-clonado-2" && obj.type === "Grid") {
+                    const newLayoutGrid = {
+                        pattern: 'GRID',
+                        sectionSize: 10,
+                        visible: true,
+                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                    };
+
+                    if (obj.gridValue) {
+                        newLayoutGrid.sectionSize = Number(obj.gridValue)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-2" && obj.type === "Columns") {
+                    const newLayoutGrid = {
+                        pattern: "COLUMNS",
+                        sectionSize: 10,
+                        gutterSize: 10,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50
+                    };
+
+                    if (obj.typos === "left") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "right") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+
+                if (obj.id === "div-clonado-3" && obj.type === "Rows") {
+                    const newLayoutGrid = {
+                        pattern: "ROWS",
+                        sectionSize: 100,
+                        gutterSize: 20,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50,
+                    };
+
+                    if (obj.typos === "Top") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "Bottom") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+
+                    const copy = [...layoutGrids];
+                    if (copy[2]) {
+                        copy[2] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-3" && obj.type === "Grid") {
+                    const newLayoutGrid = {
+                        pattern: 'GRID',
+                        sectionSize: 10,
+                        visible: true,
+                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                    };
+
+                    if (obj.gridValue) {
+                        newLayoutGrid.sectionSize = Number(obj.gridValue)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[2]) {
+                        copy[2] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-3" && obj.type === "Columns") {
+                    const newLayoutGrid = {
+                        pattern: "COLUMNS",
+                        sectionSize: 10,
+                        gutterSize: 10,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50
+                    };
+
+                    if (obj.typos === "left") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "right") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[2]) {
+                        copy[2] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+
+                if (obj.id === "div-clonado-4" && obj.type === "Rows") {
+                    const newLayoutGrid = {
+                        pattern: "ROWS",
+                        sectionSize: 100,
+                        gutterSize: 20,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50,
+                    };
+
+                    if (obj.typos === "Top") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "Bottom") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+
+                    const copy = [...layoutGrids];
+                    if (copy[3]) {
+                        copy[3] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-4" && obj.type === "Grid") {
+                    const newLayoutGrid = {
+                        pattern: 'GRID',
+                        sectionSize: 32,
+                        visible: true,
+                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                    };
+                    const copy = [...layoutGrids];
+                    if (copy[3]) {
+                        copy[3] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-4" && obj.type === "Columns") {
+                    const newLayoutGrid = {
+                        pattern: "COLUMNS",
+                        sectionSize: 10,
+                        gutterSize: 10,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50
+                    };
+
+                    if (obj.typos === "left") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "right") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[3]) {
+                        copy[3] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+
+                if (obj.id === "div-clonado-5" && obj.type === "Rows") {
+                    const newLayoutGrid = {
+                        pattern: "ROWS",
+                        sectionSize: 100,
+                        gutterSize: 20,
+                        alignment: "MIN",
+                        count: 3,
+                        offset: 50,
+                    };
+                    const copy = [...frame.layoutGrids];
+                    if (copy[4]) {
+                        copy[4] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+
+                    }
+                    frame.layoutGrids = copy;
+                    console.log(frame.layoutGrids, "gh");
+                }
+                if (obj.id === "div-clonado-5" && obj.type === "Grid") {
+                    const newLayoutGrid = {
+                        pattern: 'GRID',
+                        sectionSize: 32,
+                        visible: true,
+                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                    };
+                    const copy = [...layoutGrids];
+                    if (copy[3]) {
+                        copy[3] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+                }
+                if (obj.id === "div-clonado-5" && obj.type === "Columns") {
+                    const newLayoutGrid = {
+                        pattern: "COLUMNS",
+                        sectionSize: 10,
+                        gutterSize: 10,
+                        alignment: "MIN",
+                        count: Number(obj.valorColumns),
+                        offset: 50
+                    };
+
+                    if (obj.typos === "left") {
+                        newLayoutGrid.alignment = "MIN";
+                    } else if (obj.typos === "right") {
+                        newLayoutGrid.alignment = "MAX";
+                    } else if (obj.typos === "center") {
+                        newLayoutGrid.alignment = "CENTER";
+                        delete newLayoutGrid.offset
+                    } else if (obj.typos === "stretch") {
+                        newLayoutGrid.alignment = "STRETCH";
+                        delete newLayoutGrid.sectionSize
+                        if (obj.margin) {
+                            newLayoutGrid.offset = Number(obj.margin)
+                        }
+                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+
+                    if (obj.OffSet) {
+                        newLayoutGrid.offset = Number(obj.OffSet)
+                    }
+                    if (obj.widths) {
+                        newLayoutGrid.sectionSize = Number(obj.widths)
+                    }
+                    if (obj.valueGut) {
+                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    }
+
+                    const copy = [...layoutGrids];
+                    if (copy[4]) {
+                        copy[4] = newLayoutGrid;
+                    } else {
+                        copy.push(newLayoutGrid);
+                    }
+                    frame.layoutGrids = copy;
+
+
+                }
             }
 
-            if (pluginMessage.type === "change") {
-                const objeto = pluginMessage.obj
-                console.log(objeto.id);
 
 
-                // if (objeto.type === "Columns") {
-                //     const grid = {
-                //         pattern: "COLUMNS",
-                //         gutterSize: 4,
-                //         sectionSize: 4,
-                //         alignment: "MIN",
-                //         count: 10,
-                //         offset: 4,
-                //     };
-                //     frame.layoutGrids = [grid];
-                // }
-            }
-            // if (pluginMessage.type === "pressButton") {
-            //     const obj = pluginMessage.objeto;
-            //     const frame = figma.currentPage.selection[0];
-            //     let layoutGrids = frame.layoutGrids;
-              
-            //     if (!layoutGrids) {
-            //       layoutGrids = [];
-            //     }
-              
-            //     if (obj.id === "grids-layout1" && obj.type === "Columns") {
-            //       const newLayoutGrid = {
-            //         pattern: "COLUMNS",
-            //         sectionSize: 100,
-            //         gutterSize: 20,
-            //         alignment: "MIN",
-            //         count: 3,
-            //         offset: 50,
-            //       };
-            //       const copy = [...layoutGrids];
-            //       if (copy[0]) {
-            //         copy[0] = newLayoutGrid;
-            //       } else {
-            //         copy.push(newLayoutGrid);
-            //       }
-            //       frame.layoutGrids = copy;
-            //     } else if (obj.id === "grids-layout1" && obj.type === "Rows") {
-            //       const newLayoutGrid = {
-            //         pattern: "ROWS",
-            //         sectionSize: 100,
-            //         gutterSize: 20,
-            //         alignment: "MIN",
-            //         count: 3,
-            //         offset: 50,
-            //       };
-            //       const copy = [...layoutGrids];
-            //       if (copy[0]) {
-            //         copy[0] = newLayoutGrid;
-            //       } else {
-            //         copy.push(newLayoutGrid);
-            //       }
-            //       frame.layoutGrids = copy;
-            //     } else if (obj.id === "grids-layout1" && obj.type === "Grid") {
-            //       const newLayoutGrid = {
-            //         pattern: 'GRID',
-            //         sectionSize: 32,
-            //         visible: true,
-            //         color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-            //       };
-            //       const copy = [...layoutGrids];
-            //       if (copy[0]) {
-            //         copy[0] = newLayoutGrid;
-            //       } else {
-            //         copy.push(newLayoutGrid);
-            //       }
-            //       frame.layoutGrids = copy;
-            //     }
-              
-            //     console.log(frame.layoutGrids);
-              
-            //     if (obj.id === "grids-layout2" && obj.type === "Rows") {
-            //       const newLayoutGrid = {
-            //         pattern: "ROWS",
-            //         sectionSize: 100,
-            //         gutterSize: 20,
-            //         alignment: "MIN",
-            //         count: 3,
-            //         offset: 50,
-            //       };
-            //       const copy = [...frame.layoutGrids];
-            //       if (copy[1]) {
-            //         copy[1] = newLayoutGrid;
-            //       } else {
-            //         copy.push(newLayoutGrid);
-                    
-            //       }
-            //       frame.layoutGrids = copy;
-            //       console.log(frame.layoutGrids, "gh");
-            //     } else if (obj.id === "grids-layout2" && obj.type === "Grid") {
-            //       const newLayoutGrid = {
-            //         pattern: 'GRID',
-            //         sectionSize: 32,
-            //         visible: true,
-            //         color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-            //       };
-            //       const copy = [...layoutGrids];
-            //       if (copy[1]) {
-            //         copy[1] = newLayoutGrid;
-            //       } else {
-            //         copy.push(newLayoutGrid);
-            //       }
-            //       frame.layoutGrids = copy;
-            //     } else if (obj.id === "grids-layout2" && obj.type === "Columns") {
-            //         const newLayoutGrid = {
-            //             pattern: "COLUMNS",
-            //             sectionSize: 100,
-            //             gutterSize: 20,
-            //             alignment: "MIN",
-            //             count: 3,
-            //             offset: 50,
-            //           };
-            //           const copy = [...layoutGrids];
-            //           if (copy[1]) {
-            //             copy[1] = newLayoutGrid;
-            //           } else {
-            //             copy.push(newLayoutGrid);
-            //           }
-            //           frame.layoutGrids = copy;
-            //       }
-            //   }
-                     
+
+
+
+
 
 
 
@@ -5801,7 +6724,6 @@ if (selected) {
                 };
                 frame.itemSpacing = Number(constraints.value);
             }
-
         }
     }
 }
