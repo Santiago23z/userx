@@ -1410,7 +1410,7 @@ if (selected) {
                                             };
                                         }
 
-                                        const marcoOriginal = seleccion
+                                        const marcoOriginal = figma.currentPage.selection[0]
                                         const nuevoMarco = marcoOriginal.clone();
                                         nuevoMarco.resize(390, 844)
                                         nuevoMarco.constraints = { horizontal: "SCALE", vertical: "SCALE" };
@@ -2102,8 +2102,8 @@ if (selected) {
 
                             // console.log(seleteds);
 
-                            frame.cornerRadius = dataB
-                            frame.resize(dataw, dataH)
+                            // frame.cornerRadius = dataB
+                            // frame.resize(dataw, dataH)
 
                             console.log(dimentions2);
                             
@@ -2112,166 +2112,166 @@ if (selected) {
                                 if (obj.layoutMode === "Horizontal") {
                                     frame.counterAxisSizingMode = "FIXED";
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.layoutMode = "HORIZONTAL"
+                                    // frame.layoutMode = "HORIZONTAL"
 
                                 } else if (obj.layoutMode === "vertical") {
-                                    frame.primaryAxisSizingMode = "FIXED";
+                                    // frame.primaryAxisSizingMode = "FIXED";
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"/
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.layoutMode = "VERTICAL"
+                                    // frame.layoutMode = "VERTICAL"
                                 }
                             }
 
                             if (obj.layoutVertical === "Fill") {
                                 if (obj.layoutMode === "Horizontal") {
-                                    frame.layoutAlign = "STRETCH";
-                                    frame.layoutGrow = 1;
-                                    frame.layoutMode = "HORIZONTAL"
+                                    // frame.layoutAlign = "STRETCH";
+                                    // frame.layoutGrow = 1;
+                                    // frame.layoutMode = "HORIZONTAL"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
 
                                 } else if (obj.layoutMode === "vertical") {
-                                    frame.layoutAlign = "STRETCH";
-                                    frame.layoutGrow = 1;
-                                    frame.layoutMode = "VERTICAL"
+                                    // frame.layoutAlign = "STRETCH";
+                                    // frame.layoutGrow = 1;
+                                    // frame.layoutMode = "VERTICAL"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                 }
                             }
@@ -2283,85 +2283,85 @@ if (selected) {
 
 
                                 if (obj.layoutMode === "Horizontal") {
-                                    frame.counterAxisSizingMode = "AUTO"
+                                    // frame.counterAxisSizingMode = "AUTO"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                    //     frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.layoutMode = "HORIZONTAL"
+                                    // frame.layoutMode = "HORIZONTAL"
 
 
                                 } else if (obj.layoutMode === "vertical") {
-                                    frame.primaryAxisSizingMode = "AUTO"
+                                    // frame.primaryAxisSizingMode = "AUTO"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.layoutMode = "VERTICAL"
+                                    // frame.layoutMode = "VERTICAL"
                                 }
                             }
 
@@ -2370,85 +2370,85 @@ if (selected) {
                             if (obj.layoutHorizontal === "Fixed") {
 
                                 if (obj.layoutMode === "Horizontal") {
-                                    frame.primaryAxisSizingMode = "FIXED"
+                                    // frame.primaryAxisSizingMode = "FIXED"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.layoutMode = "HORIZONTAL"
+                                    // frame.layoutMode = "HORIZONTAL"
                                 }
 
                                 else if (obj.layoutMode === "vertical") {
-                                    frame.counterAxisSizingMode = "FIXED"
+                                    // frame.counterAxisSizingMode = "FIXED"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.layoutMode = "VERTICAL"
+                                    // frame.layoutMode = "VERTICAL"
                                 }
 
 
@@ -2457,85 +2457,85 @@ if (selected) {
 
                             if (obj.layoutHorizontal === "Fill") {
                                 if (obj.layoutMode === "Horizontal") {
-                                    frame.layoutAlign = "STRETCH";
-                                    frame.layoutGrow = 1;
-                                    frame.layoutMode = "HORIZONTAL"
+                                    // frame.layoutAlign = "STRETCH";
+                                    // frame.layoutGrow = 1;
+                                    // frame.layoutMode = "HORIZONTAL"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
 
                                 } else if (obj.layoutMode === "vertical") {
-                                    frame.layoutAlign = "STRETCH";
-                                    frame.layoutGrow = 1;
-                                    frame.layoutMode = "VERTICAL"
+                                    // frame.layoutAlign = "STRETCH";
+                                    // frame.layoutGrow = 1;
+                                    // frame.layoutMode = "VERTICAL"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                 }
                             }
@@ -2543,83 +2543,83 @@ if (selected) {
                             if (obj.layoutHorizontal === "Hug") {
 
                                 if (obj.layoutMode === "Horizontal") {
-                                    frame.primaryAxisSizingMode = "AUTO"
-                                    frame.layoutMode = "HORIZONTAL"
+                                    // frame.primaryAxisSizingMode = "AUTO"
+                                    // frame.layoutMode = "HORIZONTAL"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                 } else if (obj.layoutMode === "vertical") {
-                                    frame.layoutMode = "VERTICAL"
+                                    // frame.layoutMode = "VERTICAL"
                                     if (aligns === "Align top left") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align top center") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align top right") {
-                                        frame.primaryAxisAlignItems = "MIN"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MIN"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align right") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom right") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MAX"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MAX"
                                     }
                                     if (aligns === "Align bottom center") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
                                     if (aligns === "Align bottom left") {
-                                        frame.primaryAxisAlignItems = "MAX"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "MAX"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align left") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "MIN"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "MIN"
                                     }
                                     if (aligns === "Align center") {
-                                        frame.primaryAxisAlignItems = "CENTER"
-                                        frame.counterAxisAlignItems = "CENTER"
+                                        // frame.primaryAxisAlignItems = "CENTER"
+                                        // frame.counterAxisAlignItems = "CENTER"
                                     }
-                                    frame.counterAxisSizingMode = "AUTO"
+                                    // frame.counterAxisSizingMode = "AUTO"
                                     // frame.counterAxisAlignItems = "MIN";
                                 }
 
@@ -2635,112 +2635,112 @@ if (selected) {
 
                             }
 
-                            if (gridsSelect === "Grid") {
-                                const grid = {
-                                    pattern: "GRID",
-                                    sectionSize: Number(sizeGrids),
-                                    visible: true,
-                                };
-                                frame.layoutGrids = [grid];
-                            }
+                            // if (gridsSelect === "Grid") {
+                            //     const grid = {
+                            //         pattern: "GRID",
+                            //         sectionSize: Number(sizeGrids),
+                            //         visible: true,
+                            //     };
+                            //     // frame.layoutGrids = [grid];
+                            // }
 
-                            if (gridsSelect === "Columns") {
-                                if (selectAlign === "left") {
-                                    const grid = {
-                                        pattern: "COLUMNS",
-                                        gutterSize: Number(inputGut),
-                                        sectionSize: Number(inputW),
-                                        alignment: "MIN",
-                                        count: Number(columnsInputs),
-                                        offset: Number(offset),
-                                    };
-                                    frame.layoutGrids = [grid]
+                            // if (gridsSelect === "Columns") {
+                            //     if (selectAlign === "left") {
+                            //         const grid = {
+                            //             pattern: "COLUMNS",
+                            //             gutterSize: Number(inputGut),
+                            //             sectionSize: Number(inputW),
+                            //             alignment: "MIN",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(offset),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
 
-                                } else if (selectAlign === "right") {
-                                    const grid = {
-                                        pattern: "COLUMNS",
-                                        gutterSize: Number(inputGut),
-                                        sectionSize: Number(inputW),
-                                        alignment: "MAX",
-                                        count: Number(columnsInputs),
-                                        offset: Number(offset),
-                                    };
-                                    frame.layoutGrids = [grid]
-                                } else if (selectAlign === "center") {
-                                    const grid = {
-                                        pattern: "COLUMNS",
-                                        gutterSize: Number(inputGut),
-                                        sectionSize: Number(inputW),
-                                        alignment: "CENTER",
-                                        count: Number(columnsInputs),
-                                        offset: Number(offset),
-                                    };
-                                    frame.layoutGrids = [grid]
-                                } else if (selectAlign === "stretch") {
-                                    const grid = {
-                                        pattern: "COLUMNS",
-                                        gutterSize: Number(inputGut),
+                            //     } else if (selectAlign === "right") {
+                            //         const grid = {
+                            //             pattern: "COLUMNS",
+                            //             gutterSize: Number(inputGut),
+                            //             sectionSize: Number(inputW),
+                            //             alignment: "MAX",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(offset),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
+                            //     } else if (selectAlign === "center") {
+                            //         const grid = {
+                            //             pattern: "COLUMNS",
+                            //             gutterSize: Number(inputGut),
+                            //             sectionSize: Number(inputW),
+                            //             alignment: "CENTER",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(offset),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
+                            //     } else if (selectAlign === "stretch") {
+                            //         const grid = {
+                            //             pattern: "COLUMNS",
+                            //             gutterSize: Number(inputGut),
 
-                                        alignment: "STRETCH",
-                                        count: Number(columnsInputs),
-                                        offset: Number(marginsInput),
-                                    };
-                                    frame.layoutGrids = [grid]
-                                }
-                            }
-                            if (gridsSelect === "Rows") {
-                                if (selectAlign === "left") {
-                                    const grid = {
-                                        pattern: "COLUMNS",
-                                        gutterSize: Number(inputGut),
-                                        sectionSize: Number(inputW),
-                                        alignment: "MIN",
-                                        count: Number(columnsInputs),
-                                        offset: Number(offset),
-                                    };
-                                    frame.layoutGrids = [grid]
+                            //             alignment: "STRETCH",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(marginsInput),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
+                            //     }
+                            // }
+                            // if (gridsSelect === "Rows") {
+                            //     if (selectAlign === "left") {
+                            //         const grid = {
+                            //             pattern: "COLUMNS",
+                            //             gutterSize: Number(inputGut),
+                            //             sectionSize: Number(inputW),
+                            //             alignment: "MIN",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(offset),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
 
-                                } else if (selectAlign === "right") {
-                                    const grid = {
-                                        pattern: "ROWS",
-                                        gutterSize: Number(inputGut),
-                                        sectionSize: Number(inputW),
-                                        alignment: "MAX",
-                                        count: Number(columnsInputs),
-                                        offset: Number(offset),
-                                    };
-                                    frame.layoutGrids = [grid]
-                                } else if (selectAlign === "center") {
-                                    const grid = {
-                                        pattern: "ROWS",
-                                        gutterSize: Number(inputGut),
-                                        sectionSize: Number(inputW),
-                                        alignment: "CENTER",
-                                        count: Number(columnsInputs),
-                                        offset: Number(offset),
-                                    };
-                                    frame.layoutGrids = [grid]
-                                } else if (selectAlign === "stretch") {
-                                    const grid = {
-                                        pattern: "ROWS",
-                                        gutterSize: Number(inputGut),
+                            //     } else if (selectAlign === "right") {
+                            //         const grid = {
+                            //             pattern: "ROWS",
+                            //             gutterSize: Number(inputGut),
+                            //             sectionSize: Number(inputW),
+                            //             alignment: "MAX",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(offset),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
+                            //     } else if (selectAlign === "center") {
+                            //         const grid = {
+                            //             pattern: "ROWS",
+                            //             gutterSize: Number(inputGut),
+                            //             sectionSize: Number(inputW),
+                            //             alignment: "CENTER",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(offset),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
+                            //     } else if (selectAlign === "stretch") {
+                            //         const grid = {
+                            //             pattern: "ROWS",
+                            //             gutterSize: Number(inputGut),
 
-                                        alignment: "STRETCH",
-                                        count: Number(columnsInputs),
-                                        offset: Number(marginsInput),
-                                    };
-                                    frame.layoutGrids = [grid]
-                                }
-                            }
+                            //             alignment: "STRETCH",
+                            //             count: Number(columnsInputs),
+                            //             offset: Number(marginsInput),
+                            //         };
+                            //         // frame.layoutGrids = [grid]
+                            //     }
+                            // }
 
 
-                            frame.itemSpacing = Number(between)
-                            frame.horizontalPadding = Number(paddings);
-                            frame.verticalPadding = Number(top_padd);
-                            frame.paddingLeft = Number(padLeft);
-                            frame.paddingTop = Number(padTop)
-                            frame.paddingBottom = Number(bottom)
-                            frame.paddingRight = Number(right)
+                            // frame.itemSpacing = Number(between)
+                            // frame.horizontalPadding = Number(paddings);
+                            // frame.verticalPadding = Number(top_padd);
+                            // frame.paddingLeft = Number(padLeft);
+                            // frame.paddingTop = Number(padTop)
+                            // frame.paddingBottom = Number(bottom)
+                            // frame.paddingRight = Number(right)
                             const color = {
                                 r: colorHex[0],
                                 g: colorHex[1],
@@ -2769,19 +2769,19 @@ if (selected) {
 
                             // console.log(positionSrroke);
                             if (positionSrroke === "Outside") {
-                                frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
-                                frame.strokeWeight = Number(grosorBorde);
-                                frame.strokeAlign = "OUTSIDE" // establece el peso del trazo    
+                                // frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                                // frame.strokeWeight = Number(grosorBorde);
+                                // frame.strokeAlign = "OUTSIDE" // establece el peso del trazo    
                             }
                             if (positionSrroke === "center") {
-                                frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
-                                frame.strokeWeight = Number(grosorBorde);
-                                frame.strokeAlign = "CENTER" // establece el peso del trazo    
+                                // frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                                // frame.strokeWeight = Number(grosorBorde);
+                                // frame.strokeAlign = "CENTER" // establece el peso del trazo    
                             }
                             if (positionSrroke === "inside") {
-                                frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
-                                frame.strokeWeight = Number(grosorBorde);
-                                frame.strokeAlign = "INSIDE" // establece el peso del trazo    
+                                // frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                                // frame.strokeWeight = Number(grosorBorde);
+                                // frame.strokeAlign = "INSIDE" // establece el peso del trazo    
                             }
 
 
@@ -2802,7 +2802,7 @@ if (selected) {
 
                             }];
 
-                            frame.fills = fills
+                            // frame.fills = fills
 
 
 
@@ -2812,7 +2812,7 @@ if (selected) {
 
 
 
-                            figma.clientStorage.setAsync("llaveParaGuardar", estiloString)
+                            // figma.clientStorage.setAsync("llaveParaGuardar", estiloString)
                         }
 
 
@@ -2875,32 +2875,36 @@ if (selected) {
 
 
             if (pluginMessage.type === 'submit-register') {
+                const name = pluginMessage.dataName
                 const email = pluginMessage.dataEmail;
                 const password = pluginMessage.dataPassw;
-                console.log(email, password);
+                const againPss = pluginMessage.dataPassAgain
                 // Importar el módulo de MongoDB
-
+                if (password != againPss) {
+                    figma.notify("Password don't match")
+                }
+                console.log("pene", name, email, password, againPss);
                 async function responser() {
-                    const response = await fetch('https://myapi-rest-santiago-zapata.up.railway.app/api/user/register', {
+                    await fetch('https://users-x.fly.dev/api/user/register', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
+                            name : name,
                             email: email,
-                            password: password
+                            password: password,
+                            confirm_password : againPss
                         })
                     })
+                    
                         // .then(response => response.json())
                         .then((result) => {
-                            if (result.ok === false) {
-                                alert("Email ya registrado")
-
-                            } else {
-                
+                            if (result.ok) {
                                 figma.ui.postMessage({ type: 'registration_successful' });
                             }
                         })
+                        
 
                 }
                 responser()
@@ -2913,18 +2917,16 @@ if (selected) {
                 async function login() {
                     let headers = { 'Content-Type': 'application/json' };
 
-                    const responseLogin = await fetch("https://myapi-rest-santiago-zapata.up.railway.app/api/user/login", {
+                    const responseLogin = await fetch("https://users-x.fly.dev/api/user/login", {
                         method: 'POST',
                         body: JSON.stringify({ email: emailLoginUser, password: passwordUserLogin }),
                         headers
                     });
-
+                    console.log(responseLogin);
                     if (responseLogin.ok) {
                         const token = await responseLogin.json();
-                        console.log(token);
                         await figma.clientStorage.setAsync('myToken', token.data.token);
-                        await figma.clientStorage.getAsync("myToken")
-
+                        const tokens  = await figma.clientStorage.getAsync("myToken")
                         figma.ui.postMessage({ type: 'login_successful' });
                     } else {
                         figma.notify("Usuario no encontrado")
@@ -2941,12 +2943,76 @@ if (selected) {
 
                 login();
             }
+
+            if (pluginMessage.type === "styleClicked") {
+                async function objects() {
+                    const token = await figma.clientStorage.getAsync("myToken")
+                    console.log(token);
+                    const headers = { "Content-Type": "application/json", "auth-tokens" : token };
+
+                    fetch("https://users-x.fly.dev/api/admin/objectStyles", {
+                        method: "GET",
+                        headers,
+                        body: JSON.stringify(obj),
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("Error al recibir los datos");
+                            }
+                            
+                            return response.json(); // Devuelve los datos como un objeto JSON
+                        })
+                        .then((data) => {// Imprime los datos recibidos por la API
+                            figma.ui.postMessage({type : "primaryObjects", data})
+                            // figma.ui.postMessage({ type: "objectSaved" });
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+
+                  }
+                  
+                  objects();
+            }
+
+            if (pluginMessage.type === "eliminate") {
+                const id = pluginMessage.id
+                console.log("nada", id);
+                
+               async function delets () {
+                const id = pluginMessage.id
+                console.log(id);
+                const token = await figma.clientStorage.getAsync("myToken")
+                    const headers = { "Content-Type": "application/json", "auth-tokens" : token };
+                    const responde = await fetch(`https://users-x.fly.dev/api/admin/objectStyles${id}`, {
+                        method : "DELETE",
+                        headers
+                    })
+                    if (responde.ok) {
+                        console.log("si dio");
+                        figma.ui.postMessage({type : "elementDel"})
+                    }
+                    console.log(responde);
+                }
+                
+                delets()
+                
+            }
+
+            // if (pluginMessage.type === "borrado") {
+            //   async function deletes() {
+            //     await fetch("https://myapi-rest-santiago-zapata.up.railway.app/api/admin/objectStyles")
+            //    }
+            // }
+
             if (pluginMessage.type === "logOut") {
                 async function logout() {
                     try {
                         await figma.clientStorage.setAsync("myToken", null);
+                        const log = await figma.clientStorage.getAsync('myToken')
                         figma.ui.postMessage({ type: "logOutt" })
                         console.log("se ha borrado el token");
+                        console.log(log);
                     } catch (error) {
                         console.log(error);
                     }
@@ -2989,7 +3055,8 @@ if (selected) {
                 }
 
                 small()
-            } else if (pluginMessage.type === 'mediumSelected') {
+            } 
+            else if (pluginMessage.type === 'mediumSelected') {
                 async function medium() {
                     const selectedColumns = 8;
                     const margin = 36;
@@ -4338,7 +4405,7 @@ if (selected) {
                                 };
                             }
 
-                            const marcoOriginal = seleccion
+                            const marcoOriginal = figma.currentPage.selection[0]
                             const nuevoMarco = marcoOriginal.clone();
                             nuevoMarco.resize(390, 844)
                             nuevoMarco.constraints = { horizontal: "SCALE", vertical: "SCALE" };
@@ -4396,7 +4463,6 @@ if (selected) {
                             // Cerrar el plugin con un mensaje de éxito
                             figma.closePlugin("Se agregó Auto Layout y se ajustaron los hijos al contenedor");
                         } else {
-                            console.log('ya tiene ome bobo');
                             function setFillContainerToChildren(node) {
                                 if (node.type === 'FRAME' || node.type === 'GROUP') {
                                     // Recorrer todos los hijos del objeto
@@ -4418,7 +4484,7 @@ if (selected) {
                                 }
                             }
 
-                            const marcoOriginal = seleccion
+                            const marcoOriginal = figma.currentPage.selection[0]
                             const nuevoMarco = marcoOriginal.clone();
                             nuevoMarco.resize(390, 844)
                             nuevoMarco.constraints = { horizontal: "SCALE", vertical: "SCALE" };
@@ -4940,12 +5006,12 @@ if (selected) {
                     figma.notify("There is no selected frame, please select one");
                 }
             }
-            let count;
             let dimentions2;
+            let obj;
             const frame = figma.currentPage.selection[0]
             // savved elements
             if (pluginMessage.type === "saveds") {
-
+                
 
                 const dataw = pluginMessage.dataW
                 const dataH = pluginMessage.dataH
@@ -4977,11 +5043,11 @@ if (selected) {
                 const grosorBorde = pluginMessage.grosorStroke
                 const positionSrroke = pluginMessage.positionStroke
                 const sonFill = pluginMessage.fillSon
-                const count = pluginMessage.counter
-                const gridsADD = pluginMessage.gridsAds
-                const objet = pluginMessage.objet
+                const close = pluginMessage.close
+                const arrTypes = pluginMessage.types
+                
 
-                const obj = {
+                obj = {
                     name: name_group,
                     width: dataw,
                     height: dataH,
@@ -4997,125 +5063,109 @@ if (selected) {
                     padtop: padTop,
                     bottomPad: bottom,
                     rightpad: right,
-                    grids: gridsSelect,
-                    sizeForGrids: sizeGrids,
-                    columnsInputs: columnsInputs,
-                    inputWidht: inputW,
-                    selectAlign: selectAlign,
-                    gutter: inputGut,
-                    offset: offset,
-                    marginStretch: marginsInput,
+                    grids: arrTypes,
                     colorsFill: colorHex,
                     opacityFill: opacityFill,
                     strokeColor: colorStroke,
                     opacityStroke: opacityStroke,
                     grosorStroke: grosorBorde,
                     positionStroke: positionSrroke,
-                    sonFill: sonFill,
-                    dimentions2: dimentions2
-
                 }
 
-
-
-                console.log(count, "eeee");
-
-                frame.cornerRadius = dataB
-                frame.resize(dataw, dataH)
 
 
 
                 if (obj.layoutVertical === "Fixed") {
                     if (obj.layoutMode === "Horizontal") {
-                        frame.counterAxisSizingMode = "FIXED";
+                        // frame.counterAxisSizingMode = "FIXED";
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.layoutMode = "HORIZONTAL"
+                        // frame.layoutMode = "HORIZONTAL"
 
                     } else if (obj.layoutMode === "vertical") {
-                        frame.primaryAxisSizingMode = "FIXED";
+                        // frame.primaryAxisSizingMode = "FIXED";
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.layoutMode = "VERTICAL"
+                        // frame.layoutMode = "VERTICAL"
                     }
                 }
 
                 if (obj.layoutVertical === "Fill") {
                     if (obj.layoutMode === "Horizontal") {
-                        frame.layoutAlign = "STRETCH";
-                        frame.layoutGrow = 1;
+                        // frame.layoutAlign = "STRETCH";
+                        // frame.layoutGrow = 1;
 
                     } else if (obj.layoutMode === "vertical") {
-                        frame.layoutAlign = "STRETCH";
-                        frame.layoutGrow = 1;
+                        // frame.layoutAlign = "STRETCH";
+                        // frame.layoutGrow = 1;
 
                     }
                 }
@@ -5126,85 +5176,85 @@ if (selected) {
 
 
                     if (obj.layoutMode === "Horizontal") {
-                        frame.counterAxisSizingMode = "AUTO"
+                        // frame.counterAxisSizingMode = "AUTO"
                         if (aligns === "Align top left") {
                             frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.layoutMode = "HORIZONTAL"
+                        // frame.layoutMode = "HORIZONTAL"
 
 
                     } else if (obj.layoutMode === "vertical") {
-                        frame.primaryAxisSizingMode = "AUTO"
+                        // frame.primaryAxisSizingMode = "AUTO"
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.layoutMode = "VERTICAL"
+                        // frame.layoutMode = "VERTICAL"
                     }
                 }
 
@@ -5213,85 +5263,85 @@ if (selected) {
                 if (obj.layoutHorizontal === "Fixed") {
 
                     if (obj.layoutMode === "Horizontal") {
-                        frame.primaryAxisSizingMode = "FIXED"
+                        // frame.primaryAxisSizingMode = "FIXED"
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.layoutMode = "HORIZONTAL"
+                        // frame.layoutMode = "HORIZONTAL"
                     }
 
                     else if (obj.layoutMode === "vertical") {
-                        frame.counterAxisSizingMode = "FIXED"
+                        // frame.counterAxisSizingMode = "FIXED"
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.layoutMode = "VERTICAL"
+                        // frame.layoutMode = "VERTICAL"
                     }
 
 
@@ -5302,83 +5352,83 @@ if (selected) {
                 if (obj.layoutHorizontal === "Hug") {
 
                     if (obj.layoutMode === "Horizontal") {
-                        frame.primaryAxisSizingMode = "AUTO"
-                        frame.layoutMode = "HORIZONTAL"
+                        // frame.primaryAxisSizingMode = "AUTO"
+                        // frame.layoutMode = "HORIZONTAL"
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                     } else if (obj.layoutMode === "vertical") {
-                        frame.layoutMode = "VERTICAL"
+                        // frame.layoutMode = "VERTICAL"
                         if (aligns === "Align top left") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align top center") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align top right") {
-                            frame.primaryAxisAlignItems = "MIN"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MIN"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align right") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom right") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MAX"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // // frame.counterAxisAlignItems = "MAX"
                         }
                         if (aligns === "Align bottom center") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
                         if (aligns === "Align bottom left") {
-                            frame.primaryAxisAlignItems = "MAX"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "MAX"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align left") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "MIN"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "MIN"
                         }
                         if (aligns === "Align center") {
-                            frame.primaryAxisAlignItems = "CENTER"
-                            frame.counterAxisAlignItems = "CENTER"
+                            // frame.primaryAxisAlignItems = "CENTER"
+                            // frame.counterAxisAlignItems = "CENTER"
                         }
-                        frame.counterAxisSizingMode = "AUTO"
+                        // frame.counterAxisSizingMode = "AUTO"
                         // frame.counterAxisAlignItems = "MIN";
                     }
 
@@ -5394,125 +5444,123 @@ if (selected) {
 
 
 
-                console.log(dimentions2);
-
-                console.log(objet, "arboletes");
+              
 
 
-                if (gridsSelect === "Grid") {
-                    const grid = {
-                        pattern: "GRID",
-                        sectionSize: Number(sizeGrids),
-                        visible: true,
-                    };
-                    frame.layoutGrids = [grid];
-                }
+                // if (gridsSelect === "Grid") {
+                //     const grid = {
+                //         pattern: "GRID",
+                //         sectionSize: Number(sizeGrids),
+                //         visible: true,
+                //     };
+                //     frame.layoutGrids = [grid];
+                // }
 
-                if (dimentions2 === "Rows") {
-                    console.log("shi");
-                }
+                // if (dimentions2 === "Rows") {
+                //     console.log("shi");
+                // }
 
 
 
 
 
-                if (gridsSelect === "Columns") {
-                    if (selectAlign === "left") {
-                        const grid = {
-                            pattern: "COLUMNS",
-                            gutterSize: Number(inputGut),
-                            sectionSize: Number(inputW),
-                            alignment: "MIN",
-                            count: Number(columnsInputs),
-                            offset: Number(offset),
-                        };
-                        frame.layoutGrids = [grid]
+                // if (gridsSelect === "Columns") {
+                //     if (selectAlign === "left") {
+                //         const grid = {
+                //             pattern: "COLUMNS",
+                //             gutterSize: Number(inputGut),
+                //             sectionSize: Number(inputW),
+                //             alignment: "MIN",
+                //             count: Number(columnsInputs),
+                //             offset: Number(offset),
+                //         };
+                //         frame.layoutGrids = [grid]
 
-                    } else if (selectAlign === "right") {
-                        const grid = {
-                            pattern: "COLUMNS",
-                            gutterSize: Number(inputGut),
-                            sectionSize: Number(inputW),
-                            alignment: "MAX",
-                            count: Number(columnsInputs),
-                            offset: Number(offset),
-                        };
-                        frame.layoutGrids = [grid]
-                    } else if (selectAlign === "center") {
-                        const grid = {
-                            pattern: "COLUMNS",
-                            gutterSize: Number(inputGut),
-                            sectionSize: Number(inputW),
-                            alignment: "CENTER",
-                            count: Number(columnsInputs),
-                            offset: Number(offset),
-                        };
-                        frame.layoutGrids = [grid]
-                    } else if (selectAlign === "stretch") {
-                        const grid = {
-                            pattern: "COLUMNS",
-                            gutterSize: Number(inputGut),
+                //     } else if (selectAlign === "right") {
+                //         const grid = {
+                //             pattern: "COLUMNS",
+                //             gutterSize: Number(inputGut),
+                //             sectionSize: Number(inputW),
+                //             alignment: "MAX",
+                //             count: Number(columnsInputs),
+                //             offset: Number(offset),
+                //         };
+                //         frame.layoutGrids = [grid]
+                //     } else if (selectAlign === "center") {
+                //         const grid = {
+                //             pattern: "COLUMNS",
+                //             gutterSize: Number(inputGut),
+                //             sectionSize: Number(inputW),
+                //             alignment: "CENTER",
+                //             count: Number(columnsInputs),
+                //             offset: Number(offset),
+                //         };
+                //         frame.layoutGrids = [grid]
+                //     } else if (selectAlign === "stretch") {
+                //         const grid = {
+                //             pattern: "COLUMNS",
+                //             gutterSize: Number(inputGut),
 
-                            alignment: "STRETCH",
-                            count: Number(columnsInputs),
-                            offset: Number(marginsInput),
-                        };
-                        frame.layoutGrids = [grid]
-                    }
-                }
-                if (gridsSelect === "Rows") {
-                    if (selectAlign === "left") {
-                        const grid = {
-                            pattern: "COLUMNS",
-                            gutterSize: Number(inputGut),
-                            sectionSize: Number(inputW),
-                            alignment: "MIN",
-                            count: Number(columnsInputs),
-                            offset: Number(offset),
-                        };
-                        frame.layoutGrids = [grid]
+                //             alignment: "STRETCH",
+                //             count: Number(columnsInputs),
+                //             offset: Number(marginsInput),
+                //         };
+                //         frame.layoutGrids = [grid]
+                //     }
+                // }
+                // if (gridsSelect === "Rows") {
+                //     if (selectAlign === "left") {
+                //         const grid = {
+                //             pattern: "COLUMNS",
+                //             gutterSize: Number(inputGut),
+                //             sectionSize: Number(inputW),
+                //             alignment: "MIN",
+                //             count: Number(columnsInputs),
+                //             offset: Number(offset),
+                //         };
+                //         frame.layoutGrids = [grid]
 
-                    } else if (selectAlign === "right") {
-                        const grid = {
-                            pattern: "ROWS",
-                            gutterSize: Number(inputGut),
-                            sectionSize: Number(inputW),
-                            alignment: "MAX",
-                            count: Number(columnsInputs),
-                            offset: Number(offset),
-                        };
-                        frame.layoutGrids = [grid]
-                    } else if (selectAlign === "center") {
-                        const grid = {
-                            pattern: "ROWS",
-                            gutterSize: Number(inputGut),
-                            sectionSize: Number(inputW),
-                            alignment: "CENTER",
-                            count: Number(columnsInputs),
-                            offset: Number(offset),
-                        };
-                        frame.layoutGrids = [grid]
-                    } else if (selectAlign === "stretch") {
-                        const grid = {
-                            pattern: "ROWS",
-                            gutterSize: Number(inputGut),
+                //     } else if (selectAlign === "right") {
+                //         const grid = {
+                //             pattern: "ROWS",
+                //             gutterSize: Number(inputGut),
+                //             sectionSize: Number(inputW),
+                //             alignment: "MAX",
+                //             count: Number(columnsInputs),
+                //             offset: Number(offset),
+                //         };
+                //         frame.layoutGrids = [grid]
+                //     } else if (selectAlign === "center") {
+                //         const grid = {
+                //             pattern: "ROWS",
+                //             gutterSize: Number(inputGut),
+                //             sectionSize: Number(inputW),
+                //             alignment: "CENTER",
+                //             count: Number(columnsInputs),
+                //             offset: Number(offset),
+                //         };
+                //         frame.layoutGrids = [grid]
+                //     } else if (selectAlign === "stretch") {
+                //         const grid = {
+                //             pattern: "ROWS",
+                //             gutterSize: Number(inputGut),
 
-                            alignment: "STRETCH",
-                            count: Number(columnsInputs),
-                            offset: Number(marginsInput),
-                        };
-                        frame.layoutGrids = [grid]
-                    }
-                }
+                //             alignment: "STRETCH",
+                //             count: Number(columnsInputs),
+                //             offset: Number(marginsInput),
+                //         };
+                //         frame.layoutGrids = [grid]
+                //     }
+                // }
 
 
-                frame.itemSpacing = Number(between)
-                frame.horizontalPadding = Number(paddings);
-                frame.verticalPadding = Number(top_padd);
-                frame.paddingLeft = Number(padLeft);
-                frame.paddingTop = Number(padTop)
-                frame.paddingBottom = Number(bottom)
-                frame.paddingRight = Number(right)
+                // frame.itemSpacing = Number(between)
+                // frame.horizontalPadding = Number(paddings);
+                // frame.verticalPadding = Number(top_padd);
+                // frame.paddingLeft = Number(padLeft);
+                // frame.paddingTop = Number(padTop)
+                // frame.paddingBottom = Number(bottom)
+                // frame.paddingRight = Number(right)
                 const color = {
                     r: colorHex[0],
                     g: colorHex[1],
@@ -5541,23 +5589,23 @@ if (selected) {
 
                 console.log(positionSrroke);
                 if (positionSrroke === "Outside") {
-                    frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
-                    frame.strokeWeight = Number(grosorBorde);
-                    frame.strokeAlign = "OUTSIDE" // establece el peso del trazo    
+                    // frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                    // frame.strokeWeight = Number(grosorBorde);
+                    // frame.strokeAlign = "OUTSIDE" // establece el peso del trazo    
                 }
                 if (positionSrroke === "center") {
-                    frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
-                    frame.strokeWeight = Number(grosorBorde);
-                    frame.strokeAlign = "CENTER" // establece el peso del trazo    
+                    // frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                    // frame.strokeWeight = Number(grosorBorde);
+                    // frame.strokeAlign = "CENTER" // establece el peso del trazo    
                 }
                 if (positionSrroke === "inside") {
-                    frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
-                    frame.strokeWeight = Number(grosorBorde);
-                    frame.strokeAlign = "INSIDE" // establece el peso del trazo    
+                    // frame.strokes = [{ type: 'SOLID', color: { r: StrCOLOR.r / 255, g: StrCOLOR.g / 255, b: StrCOLOR.b / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                    // frame.strokeWeight = Number(grosorBorde);
+                    // frame.strokeAlign = "INSIDE" // establece el peso del trazo    
                 }
 
 
-
+                console.log(close);
 
 
                 const opaco = parseFloat(opacityFill)
@@ -5571,1116 +5619,2544 @@ if (selected) {
                         b: color.b / 255
                     },
                     opacity: opacidad
-
                 }];
 
-                frame.fills = fills
+                // frame.fills = fills
 
+                // console.log(arrTypes, "Mostrando todo el arr completo");
+                // console.log(arrTypes[0].id, "psotio 0");
 
-
-
+                 
                     
-                    let layoutGrids = frame.layoutGrids;
-
-                    if (!layoutGrids) {
-                        layoutGrids = [];
-                    }
-
-                    if (objet.id === "div-clonado-1" && objet.type === "Columns") {
-                        const newLayoutGrid = {
-                            pattern: "COLUMNS",
-                            sectionSize: 100,
-                            gutterSize: 20,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50,
-                        };
-
-                        if (objet.typos === "Top") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "Bottom") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-
-                        const copy = [...layoutGrids];
-                        if (copy[0]) {
-                            copy[0] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-1" && objet.type === "Grid") {
-                        const newLayoutGrid = {
-                            pattern: 'GRID',
-                            sectionSize: 10,
-                            visible: true,
-                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                        };
-
-                        if (objet.gridValue) {
-                            newLayoutGrid.sectionSize = Number(objet.gridValue)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[0]) {
-                            copy[0] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-1" && objet.type === "Rows") {
-                        const newLayoutGrid = {
-                            pattern: "ROWS",
-                            sectionSize: 100,
-                            gutterSize: 20,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50,
-                        };
-
-                        if (objet.typos === "Top") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "Bottom") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-
-                        const copy = [...layoutGrids];
-                        if (copy[0]) {
-                            copy[0] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    
-
-
-                    if (objet.id === "div-clonado-2" && objet.type === "Rows") {
-                        const newLayoutGrid = {
-                            pattern: "ROWS",
-                            sectionSize: 100,
-                            gutterSize: 20,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50,
-                        };
-
-                        if (objet.typos === "Top") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "Bottom") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-
-                        const copy = [...layoutGrids];
-                        if (copy[1]) {
-                            copy[1] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                        console.log(frame.layoutGrids, "gh");
-                    }
-                    if (objet.id === "div-clonado-2" && objet.type === "Grid") {
-                        const newLayoutGrid = {
-                            pattern: 'GRID',
-                            sectionSize: 10,
-                            visible: true,
-                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                        };
-
-                        if (objet.gridValue) {
-                            newLayoutGrid.sectionSize = Number(objet.gridValue)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[1]) {
-                            copy[1] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-2" && objet.type === "Columns") {
-                        const newLayoutGrid = {
-                            pattern: "COLUMNS",
-                            sectionSize: 10,
-                            gutterSize: 10,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50
-                        };
-
-                        if (objet.typos === "left") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "right") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[1]) {
-                            copy[1] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-
-                    if (objet.id === "div-clonado-3" && objet.type === "Rows") {
-                        const newLayoutGrid = {
-                            pattern: "ROWS",
-                            sectionSize: 100,
-                            gutterSize: 20,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50,
-                        };
-
-                        if (objet.typos === "Top") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "Bottom") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-
-                        const copy = [...layoutGrids];
-                        if (copy[2]) {
-                            copy[2] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-3" && objet.type === "Grid") {
-                        const newLayoutGrid = {
-                            pattern: 'GRID',
-                            sectionSize: 10,
-                            visible: true,
-                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                        };
-
-                        if (objet.gridValue) {
-                            newLayoutGrid.sectionSize = Number(objet.gridValue)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[2]) {
-                            copy[2] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-3" && objet.type === "Columns") {
-                        const newLayoutGrid = {
-                            pattern: "COLUMNS",
-                            sectionSize: 10,
-                            gutterSize: 10,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50
-                        };
-
-                        if (objet.typos === "left") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "right") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[2]) {
-                            copy[2] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-
-                    if (objet.id === "div-clonado-4" && objet.type === "Rows") {
-                        const newLayoutGrid = {
-                            pattern: "ROWS",
-                            sectionSize: 100,
-                            gutterSize: 20,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50,
-                        };
-
-                        if (objet.typos === "Top") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "Bottom") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-
-                        const copy = [...layoutGrids];
-                        if (copy[3]) {
-                            copy[3] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-4" && objet.type === "Grid") {
-                        const newLayoutGrid = {
-                            pattern: 'GRID',
-                            sectionSize: 32,
-                            visible: true,
-                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                        };
-                        const copy = [...layoutGrids];
-                        if (copy[3]) {
-                            copy[3] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-4" && objet.type === "Columns") {
-                        const newLayoutGrid = {
-                            pattern: "COLUMNS",
-                            sectionSize: 10,
-                            gutterSize: 10,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50
-                        };
-
-                        if (objet.typos === "left") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "right") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[3]) {
-                            copy[3] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-
-                    if (objet.id === "div-clonado-5" && objet.type === "Rows") {
-                        const newLayoutGrid = {
-                            pattern: "ROWS",
-                            sectionSize: 100,
-                            gutterSize: 20,
-                            alignment: "MIN",
-                            count: 3,
-                            offset: 50,
-                        };
-                        const copy = [...frame.layoutGrids];
-                        if (copy[4]) {
-                            copy[4] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-
-                        }
-                        frame.layoutGrids = copy;
-                        console.log(frame.layoutGrids, "gh");
-                    }
-                    if (objet.id === "div-clonado-5" && objet.type === "Grid") {
-                        const newLayoutGrid = {
-                            pattern: 'GRID',
-                            sectionSize: 32,
-                            visible: true,
-                            color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                        };
-                        const copy = [...layoutGrids];
-                        if (copy[3]) {
-                            copy[3] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-                    }
-                    if (objet.id === "div-clonado-5" && objet.type === "Columns") {
-                        const newLayoutGrid = {
-                            pattern: "COLUMNS",
-                            sectionSize: 10,
-                            gutterSize: 10,
-                            alignment: "MIN",
-                            count: Number(objet.valorColumns),
-                            offset: 50
-                        };
-
-                        if (objet.typos === "left") {
-                            newLayoutGrid.alignment = "MIN";
-                        } else if (objet.typos === "right") {
-                            newLayoutGrid.alignment = "MAX";
-                        } else if (objet.typos === "center") {
-                            newLayoutGrid.alignment = "CENTER";
-                            delete newLayoutGrid.offset
-                        } else if (objet.typos === "stretch") {
-                            newLayoutGrid.alignment = "STRETCH";
-                            delete newLayoutGrid.sectionSize
-                            if (objet.margin) {
-                                newLayoutGrid.offset = Number(objet.margin)
-                            }
-                            //   newLayoutGrid.margin = Number(objet.margin)
-                        }
-
-
-                        if (objet.OffSet) {
-                            newLayoutGrid.offset = Number(objet.OffSet)
-                        }
-                        if (objet.widths) {
-                            newLayoutGrid.sectionSize = Number(objet.widths)
-                        }
-                        if (objet.valueGut) {
-                            newLayoutGrid.gutterSize = Number(objet.valueGut)
-                        }
-
-                        const copy = [...layoutGrids];
-                        if (copy[4]) {
-                            copy[4] = newLayoutGrid;
-                        } else {
-                            copy.push(newLayoutGrid);
-                        }
-                        frame.layoutGrids = copy;
-
-
-                    }
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                const estiloString = JSON.stringify(obj);
-                console.log(estiloString);
-
-
-
-                // if (pluginMessage.type === "gridsAdd") {
-
-                figma.clientStorage.setAsync("llaveParaGuardar", estiloString)
-
-            }
-
-
-            if (pluginMessage.type === "pressButton") {
-                const obj = pluginMessage.objeto;
-                const frame = figma.currentPage.selection[0];
                 let layoutGrids = frame.layoutGrids;
 
                 if (!layoutGrids) {
                     layoutGrids = [];
                 }
 
-                if (obj.id === "div-clonado-1" && obj.type === "Columns") {
-                    const newLayoutGrid = {
+                let copy = [...layoutGrids];
+                let newLayoutGridOne;
+
+                console.log(arrTypes, "array");
+                
+                if (arrTypes[0].id === "grids-layout1" && arrTypes[0].type === "Columns") {
+                    let newLayoutGrid = {
                         pattern: "COLUMNS",
-                        sectionSize: 10,
-                        gutterSize: 10,
-                        alignment: "MIN",
-                        count: Number(obj.valorColumns),
-                        offset: 50
-                    };
-
-                    if (obj.typos === "left") {
-                        newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "right") {
-                        newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
-                        newLayoutGrid.alignment = "CENTER";
-                        delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
-                        newLayoutGrid.alignment = "STRETCH";
-                        delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
-                        }
-                        //   newLayoutGrid.margin = Number(obj.margin)
-                    }
-
-
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
-
-                    const copy = [...layoutGrids];
-                    if (copy[1]) {
-                        copy[1] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-1" && obj.type === "Rows") {
-                    const newLayoutGrid = {
-                        pattern: "ROWS",
                         sectionSize: 100,
                         gutterSize: 20,
                         alignment: "MIN",
-                        count: Number(obj.valorColumns),
+                        count: Number(arrTypes[0].countColumnsAndRows),
                         offset: 50,
                     };
 
-                    if (obj.typos === "Top") {
+                    if (obj.countColumnsAndRows) {
+                        newLayoutGrid.count = Number(arrTypes[0].countColumnsAndRows)
+                    }
+
+                    if (arrTypes[0].Types === "left") {
                         newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "Bottom") {
+                    } else if (arrTypes[0].Types === "right") {
                         newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
+                    } else if (arrTypes[0].Types === "center") {
                         newLayoutGrid.alignment = "CENTER";
                         delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
+                    } else if (arrTypes[0].Types === "stretch") {
                         newLayoutGrid.alignment = "STRETCH";
+                        // delete newLayoutGrid.sectionSize
+
+                        //   newLayoutGrid.margin = Number(arrTypes[0].margin)
+                    }
+
+                    if (arrTypes[0].Types === "stretch" || arrTypes[0].Typos === "stretch") {
                         delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
+                    } else {
+                        if (arrTypes[0].width) {
+                            newLayoutGrid.sectionSize = Number(arrTypes[0].width)
                         }
-                        //   newLayoutGrid.margin = Number(obj.margin)
                     }
 
-
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
+                    if (arrTypes[0].marginColumnsAndRows) {
+                        newLayoutGrid.offset = Number(arrTypes[0].marginColumnsAndRows)
                     }
 
+                    // if (arrTypes[0].Types === "center") {
+                    //     console.log("OK!");
+                    // } else {
+                    //     if (arrTypes[0].Offset) {
+                    //         newLayoutGrid.offset = Number(arrTypes[0].Offset)
+                    //     }
+                    // }
+                    if (arrTypes[0].width) {
+                        newLayoutGrid.sectionSize = Number(arrTypes[0].width)
+                    }
+                    if (arrTypes[0].Gutter) {
+                        newLayoutGrid.gutterSize = Number(arrTypes[0].Gutter)
+                    }
 
-                    const copy = [...layoutGrids];
-                    if (copy[1]) {
-                        copy[1] = newLayoutGrid;
+                    
+                    if (copy[0]) {
+                        copy[0] = newLayoutGrid;
                     } else {
                         copy.push(newLayoutGrid);
+                        copy[0] = newLayoutGrid
                     }
-                    frame.layoutGrids = copy;
+
+                    
+                        
+                    
+                    
                 }
-                if (obj.id === "div-clonado-1" && obj.type === "Grid") {
-                    const newLayoutGrid = {
+
+                if (arrTypes[0].id === "grids-layout1" && arrTypes[0].type === "Grid") {
+                    newLayoutGridOne = {
                         pattern: 'GRID',
                         sectionSize: 10,
                         visible: true,
                         color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
                     };
 
-                    if (obj.gridValue) {
-                        newLayoutGrid.sectionSize = Number(obj.gridValue)
+                    if (arrTypes[0].sizeGrid) {
+                        newLayoutGridOne.sectionSize = Number(arrTypes[0].sizeGrid)
                     }
 
-                    const copy = [...layoutGrids];
-                    if (copy[1]) {
-                        copy[1] = newLayoutGrid;
+                    if (copy[0]) {
+                        copy[0] = newLayoutGridOne;
                     } else {
-                        copy.unshift(newLayoutGrid);
+                        copy.push(newLayoutGridOne);
+                        copy[0] = newLayoutGridOne
                     }
-                    frame.layoutGrids = copy;
+                    
                 }
 
-
-                if (obj.id === "div-clonado-2" && obj.type === "Rows") {
+                if (arrTypes[0].id === "grids-layout1" && arrTypes[0].type === "Rows") {
                     const newLayoutGrid = {
                         pattern: "ROWS",
                         sectionSize: 100,
                         gutterSize: 20,
                         alignment: "MIN",
-                        count: Number(obj.valorColumns),
+                        count: Number(arrTypes[0].countColumnsAndRows),
                         offset: 50,
                     };
 
-                    if (obj.typos === "Top") {
+                    if (obj.countColumnsAndRows) {
+                        newLayoutGrid.count = Number(arrTypes[0].countColumnsAndRows)
+                    }
+
+                    if (arrTypes[0].Typos === "Top") {
                         newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "Bottom") {
+                    } else if (arrTypes[0].Typos === "Bottom") {
                         newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
+                    } else if (arrTypes[0].Typos === "center") {
                         newLayoutGrid.alignment = "CENTER";
                         delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
+                    } else if (arrTypes[0].Typos === "stretch") {
                         newLayoutGrid.alignment = "STRETCH";
                         delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
-                        }
-                        //   newLayoutGrid.margin = Number(obj.margin)
+
+                        //   newLayoutGrid.margin = Number(arrTypes[0].margin)
                     }
 
-
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
-
-
-                    const copy = [...layoutGrids];
-                    if (copy[1]) {
-                        copy[1] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                    console.log(frame.layoutGrids, "gh");
-                }
-                if (obj.id === "div-clonado-2" && obj.type === "Grid") {
-                    const newLayoutGrid = {
-                        pattern: 'GRID',
-                        sectionSize: 10,
-                        visible: true,
-                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                    };
-
-                    if (obj.gridValue) {
-                        newLayoutGrid.sectionSize = Number(obj.gridValue)
-                    }
-
-                    const copy = [...layoutGrids];
-                    if (copy[1]) {
-                        copy[1] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-2" && obj.type === "Columns") {
-                    const newLayoutGrid = {
-                        pattern: "COLUMNS",
-                        sectionSize: 10,
-                        gutterSize: 10,
-                        alignment: "MIN",
-                        count: Number(obj.valorColumns),
-                        offset: 50
-                    };
-
-                    if (obj.typos === "left") {
-                        newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "right") {
-                        newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
-                        newLayoutGrid.alignment = "CENTER";
-                        delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
-                        newLayoutGrid.alignment = "STRETCH";
+                    if (arrTypes[0].Types === "stretch" || arrTypes[0].Typos === "stretch") {
                         delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
+                    } else {
+                        if (arrTypes[0].width) {
+                            newLayoutGrid.sectionSize = Number(arrTypes[0].width)
                         }
-                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+                    if (arrTypes[0].marginColumnsAndRows) {
+                        newLayoutGrid.offset = Number(arrTypes[0].marginColumnsAndRows)
+                    }
+
+                    // if (arrTypes[0].Types === "center") {
+                    //     console.log("OK!");
+                    // } else {
+                    //     if (arrTypes[0].Offset) {
+                    //         newLayoutGrid.offset = Number(arrTypes[0].Offset)
+                    //     }
+                    // }
+                    if (arrTypes[0].width) {
+                        newLayoutGrid.sectionSize = Number(arrTypes[0].width)
+                    }
+                    if (arrTypes[0].Gutter) {
+                        newLayoutGrid.gutterSize = Number(arrTypes[0].Gutter)
                     }
 
 
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
-
-                    const copy = [...layoutGrids];
-                    if (copy[1]) {
-                        copy[1] = newLayoutGrid;
+                    if (copy[0]) {
+                        copy[0] = newLayoutGrid;
                     } else {
                         copy.push(newLayoutGrid);
+                        copy[0] = newLayoutGrid
                     }
-                    frame.layoutGrids = copy;
+                    
                 }
 
-                if (obj.id === "div-clonado-3" && obj.type === "Rows") {
+                
+                if (arrTypes[0].id === "grids-layout2" && arrTypes[0].type === "Rows") {
                     const newLayoutGrid = {
                         pattern: "ROWS",
                         sectionSize: 100,
                         gutterSize: 20,
                         alignment: "MIN",
-                        count: Number(obj.valorColumns),
+                        count: Number(arrTypes[0].countColumnsAndRows),
                         offset: 50,
                     };
 
-                    if (obj.typos === "Top") {
+                    if (obj.countColumnsAndRows) {
+                        newLayoutGrid.count = Number(arrTypes[0].countColumnsAndRows)
+                    }
+
+                    if (arrTypes[0].Typos === "Top") {
                         newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "Bottom") {
+                    } else if (arrTypes[0].Typos === "Bottom") {
                         newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
+                    } else if (arrTypes[0].Typos === "center") {
                         newLayoutGrid.alignment = "CENTER";
                         delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
+                    } else if (arrTypes[0].Typos === "stretch") {
                         newLayoutGrid.alignment = "STRETCH";
                         delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
-                        }
-                        //   newLayoutGrid.margin = Number(obj.margin)
+
+                        //   newLayoutGrid.margin = Number(arrTypes[1].margin)
                     }
 
-
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
-
-
-                    const copy = [...layoutGrids];
-                    if (copy[2]) {
-                        copy[2] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-3" && obj.type === "Grid") {
-                    const newLayoutGrid = {
-                        pattern: 'GRID',
-                        sectionSize: 10,
-                        visible: true,
-                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                    };
-
-                    if (obj.gridValue) {
-                        newLayoutGrid.sectionSize = Number(obj.gridValue)
-                    }
-
-                    const copy = [...layoutGrids];
-                    if (copy[2]) {
-                        copy[2] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-3" && obj.type === "Columns") {
-                    const newLayoutGrid = {
-                        pattern: "COLUMNS",
-                        sectionSize: 10,
-                        gutterSize: 10,
-                        alignment: "MIN",
-                        count: Number(obj.valorColumns),
-                        offset: 50
-                    };
-
-                    if (obj.typos === "left") {
-                        newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "right") {
-                        newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
-                        newLayoutGrid.alignment = "CENTER";
-                        delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
-                        newLayoutGrid.alignment = "STRETCH";
+                    if (arrTypes[0].Types === "stretch" || arrTypes[0].Typos === "stretch") {
                         delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
+                    } else {
+                        if (arrTypes[0].width) {
+                            newLayoutGrid.sectionSize = Number(arrTypes[0].width)
                         }
-                        //   newLayoutGrid.margin = Number(obj.margin)
+                    }
+
+                    if (arrTypes[0].marginColumnsAndRows) {
+                        newLayoutGrid.offset = Number(arrTypes[0].marginColumnsAndRows)
+                    }
+
+                    // if (arrTypes[0].Types === "center") {
+                    //     console.log("OK!");
+                    // } else {
+                    //     if (arrTypes[0].Offset) {
+                    //         newLayoutGrid.offset = Number(arrTypes[0].Offset)
+                    //     }
+                    // }
+                    if (arrTypes[0].width) {
+                        newLayoutGrid.sectionSize = Number(arrTypes[0].width)
+                    }
+                    if (arrTypes[0].Gutter) {
+                        newLayoutGrid.gutterSize = Number(arrTypes[0].Gutter)
                     }
 
 
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
-
-                    const copy = [...layoutGrids];
-                    if (copy[2]) {
-                        copy[2] = newLayoutGrid;
+                    if (copy[1]) {
+                        copy[1] = newLayoutGrid
                     } else {
-                        copy.push(newLayoutGrid);
+                        copy.push(newLayoutGrid)
+                        copy[1] = newLayoutGrid
                     }
-                    frame.layoutGrids = copy;
+                    
+                    
+                    
                 }
+                
+                // if (arrTypes[1].id === "grids-layout2" && arrTypes[1].type === "Grid") {
+                //     newLayoutGridOne = {
+                //         pattern: 'GRID',
+                //         sectionSize: 10,
+                //         visible: true,
+                //         color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                //     };
 
-                if (obj.id === "div-clonado-4" && obj.type === "Rows") {
-                    const newLayoutGrid = {
-                        pattern: "ROWS",
-                        sectionSize: 100,
-                        gutterSize: 20,
-                        alignment: "MIN",
-                        count: Number(obj.valorColumns),
-                        offset: 50,
-                    };
+                //     if (arrTypes[1].sizeGrid) {
+                //         newLayoutGridOne.sectionSize = Number(arrTypes[1].sizeGrid)
+                //     }
 
-                    if (obj.typos === "Top") {
-                        newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "Bottom") {
-                        newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
-                        newLayoutGrid.alignment = "CENTER";
-                        delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
-                        newLayoutGrid.alignment = "STRETCH";
-                        delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
-                        }
-                        //   newLayoutGrid.margin = Number(obj.margin)
-                    }
+                //     if (copy[1]) {
+                //         copy[1] = newLayoutGridOne;
+                //     } else {
+                //         copy.push(newLayoutGridOne);
+                //     }
+                    
+                // }
 
+                // if (arrTypes[1].id === "grids-layout2" && arrTypes[1].type === "Columns") {
+                    
+                //     const newLayoutGrid = {
+                //         pattern: "COLUMNS",
+                //         sectionSize: 100,
+                //         gutterSize: 20,
+                //         alignment: "MIN",
+                //         count: Number(arrTypes[1].countColumnsAndRows),
+                //         offset: 50,
+                //     };
 
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
+                //     if (obj.countColumnsAndRows) {
+                //         newLayoutGrid.count = Number(arrTypes[1].countColumnsAndRows)
+                //     }
 
+                //     if (arrTypes[1].Typos === "Top") {
+                //         newLayoutGrid.alignment = "MIN";
+                //     } else if (arrTypes[1].Typos === "Bottom") {
+                //         newLayoutGrid.alignment = "MAX";
+                //     } else if (arrTypes[1].Typos === "center") {
+                //         newLayoutGrid.alignment = "CENTER";
+                //         delete newLayoutGrid.offset
+                //     } else if (arrTypes[1].Typos === "stretch") {
+                //         newLayoutGrid.alignment = "STRETCH";
+                //         delete newLayoutGrid.sectionSize
 
-                    const copy = [...layoutGrids];
-                    if (copy[3]) {
-                        copy[3] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-4" && obj.type === "Grid") {
-                    const newLayoutGrid = {
-                        pattern: 'GRID',
-                        sectionSize: 32,
-                        visible: true,
-                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                    };
-                    const copy = [...layoutGrids];
-                    if (copy[3]) {
-                        copy[3] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-4" && obj.type === "Columns") {
-                    const newLayoutGrid = {
-                        pattern: "COLUMNS",
-                        sectionSize: 10,
-                        gutterSize: 10,
-                        alignment: "MIN",
-                        count: Number(obj.valorColumns),
-                        offset: 50
-                    };
+                //         //   newLayoutGrid.margin = Number(arrTypes[1].margin)
+                //     }
 
-                    if (obj.typos === "left") {
-                        newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "right") {
-                        newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
-                        newLayoutGrid.alignment = "CENTER";
-                        delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
-                        newLayoutGrid.alignment = "STRETCH";
-                        delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
-                        }
-                        //   newLayoutGrid.margin = Number(obj.margin)
-                    }
+                //     if (arrTypes[1].Types === "stretch" || arrTypes[1].Typos === "stretch") {
+                //         delete newLayoutGrid.sectionSize
+                //     } else {
+                //         if (arrTypes[1].width) {
+                //             newLayoutGrid.sectionSize = Number(arrTypes[1].width)
+                //         }
+                //     }
+
+                //     if (arrTypes[1].marginColumnsAndRows) {
+                //         newLayoutGrid.offset = Number(arrTypes[1].marginColumnsAndRows)
+                //     }
+
+                //     // if (arrTypes[1].Types === "center") {
+                //     //     console.log("OK!");
+                //     // } else {
+                //     //     if (arrTypes[1].Offset) {
+                //     //         newLayoutGrid.offset = Number(arrTypes[1].Offset)
+                //     //     }
+                //     // }
+                //     if (arrTypes[1].width) {
+                //         newLayoutGrid.sectionSize = Number(arrTypes[1].width)
+                //     }
+                //     if (arrTypes[1].Gutter) {
+                //         newLayoutGrid.gutterSize = Number(arrTypes[1].Gutter)
+                //     }
 
 
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
-
-                    const copy = [...layoutGrids];
-                    if (copy[3]) {
-                        copy[3] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-
-                if (obj.id === "div-clonado-5" && obj.type === "Rows") {
-                    const newLayoutGrid = {
-                        pattern: "ROWS",
-                        sectionSize: 100,
-                        gutterSize: 20,
-                        alignment: "MIN",
-                        count: 3,
-                        offset: 50,
-                    };
-                    const copy = [...frame.layoutGrids];
-                    if (copy[4]) {
-                        copy[4] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-
-                    }
-                    frame.layoutGrids = copy;
-                    console.log(frame.layoutGrids, "gh");
-                }
-                if (obj.id === "div-clonado-5" && obj.type === "Grid") {
-                    const newLayoutGrid = {
-                        pattern: 'GRID',
-                        sectionSize: 32,
-                        visible: true,
-                        color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
-                    };
-                    const copy = [...layoutGrids];
-                    if (copy[3]) {
-                        copy[3] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
-                }
-                if (obj.id === "div-clonado-5" && obj.type === "Columns") {
-                    const newLayoutGrid = {
-                        pattern: "COLUMNS",
-                        sectionSize: 10,
-                        gutterSize: 10,
-                        alignment: "MIN",
-                        count: Number(obj.valorColumns),
-                        offset: 50
-                    };
-
-                    if (obj.typos === "left") {
-                        newLayoutGrid.alignment = "MIN";
-                    } else if (obj.typos === "right") {
-                        newLayoutGrid.alignment = "MAX";
-                    } else if (obj.typos === "center") {
-                        newLayoutGrid.alignment = "CENTER";
-                        delete newLayoutGrid.offset
-                    } else if (obj.typos === "stretch") {
-                        newLayoutGrid.alignment = "STRETCH";
-                        delete newLayoutGrid.sectionSize
-                        if (obj.margin) {
-                            newLayoutGrid.offset = Number(obj.margin)
-                        }
-                        //   newLayoutGrid.margin = Number(obj.margin)
-                    }
+                //     if (copy[1]) {
+                //         copy[1] = newLayoutGrid
+                //     } else {
+                //         copy.push(newLayoutGrid)
+                //         copy[1] = newLayoutGrid
+                //     }
+                    
+                    
+                // }
 
 
-                    if (obj.OffSet) {
-                        newLayoutGrid.offset = Number(obj.OffSet)
-                    }
-                    if (obj.widths) {
-                        newLayoutGrid.sectionSize = Number(obj.widths)
-                    }
-                    if (obj.valueGut) {
-                        newLayoutGrid.gutterSize = Number(obj.valueGut)
-                    }
+                // if (arrTypes[2].id === "grids-layout3" && arrTypes[2].type === "Rows") {
+                //     const newLayoutGrid = {
+                //         pattern: "ROWS",
+                //         sectionSize: 100,
+                //         gutterSize: 20,
+                //         alignment: "MIN",
+                //         count: Number(arrTypes[2].valorColumns),
+                //         offset: 50,
+                //     };
 
-                    const copy = [...layoutGrids];
-                    if (copy[4]) {
-                        copy[4] = newLayoutGrid;
-                    } else {
-                        copy.push(newLayoutGrid);
-                    }
-                    frame.layoutGrids = copy;
+                //     if (arrTypes[2].typos === "Top") {
+                //         newLayoutGrid.alignment = "MIN";
+                //     } else if (arrTypes[2].typos === "Bottom") {
+                //         newLayoutGrid.alignment = "MAX";
+                //     } else if (arrTypes[2].typos === "center") {
+                //         newLayoutGrid.alignment = "CENTER";
+                //         delete newLayoutGrid.offset
+                //     } else if (arrTypes[2].typos === "stretch") {
+                //         newLayoutGrid.alignment = "STRETCH";
+                //         delete newLayoutGrid.sectionSize
+                //         if (arrTypes[2].margin) {
+                //             newLayoutGrid.offset = Number(arrTypes[2].margin)
+                //         }
+                //         //   newLayoutGrid.margin = Number(arrTypes[2].margin)
+                //     }
 
 
-                }
+                //     if (arrTypes[2].OffSet) {
+                //         newLayoutGrid.offset = Number(arrTypes[2].OffSet)
+                //     }
+                //     if (arrTypes[2].widths) {
+                //         newLayoutGrid.sectionSize = Number(arrTypes[2].widths)
+                //     }
+                //     if (arrTypes[2].valueGut) {
+                //         newLayoutGrid.gutterSize = Number(arrTypes[2].valueGut)
+                //     }
+
+
+                //     const copy = [...layoutGrids];
+                //     if (copy[2]) {
+                //         copy[2] = newLayoutGrid;
+                //     } else {
+                //         copy.push(newLayoutGrid);
+                //         copy[2] = newLayoutGrid
+                //     }
+                    
+                // }
+                
+                // if (arrTypes[2].id === "grids-layout3" && arrTypes[2].type === "Grid") {
+                //     newLayoutGridOne = {
+                //         pattern: 'GRID',
+                //         sectionSize: 10,
+                //         visible: true,
+                //         color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                //     };
+
+                //     if (arrTypes[2].sizeGrid) {
+                //         newLayoutGridOne.sectionSize = Number(arrTypes[2].sizeGrid)
+                //     }
+
+                //     if (copy[2]) {
+                //         copy[2] = newLayoutGridOne;
+                //     } else {
+                //         copy.push(newLayoutGridOne);
+                //         copy[2] = newLayoutGridOne;
+                //     }
+                   
+                // }
+
+                // if (arrTypes[2].id === "grids-layout3" && arrTypes[2].type === "Columns") {
+
+                //     const newLayoutGrid = {
+                //         pattern: "COLUMNS",
+                //         sectionSize: 100,
+                //         gutterSize: 20,
+                //         alignment: "MIN",
+                //         count: Number(arrTypes[2].countColumnsAndRows),
+                //         offset: 50,
+                //     };
+
+                //     if (obj.countColumnsAndRows) {
+                //         newLayoutGrid.count = Number(arrTypes[2].countColumnsAndRows)
+                //     }
+
+                //     if (arrTypes[2].Typos === "Top") {
+                //         newLayoutGrid.alignment = "MIN";
+                //     } else if (arrTypes[2].Typos === "Bottom") {
+                //         newLayoutGrid.alignment = "MAX";
+                //     } else if (arrTypes[2].Typos === "center") {
+                //         newLayoutGrid.alignment = "CENTER";
+                //         delete newLayoutGrid.offset
+                //     } else if (arrTypes[2].Typos === "stretch") {
+                //         newLayoutGrid.alignment = "STRETCH";
+                //         delete newLayoutGrid.sectionSize
+
+                //         //   newLayoutGrid.margin = Number(arrTypes[2].margin)
+                //     }
+
+                //     if (arrTypes[2].Types === "stretch" || arrTypes[2].Typos === "stretch") {
+                //         delete newLayoutGrid.sectionSize
+                //     } else {
+                //         if (arrTypes[2].width) {
+                //             newLayoutGrid.sectionSize = Number(arrTypes[2].width)
+                //         }
+                //     }
+
+                //     if (arrTypes[2].marginColumnsAndRows) {
+                //         newLayoutGrid.offset = Number(arrTypes[2].marginColumnsAndRows)
+                //     }
+
+                //     // if (arrTypes[2].Types === "center") {
+                //     //     console.log("OK!");
+                //     // } else {
+                //     //     if (arrTypes[2].Offset) {
+                //     //         newLayoutGrid.offset = Number(arrTypes[2].Offset)
+                //     //     }
+                //     // }
+                //     if (arrTypes[2].width) {
+                //         newLayoutGrid.sectionSize = Number(arrTypes[2].width)
+                //     }
+                //     if (arrTypes[2].Gutter) {
+                //         newLayoutGrid.gutterSize = Number(arrTypes[2].Gutter)
+                //     }
+
+
+                //     if (copy[2]) {
+                //         copy[2] = newLayoutGrid
+                //     } else {
+                //         copy.push(newLayoutGrid)
+                //         copy[2] = newLayoutGrid
+                //     }
+                    
+                    
+                //     console.log(copy, "ausencia de rows2");
+                // }
+
+                // if (arrTypes[3].id === "grids-layout4" && arrTypes[3].type === "Rows") {
+                //     const newLayoutGrid = {
+                //         pattern: "ROWS",
+                //         sectionSize: 100,
+                //         gutterSize: 20,
+                //         alignment: "MIN",
+                //         count: Number(arrTypes[3].countColumnsAndRows),
+                //         offset: 50,
+                //     };
+
+                //     if (obj.countColumnsAndRows) {
+                //         newLayoutGrid.count = Number(arrTypes[3].countColumnsAndRows)
+                //     }
+
+                //     if (arrTypes[3].Typos === "Top") {
+                //         newLayoutGrid.alignment = "MIN";
+                //     } else if (arrTypes[3].Typos === "Bottom") {
+                //         newLayoutGrid.alignment = "MAX";
+                //     } else if (arrTypes[3].Typos === "center") {
+                //         newLayoutGrid.alignment = "CENTER";
+                //         delete newLayoutGrid.offset
+                //     } else if (arrTypes[3].Typos === "stretch") {
+                //         newLayoutGrid.alignment = "STRETCH";
+                //         delete newLayoutGrid.sectionSize
+
+                //         //   newLayoutGrid.margin = Number(arrTypes[3].margin)
+                //     }
+
+                //     if (arrTypes[3].Types === "stretch" || arrTypes[3].Typos === "stretch") {
+                //         delete newLayoutGrid.sectionSize
+                //     } else {
+                //         if (arrTypes[3].width) {
+                //             newLayoutGrid.sectionSize = Number(arrTypes[3].width)
+                //         }
+                //     }
+
+                //     if (arrTypes[3].marginColumnsAndRows) {
+                //         newLayoutGrid.offset = Number(arrTypes[3].marginColumnsAndRows)
+                //     }
+
+                //     // if (arrTypes[3].Types === "center") {
+                //     //     console.log("OK!");
+                //     // } else {
+                //     //     if (arrTypes[3].Offset) {
+                //     //         newLayoutGrid.offset = Number(arrTypes[3].Offset)
+                //     //     }
+                //     // }
+                //     if (arrTypes[3].width) {
+                //         newLayoutGrid.sectionSize = Number(arrTypes[3].width)
+                //     }
+                //     if (arrTypes[3].Gutter) {
+                //         newLayoutGrid.gutterSize = Number(arrTypes[3].Gutter)
+                //     }
+
+
+                //     if (copy[3]) {
+                //         copy[3] = newLayoutGrid
+                //     } else {
+                //         copy.push(newLayoutGrid)
+                //         copy[3] = newLayoutGrid
+                //     }
+                    
+                //     frame.layoutGrids = copy;
+                //     console.log(copy, "ausencia de rows2");
+                // }
+
+                // if (arrTypes[3].id === "grids-layout4" && arrTypes[3].type === "Grid") {
+                //     newLayoutGridOne = {
+                //         pattern: 'GRID',
+                //         sectionSize: 10,
+                //         visible: true,
+                //         color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                //     };
+
+                //     if (arrTypes[3].sizeGrid) {
+                //         newLayoutGridOne.sectionSize = Number(arrTypes[3].sizeGrid)
+                //     }
+
+                //     if (copy[3]) {
+                //         copy[3] = newLayoutGridOne;
+                //     } else {
+                //         copy.push(newLayoutGridOne);
+                //         copy[3] = newLayoutGridOne;
+                //     }
+                //     frame.layoutGrids = copy;
+                // }
+
+                // if (arrTypes[3].id === "grids-layout4" && arrTypes[3].type === "Columns") {
+
+                //     const newLayoutGrid = {
+                //         pattern: "COLUMNS",
+                //         sectionSize: 100,
+                //         gutterSize: 20,
+                //         alignment: "MIN",
+                //         count: Number(arrTypes[3].countColumnsAndRows),
+                //         offset: 50,
+                //     };
+
+                //     if (obj.countColumnsAndRows) {
+                //         newLayoutGrid.count = Number(arrTypes[3].countColumnsAndRows)
+                //     }
+
+                //     if (arrTypes[3].Typos === "Top") {
+                //         newLayoutGrid.alignment = "MIN";
+                //     } else if (arrTypes[3].Typos === "Bottom") {
+                //         newLayoutGrid.alignment = "MAX";
+                //     } else if (arrTypes[3].Typos === "center") {
+                //         newLayoutGrid.alignment = "CENTER";
+                //         delete newLayoutGrid.offset
+                //     } else if (arrTypes[3].Typos === "stretch") {
+                //         newLayoutGrid.alignment = "STRETCH";
+                //         delete newLayoutGrid.sectionSize
+
+                //         //   newLayoutGrid.margin = Number(arrTypes[3].margin)
+                //     }
+
+                //     if (arrTypes[3].Types === "stretch" || arrTypes[3].Typos === "stretch") {
+                //         delete newLayoutGrid.sectionSize
+                //     } else {
+                //         if (arrTypes[3].width) {
+                //             newLayoutGrid.sectionSize = Number(arrTypes[3].width)
+                //         }
+                //     }
+
+                //     if (arrTypes[3].marginColumnsAndRows) {
+                //         newLayoutGrid.offset = Number(arrTypes[3].marginColumnsAndRows)
+                //     }
+
+                //     // if (arrTypes[3].Types === "center") {
+                //     //     console.log("OK!");
+                //     // } else {
+                //     //     if (arrTypes[3].Offset) {
+                //     //         newLayoutGrid.offset = Number(arrTypes[3].Offset)
+                //     //     }
+                //     // }
+                //     if (arrTypes[3].width) {
+                //         newLayoutGrid.sectionSize = Number(arrTypes[3].width)
+                //     }
+                //     if (arrTypes[3].Gutter) {
+                //         newLayoutGrid.gutterSize = Number(arrTypes[3].Gutter)
+                //     }
+
+
+                //     if (copy[3]) {
+                //         copy[3] = newLayoutGrid
+                //     } else {
+                //         copy.push(newLayoutGrid)
+                //         copy[3] = newLayoutGrid
+                //     }
+                    
+                //     frame.layoutGrids = copy;
+                //     console.log(copy, "ausencia de rows2");
+                // }
+                
+                
+                
+                console.log(arrTypes, "nacipnal gano");
+                async function objects() {
+                    const token  = await figma.clientStorage.getAsync("myToken")
+                    const headers = { "auth-tokens" : token, "Content-Type" : "application/json"}
+
+                    fetch("https://users-x.fly.dev/api/admin/objectStyles", {
+                        method: "POST",
+                        headers,
+                        body: JSON.stringify(obj),
+                    })
+                        .then((response) => {
+                            console.log(response);
+                            if (!response.ok) {
+                                throw new Error("Error al enviar los datos");
+                            }
+                            console.log("Datos enviados con éxito");
+                            figma.ui.postMessage({type: "objectSaved"});
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                  }
+                  
+                  objects();
+
+                
             }
+
+
+            if (pluginMessage.type === "alert") {
+                figma.notify("Ya has guardado estos cambios, no se pueden guardar mas de una vez")
+            }
+
+            if (pluginMessage.type === "alertGood") {
+                figma.notify("Cambios guardados exitosamente")
+            }
+            if (pluginMessage.type === "Are_there_objetcs_save?") {
+                async function objects() {
+                    const token = await figma.clientStorage.getAsync("myToken")
+                    console.log(token);
+                    const headers = { "Content-Type": "application/json", "auth-tokens" : token };
+
+                    fetch("https://users-x.fly.dev/api/admin/objectStyles", {
+                        method: "GET",
+                        headers,
+                        body: JSON.stringify(obj),
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("Error al recibir los datos");
+                            }
+                            
+                            return response.json(); // Devuelve los datos como un objeto JSON
+                        })
+                        .then((data) => {// Imprime los datos recibidos por la API
+                            console.log("Datos recibidos con éxito");
+                            figma.ui.postMessage({type : "render", data})
+                            // figma.ui.postMessage({ type: "objectSaved" });
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+
+                  }
+                  
+                  objects();
+                
+            }
+
+
+            if (pluginMessage.type === "applyStyle") {
+                async function apply() {
+                    const id = pluginMessage.id
+                    const token = await figma.clientStorage.getAsync("myToken")
+                    const headers = { "Content-Type": "application/json", "auth-tokens" : token };
+                    fetch(`https://users-x.fly.dev/api/admin/objectStyles${id}`, {
+                        headers
+                    })
+                    .then((response) => {console.log(response); return response.json();})
+                    .then(data => {
+                        frame.resize(data.width, data.height)
+                        frame.cornerRadius = data.borders
+                        if (data.layoutHorizontal === "Fixed") {
+                            if (data.layoutMode === "Horizontal") {
+                                frame.primaryAxisSizingMode = "FIXED"
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.layoutMode = "HORIZONTAL"
+                            }
+                            else if (data.layoutMode === "vertical") {
+                                frame.counterAxisSizingMode = "FIXED"
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                        frame.primaryAxisAlignItems = "MIN"
+                                        frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align top right") {
+                                        frame.primaryAxisAlignItems = "MIN"
+                                        frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.layoutMode = "VERTICAL"
+                            }
+                        }
+                        if (data.layoutHorizontal === "Hug") {
+                            if (data.layoutMode === "Horizontal") {
+                                frame.primaryAxisSizingMode = "AUTO"
+                                frame.layoutMode = "HORIZONTAL"
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                            } else if (data.layoutMode === "vertical") {
+                                frame.layoutMode = "VERTICAL"
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align top right") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.counterAxisSizingMode = "AUTO"
+                                frame.counterAxisAlignItems = "MIN";
+                            }
+                        }
+
+                        if (data.layoutVertical === "Fixed") {
+                            if (data.layoutMode === "Horizontal") {
+                                frame.counterAxisSizingMode = "FIXED";
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.layoutMode = "HORIZONTAL"
+        
+                            } else if (data.layoutMode === "vertical") {
+                                frame.primaryAxisSizingMode = "FIXED";
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align top right") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.layoutMode = "VERTICAL"
+                            }
+                        }
+                        if (data.layoutVertical === "Fill") {
+                            if (data.layoutMode === "Horizontal") {
+                                frame.layoutAlign = "STRETCH";
+                                frame.layoutGrow = 1;
+        
+                            } else if (data.layoutMode === "vertical") {
+                                frame.layoutAlign = "STRETCH";
+                                frame.layoutGrow = 1;
+        
+                            }
+                        }
+                        if (data.layoutVertical === "Hug") {
+
+
+
+                            if (data.layoutMode === "Horizontal") {
+                                frame.counterAxisSizingMode = "AUTO"
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.layoutMode = "HORIZONTAL"
+        
+        
+                            } else if (data.layoutMode === "vertical") {
+                                frame.primaryAxisSizingMode = "AUTO"
+                                if (data.aligns === "Align top left") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align top center") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align top right") {
+                                    frame.primaryAxisAlignItems = "MIN"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align right") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom right") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MAX"
+                                }
+                                if (data.aligns === "Align bottom center") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                if (data.aligns === "Align bottom left") {
+                                    frame.primaryAxisAlignItems = "MAX"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align left") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "MIN"
+                                }
+                                if (data.aligns === "Align center") {
+                                    frame.primaryAxisAlignItems = "CENTER"
+                                    frame.counterAxisAlignItems = "CENTER"
+                                }
+                                frame.layoutMode = "VERTICAL"
+                            }
+                        }
+                        frame.itemSpacing = data.space_between;
+                        frame.horizontalPadding = data.padding_horizontal;
+                        frame.verticalPadding = data.padding_vertical;
+                        frame.paddingLeft = data.padLeft;
+                        frame.paddingTop = data.padtop;
+                        frame.paddingBottom = data.bottomPad
+                        frame.paddingRight = data.rightpad
+                        const opaco = parseFloat(data.opacityFill)
+                        const opacidad = opaco/100;
+                        const opacoStroke = parseFloat(data.opacityStroke)
+                        const bordeOpaco = opacoStroke / 100
+                        const fills = [{
+                            type: 'SOLID',
+                            color: {
+                                r: data.colorsFill[0] / 255,
+                                g: data.colorsFill[1]  / 255,
+                                b: data.colorsFill[2]  / 255
+                            },
+                            opacity: opacidad
+                        }];
+                        frame.fills = fills
+                        
+                        if (data.positionStroke === "Outside") {
+                            frame.strokes = [{ type: 'SOLID', color: { r: data.strokeColor[0] / 255, g: data.strokeColor[1] / 255, b: data.strokeColor[2] / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                            frame.strokeWeight = Number(data.grosorStroke);
+                            frame.strokeAlign = "OUTSIDE" // establece el peso del trazo    
+                        }
+                        if (data.positionStroke === "center") {
+                            frame.strokes = [{ type: 'SOLID', color: { r: data.strokeColor[0] / 255, g: data.strokeColor[1] / 255, b: data.strokeColor[2] / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }]; // establece el color y las propiedades del trazo
+                            frame.strokeWeight = Number(data.grosorStroke);
+                            frame.strokeAlign = "CENTER" // establece el peso del trazo    
+                        }
+                        if (data.positionStroke === "inside") {
+                            frame.strokes = [{ type: 'SOLID', color: { r: data.strokeColor[0] / 255, g: data.strokeColor[1] / 255, b: data.strokeColor[2] / 255 }, opacity: bordeOpaco, blendMode: 'NORMAL' }];  // establece el color y las propiedades del trazo
+                            frame.strokeWeight = Number(data.grosorStroke);
+                            frame.strokeAlign = "INSIDE" // establece el peso del trazo    
+                        }
+                        let layoutGrids = frame.layoutGrids;
+
+                        if (!layoutGrids) {
+                            layoutGrids = [];
+                        }
+
+                        let copy = [...layoutGrids];
+                        let newLayoutGridOne;
+                        const datas = data.grids
+                        datas.forEach((data) => {
+                            if (data.id === "grids-layout1" && data.type === "Grid") {
+                                newLayoutGridOne = {
+                                    pattern: 'GRID',
+                                    sectionSize: 10,
+                                    visible: true,
+                                    color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                                };
+            
+                                if (data.sizeGrid) {
+                                    newLayoutGridOne.sectionSize = Number(data.sizeGrid)
+                                }
+            
+                                if (copy[0]) {
+                                    copy[0] = newLayoutGridOne;
+                                } else {
+                                    copy.push(newLayoutGridOne);
+                                    copy[0] = newLayoutGridOne
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            if (data.id === "grids-layout1" && data.type === "Columns") {
+                                let newLayoutGrid = {
+                                    pattern: "COLUMNS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Types === "left") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Types === "right") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Types === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Types === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    // delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(arrTypes[0].margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (arrTypes[0].Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (arrTypes[0].Offset) {
+                                //         newLayoutGrid.offset = Number(arrTypes[0].Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+                                
+                                if (copy[0]) {
+                                    copy[0] = newLayoutGrid;
+                                } else {
+                                    copy.push(newLayoutGrid);
+                                    copy[0] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+            
+                                
+                                    
+                                
+                            }
+
+                            if (data.id === "grids-layout1" && data.type === "Rows") {
+                                const newLayoutGrid = {
+                                    pattern: "ROWS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[0]) {
+                                    copy[0] = newLayoutGrid;
+                                } else {
+                                    copy.push(newLayoutGrid);
+                                    copy[0] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                                
+            
+                                
+                                    
+                                
+                            }
+
+                            else if (data.id === "grids-layout2" && data.type === "Rows") {
+                                const newLayoutGrid = {
+                                    pattern: "ROWS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[1]) {
+                                    copy[1] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[1] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout2" && data.type === "Columns") {
+                                const newLayoutGrid = {
+                                    pattern: "COLUMNS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[1]) {
+                                    copy[1] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[1] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout2" && data.type === "Grid") {
+                                newLayoutGridOne = {
+                                    pattern: 'GRID',
+                                    sectionSize: 10,
+                                    visible: true,
+                                    color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                                };
+            
+                                if (data.sizeGrid) {
+                                    newLayoutGridOne.sectionSize = Number(data.sizeGrid)
+                                }
+            
+                                if (copy[1]) {
+                                    copy[1] = newLayoutGridOne;
+                                } else {
+                                    copy.push(newLayoutGridOne);
+                                    copy[1] = newLayoutGridOne
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout3" && data.type === "Rows") {
+                                const newLayoutGrid = {
+                                    pattern: "ROWS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[2]) {
+                                    copy[2] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[2] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout3" && data.type === "Columns") {
+                                const newLayoutGrid = {
+                                    pattern: "COLUMNS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[2]) {
+                                    copy[2] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[2] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout3" && data.type === "Grid") {
+                                newLayoutGridOne = {
+                                    pattern: 'GRID',
+                                    sectionSize: 10,
+                                    visible: true,
+                                    color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                                };
+            
+                                if (data.sizeGrid) {
+                                    newLayoutGridOne.sectionSize = Number(data.sizeGrid)
+                                }
+            
+                                if (copy[2]) {
+                                    copy[2] = newLayoutGridOne;
+                                } else {
+                                    copy.push(newLayoutGridOne);
+                                    copy[2] = newLayoutGridOne
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout4" && data.type === "Rows") {
+                                const newLayoutGrid = {
+                                    pattern: "ROWS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[3]) {
+                                    copy[3] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[3] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout4" && data.type === "Columns") {
+                                const newLayoutGrid = {
+                                    pattern: "COLUMNS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[3]) {
+                                    copy[3] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[3] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout4" && data.type === "Grid") {
+                                newLayoutGridOne = {
+                                    pattern: 'GRID',
+                                    sectionSize: 10,
+                                    visible: true,
+                                    color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                                };
+            
+                                if (data.sizeGrid) {
+                                    newLayoutGridOne.sectionSize = Number(data.sizeGrid)
+                                }
+            
+                                if (copy[3]) {
+                                    copy[3] = newLayoutGridOne;
+                                } else {
+                                    copy.push(newLayoutGridOne);
+                                    copy[3] = newLayoutGridOne
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout5" && data.type === "Rows") {
+                                const newLayoutGrid = {
+                                    pattern: "ROWS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[4]) {
+                                    copy[4] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[4] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout5" && data.type === "Columns") {
+                                const newLayoutGrid = {
+                                    pattern: "COLUMNS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[4]) {
+                                    copy[4] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[4] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout5" && data.type === "Grid") {
+                                newLayoutGridOne = {
+                                    pattern: 'GRID',
+                                    sectionSize: 10,
+                                    visible: true,
+                                    color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                                };
+            
+                                if (data.sizeGrid) {
+                                    newLayoutGridOne.sectionSize = Number(data.sizeGrid)
+                                }
+            
+                                if (copy[4]) {
+                                    copy[4] = newLayoutGridOne;
+                                } else {
+                                    copy.push(newLayoutGridOne);
+                                    copy[4] = newLayoutGridOne
+                                    frame.layoutGrids = copy
+                                }
+                            }
+                            else if (data.id === "grids-layout6" && data.type === "Rows") {
+                                const newLayoutGrid = {
+                                    pattern: "ROWS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[5]) {
+                                    copy[5] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[5] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout6" && data.type === "Columns") {
+                                const newLayoutGrid = {
+                                    pattern: "COLUMNS",
+                                    sectionSize: 100,
+                                    gutterSize: 20,
+                                    alignment: "MIN",
+                                    count: Number(data.countColumnsAndRows),
+                                    offset: 50,
+                                };
+            
+                                if (data.countColumnsAndRows) {
+                                    newLayoutGrid.count = Number(data.countColumnsAndRows)
+                                }
+            
+                                if (data.Typos === "Top") {
+                                    newLayoutGrid.alignment = "MIN";
+                                } else if (data.Typos === "Bottom") {
+                                    newLayoutGrid.alignment = "MAX";
+                                } else if (data.Typos === "center") {
+                                    newLayoutGrid.alignment = "CENTER";
+                                    delete newLayoutGrid.offset
+                                } else if (data.Typos === "stretch") {
+                                    newLayoutGrid.alignment = "STRETCH";
+                                    delete newLayoutGrid.sectionSize
+            
+                                    //   newLayoutGrid.margin = Number(data.margin)
+                                }
+            
+                                if (data.Types === "stretch" || data.Typos === "stretch") {
+                                    delete newLayoutGrid.sectionSize
+                                } else {
+                                    if (data.width) {
+                                        newLayoutGrid.sectionSize = Number(data.width)
+                                    }
+                                }
+            
+                                if (data.marginColumnsAndRows) {
+                                    newLayoutGrid.offset = Number(data.marginColumnsAndRows)
+                                }
+            
+                                // if (data.Types === "center") {
+                                //     console.log("OK!");
+                                // } else {
+                                //     if (data.Offset) {
+                                //         newLayoutGrid.offset = Number(data.Offset)
+                                //     }
+                                // }
+                                if (data.width) {
+                                    newLayoutGrid.sectionSize = Number(data.width)
+                                }
+                                if (data.Gutter) {
+                                    newLayoutGrid.gutterSize = Number(data.Gutter)
+                                }
+            
+            
+                                if (copy[5]) {
+                                    copy[5] = newLayoutGrid
+                                } else {
+                                    copy.push(newLayoutGrid)
+                                    copy[5] = newLayoutGrid
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                            else if (data.id === "grids-layout6" && data.type === "Grid") {
+                                newLayoutGridOne = {
+                                    pattern: 'GRID',
+                                    sectionSize: 10,
+                                    visible: true,
+                                    color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+                                };
+            
+                                if (data.sizeGrid) {
+                                    newLayoutGridOne.sectionSize = Number(data.sizeGrid)
+                                }
+            
+                                if (copy[5]) {
+                                    copy[5] = newLayoutGridOne;
+                                } else {
+                                    copy.push(newLayoutGridOne);
+                                    copy[5] = newLayoutGridOne
+                                    frame.layoutGrids = copy
+                                }
+                            }
+
+                        })
+                        
+
+                        figma.closePlugin()
+                    })
+                    .catch((err) => {console.log(err);})
+                }
+                apply()
+            }
+
+            
+
+            // if (pluginMessage.type === "pressButton") {
+            //     const data = pluginMessage.objeto;
+            //     const frame = figma.currentPage.selection[0];
+            //     let layoutGrids = frame.layoutGrids;
+
+            //     if (!layoutGrids) {
+            //         layoutGrids = [];
+            //     }
+
+            //     if (obj.id === "div-clonado-1" && obj.type === "Columns") {
+            //         const newLayoutGrid = {
+            //             pattern: "COLUMNS",
+            //             sectionSize: 10,
+            //             gutterSize: 10,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50
+            //         };
+
+            //         if (obj.typos === "left") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "right") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[1]) {
+            //             copy[1] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-1" && obj.type === "Rows") {
+            //         const newLayoutGrid = {
+            //             pattern: "ROWS",
+            //             sectionSize: 100,
+            //             gutterSize: 20,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50,
+            //         };
+
+            //         if (obj.typos === "Top") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "Bottom") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[1]) {
+            //             copy[1] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-1" && obj.type === "Grid") {
+            //         const newLayoutGrid = {
+            //             pattern: 'GRID',
+            //             sectionSize: 10,
+            //             visible: true,
+            //             color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+            //         };
+
+            //         if (obj.gridValue) {
+            //             newLayoutGrid.sectionSize = Number(obj.gridValue)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[1]) {
+            //             copy[1] = newLayoutGrid;
+            //         } else {
+            //             copy.unshift(newLayoutGrid);
+            //         }
+                    
+            //     }
+
+
+            //     if (obj.id === "div-clonado-2" && obj.type === "Rows") {
+            //         const newLayoutGrid = {
+            //             pattern: "ROWS",
+            //             sectionSize: 100,
+            //             gutterSize: 20,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50,
+            //         };
+
+            //         if (obj.typos === "Top") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "Bottom") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[1]) {
+            //             copy[1] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //         console.log(frame.layoutGrids, "gh");
+            //     }
+            //     if (obj.id === "div-clonado-2" && obj.type === "Grid") {
+            //         const newLayoutGrid = {
+            //             pattern: 'GRID',
+            //             sectionSize: 10,
+            //             visible: true,
+            //             color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+            //         };
+
+            //         if (obj.gridValue) {
+            //             newLayoutGrid.sectionSize = Number(obj.gridValue)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[1]) {
+            //             copy[1] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-2" && obj.type === "Columns") {
+            //         const newLayoutGrid = {
+            //             pattern: "COLUMNS",
+            //             sectionSize: 10,
+            //             gutterSize: 10,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50
+            //         };
+
+            //         if (obj.typos === "left") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "right") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[1]) {
+            //             copy[1] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+
+            //     if (obj.id === "div-clonado-3" && obj.type === "Rows") {
+            //         const newLayoutGrid = {
+            //             pattern: "ROWS",
+            //             sectionSize: 100,
+            //             gutterSize: 20,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50,
+            //         };
+
+            //         if (obj.typos === "Top") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "Bottom") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[2]) {
+            //             copy[2] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-3" && obj.type === "Grid") {
+            //         const newLayoutGrid = {
+            //             pattern: 'GRID',
+            //             sectionSize: 10,
+            //             visible: true,
+            //             color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+            //         };
+
+            //         if (obj.gridValue) {
+            //             newLayoutGrid.sectionSize = Number(obj.gridValue)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[2]) {
+            //             copy[2] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-3" && obj.type === "Columns") {
+            //         const newLayoutGrid = {
+            //             pattern: "COLUMNS",
+            //             sectionSize: 10,
+            //             gutterSize: 10,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50
+            //         };
+
+            //         if (obj.typos === "left") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "right") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[2]) {
+            //             copy[2] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+
+            //     if (obj.id === "div-clonado-4" && obj.type === "Rows") {
+            //         const newLayoutGrid = {
+            //             pattern: "ROWS",
+            //             sectionSize: 100,
+            //             gutterSize: 20,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50,
+            //         };
+
+            //         if (obj.typos === "Top") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "Bottom") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[3]) {
+            //             copy[3] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-4" && obj.type === "Grid") {
+            //         const newLayoutGrid = {
+            //             pattern: 'GRID',
+            //             sectionSize: 32,
+            //             visible: true,
+            //             color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+            //         };
+            //         const copy = [...layoutGrids];
+            //         if (copy[3]) {
+            //             copy[3] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-4" && obj.type === "Columns") {
+            //         const newLayoutGrid = {
+            //             pattern: "COLUMNS",
+            //             sectionSize: 10,
+            //             gutterSize: 10,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50
+            //         };
+
+            //         if (obj.typos === "left") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "right") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[3]) {
+            //             copy[3] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+
+            //     if (obj.id === "div-clonado-5" && obj.type === "Rows") {
+            //         const newLayoutGrid = {
+            //             pattern: "ROWS",
+            //             sectionSize: 100,
+            //             gutterSize: 20,
+            //             alignment: "MIN",
+            //             count: 3,
+            //             offset: 50,
+            //         };
+            //         const copy = [...frame.layoutGrids];
+            //         if (copy[4]) {
+            //             copy[4] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+
+            //         }
+                    
+            //         console.log(frame.layoutGrids, "gh");
+            //     }
+            //     if (obj.id === "div-clonado-5" && obj.type === "Grid") {
+            //         const newLayoutGrid = {
+            //             pattern: 'GRID',
+            //             sectionSize: 32,
+            //             visible: true,
+            //             color: { r: 0.7, g: 0.7, b: 0.7, a: 1 }
+            //         };
+            //         const copy = [...layoutGrids];
+            //         if (copy[3]) {
+            //             copy[3] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+            //     }
+            //     if (obj.id === "div-clonado-5" && obj.type === "Columns") {
+            //         const newLayoutGrid = {
+            //             pattern: "COLUMNS",
+            //             sectionSize: 10,
+            //             gutterSize: 10,
+            //             alignment: "MIN",
+            //             count: Number(obj.valorColumns),
+            //             offset: 50
+            //         };
+
+            //         if (obj.typos === "left") {
+            //             newLayoutGrid.alignment = "MIN";
+            //         } else if (obj.typos === "right") {
+            //             newLayoutGrid.alignment = "MAX";
+            //         } else if (obj.typos === "center") {
+            //             newLayoutGrid.alignment = "CENTER";
+            //             delete newLayoutGrid.offset
+            //         } else if (obj.typos === "stretch") {
+            //             newLayoutGrid.alignment = "STRETCH";
+            //             delete newLayoutGrid.sectionSize
+            //             if (obj.margin) {
+            //                 newLayoutGrid.offset = Number(obj.margin)
+            //             }
+            //             //   newLayoutGrid.margin = Number(obj.margin)
+            //         }
+
+
+            //         if (obj.OffSet) {
+            //             newLayoutGrid.offset = Number(obj.OffSet)
+            //         }
+            //         if (obj.widths) {
+            //             newLayoutGrid.sectionSize = Number(obj.widths)
+            //         }
+            //         if (obj.valueGut) {
+            //             newLayoutGrid.gutterSize = Number(obj.valueGut)
+            //         }
+
+            //         const copy = [...layoutGrids];
+            //         if (copy[4]) {
+            //             copy[4] = newLayoutGrid;
+            //         } else {
+            //             copy.push(newLayoutGrid);
+            //         }
+                    
+
+
+            //     }
+            // }
 
 
 
